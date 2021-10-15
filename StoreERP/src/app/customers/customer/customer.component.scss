@@ -1,0 +1,22 @@
+.nav-link, .dropdown-item{
+    text-decoration: none;
+}
+.la-ellipsis-h{
+    font-size: 30px;
+    color: #007bff;   
+}
+
+.modal-content {
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+    width: 253%!important;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+    margin-left: -77%!important;
+}
+

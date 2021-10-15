@@ -1,0 +1,314 @@
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row bg-white pt-2 mb-3 shadow">
+                <div class="col">
+                    <ul class="nav nav-pills mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../customer">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="../credits/">Credits</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" routerLink="../groups">Groups</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="js_credit-summary">
+            <div class="form-row">
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-dark h-100 ld-over" id="js_credits-load">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card-header text-white text-center">Credits Given</div>
+                        <div class="card-body text-center text-white">
+                            <div class="d-flex align-items-center w-100">
+                                <h2 class="w-100 text-center m-0">
+                                    <span class="text-white" id="js_credits-given">193,896.27</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-info h-100 ld-over" id="js_debits-load">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card-header text-white text-center">Payment Received</div>
+                        <div class="card-body text-center text-white">
+                            <div class="d-flex align-items-center w-100">
+                                <h2 class="w-100 text-center m-0">
+                                    <span class="text-white" id="js_payment-received">381,895.10</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-success h-100 ld-over" id="js_outstanding-load">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <div class="card-header text-white text-center">Outstanding</div>
+                        <div class="card-body text-center text-white">
+                            <div class="d-flex align-items-center w-100">
+                                <h2 class="w-100 text-center m-0">
+                                    <span class="text-white" id="js_outstanding">-187,998.83</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form class="filter-form-modal" id="js_credit-filter" data-select2-id="js_credit-filter">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                            id="js_date-range" bsDaterangepicker>
+                            <span> Select a Date</span>
+                        </button>
+                        <!-- <input type="text"
+                        placeholder="Daterangepicker"
+                        class="form-control"
+                        bsDaterangepicker> -->
+                        <input id="js_date-range-from-date" type="hidden" name="from_date" value=""
+                            data-timezone="Asia/Kolkata">
+                        <input id="js_date-range-to-date" type="hidden" name="to_date" value="">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group"><select class="form-control" id="js_credit-type" name="type">
+                            <option value="">All Type</option>
+                            <option value="credit">Credit Given</option>
+                            <option value="debit">Payment Received</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group" data-select2-id="4">
+                        <select class="form-control js_location-select2 select2-hidden-accessible" name="location_id"
+                            data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option>All Locations</option>
+                        </select>
+                        <!-- <span class="select2 select2-container select2-container--default select2-container--below"
+                            dir="ltr" data-select2-id="2" style="width: 100%;">
+                            <span class="selection">
+                                <span class="select2-selection select2-selection--single" role="combobox"
+                                    aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
+                                    aria-labelledby="select2-location_id-kc-container"><span
+                                        class="select2-selection__rendered" id="select2-location_id-kc-container"
+                                        role="textbox" aria-readonly="true"><span
+                                            class="select2-selection__placeholder">All Locations</span></span><span
+                                        class="select2-selection__arrow" role="presentation"><b
+                                            role="presentation"></b></span></span></span><span class="dropdown-wrapper"
+                                aria-hidden="true"></span></span> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row mb-3">
+                <div class="col-md-12">
+                    <div class="d-flex float-right">
+                        <a class="float-right mr-2 btn btn-outline-primary js_credits-transaction_export" routerLink="#">Export</a>
+                        <a class="m-0 align-self-center text-decoration-none" routerLink="#" data-toggle="dropdown" aria-expanded="false"> <i
+                                class="la la-question-circle la-lg"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right" style=""><a
+                                class="m-0 align-self-center text-decoration-none" routerLink="#"
+                                data-toggle="dropdown"></a><a class="dropdown-item"
+                                routerLink="https://StoreERP.com/help/article/?slug=customer-credits" target="_blank"><i
+                                    class="la la-book mr-1"></i>Tutorial</a><a class="dropdown-item" type="button"
+                                data-toggle="modal" data-target="#youtubeModalIqKoxDCU8dI"><i
+                                    class="la la-youtube-play mr-1"></i>Video Tutorial</a></div>
+                        <div class="div modal fade" id="youtubeModalIqKoxDCU8dI" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header"><button class="close" type="button" data-dismiss="modal"
+                                            aria-lable="Close"><span aria-hidden="true">×</span></button></div>
+                                    <div class="modal-body p-0"><iframe width="100%"
+                                            src="https://www.youtube.com/embed/IqKoxDCU8dI" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen="" style="min-height: 500px;"></iframe></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row mb-3">
+                <div class="col-md-6 ml-auto">
+                    <div class="form-group">
+                        <div class="form-inline float-right btn-group">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-primary float-right  mr-2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Export
+                                </button>
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-primary float-right  mr-2" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="la la-question-circle la-lg">?</i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="#"><i
+                                                class="la la-book mr-1"></i>Tutorial</a></li>
+                                    <li><a class="dropdown-item" routerLink="#"><i
+                                                class="la la-youtube-play mr-1"></i>Video Tutorial</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div id="js_credit-transactions">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing <b>1 </b> to <b>2 </b> of<b> 2 </b> entries</p>
+                </div>
+                <div class="col-md-4"><a class="float-right text-decoration-none" routerLink="../credits">Clear Filters</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover bg-white">
+                            <thead>
+                                <tr>
+                                    <th>Customer Name</th>
+                                    <th>Customer Code</th>
+                                    <th>Amount</th>
+                                    <th>Type</th>
+                                    <th>Notes</th>
+                                    <th>Created Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> <a class="text-decoration-none" routerLink="/customer/credits/30099">Vishal</a></td>
+                                    <td></td>
+                                    <td>₹161.00</td>
+                                    <td><span class="badge badge-danger">Credit Given</span></td>
+                                    <td></td>
+                                    <td>Wed, Aug 4, 2021 5:51 PM</td>
+                                    <td>
+                                        <a style="color: #e9d66b;" class="btn btn-sm btn-outline-primary btn-block-xs mb-2 text-decoration-none"
+                                            data-bs-toggle="modal" data-bs-target="#js_credit-view-modal117934">
+                                            View
+                                        </a> 
+                                        
+                                        <a style="color: #e9d66b;" class="js_credit-order btn btn-sm btn-outline-primary btn-block-xs mb-2 text-decoration-none"
+                                            routerLink="../../../pages/sales">Order Detail </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <a routerLink="/customer/credits/30099" class="text-decoration-none">Rajdhan Bhagat </a></td>
+                                    <td></td>
+                                    <td>₹500.00</td>
+                                    <td><span class="badge badge-success">Payment Received</span></td>
+                                    <td></td>
+                                    <td>Wed, Aug 4, 2021 5:49 PM</td>
+                                    <td>
+                                        <a class="btn btn-sm btn-outline-primary btn-block-xs mb-2 text-decoration-none" style="color: #e9d66b;"
+                                            data-bs-toggle="modal" data-bs-target="#js_credit-view-modal117933">View</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- first Model -->
+            <div class="modal fade" id="js_credit-view-modal117934">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Customer Credit Details</h5><button class="close" type="button"
+                                data-bs-dismiss="modal">× </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-light">Customer</th>
+                                            <td> <a routerLink="/customer/credits/30099">Saravana Damodaram </a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Type</th>
+                                            <td> <span class="badge badge-danger">Credit Given</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Amount</th>
+                                            <td>₹161.00</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Payment Method</th>
+                                            <td>CREDIT</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Created Date</th>
+                                            <td>Wed, Aug 4, 2021 5:51 PM</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- first Second Model -->
+            <div class="modal fade" id="js_credit-view-modal117933">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Customer Credit Details</h5>
+                            <button class="close" type="button"
+                                data-bs-dismiss="modal">× </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-light">Customer</th>
+                                            <td> <a routerLink="/customer/credits/30099">Saravana Damodaram </a></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Type</th>
+                                            <td> <span class="badge badge-success">Credit Received</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Amount</th>
+                                            <td>₹500.00</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Payment Method</th>
+                                            <td>CASH</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Created Date</th>
+                                            <td>Wed, Aug 4, 2021 5:49 PM</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

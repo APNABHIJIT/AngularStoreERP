@@ -1,0 +1,933 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="filter-form-modal" id="js_discounts-filter">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group"> <button class="btn btn-outline-primary dropdown-toggle btn-block"
+                            type="button" id="js_date-range"><span> Select a Date</span></button> <input
+                            id="js_date-range-from-date" type="hidden" name="from_date" value=""
+                            data-timezone="Asia/Kolkata"><input id="js_date-range-to-date" type="hidden" name="to_date"
+                            value=""></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <select class="form-control js_location-select2 select2-hidden-accessible" name="location_id"
+                            data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option>Select Location</option>
+                        </select>
+                        <!-- <span
+                            class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2"
+                            style="width: 100%;"><span class="selection"><span
+                                    class="select2-selection select2-selection--single" role="combobox"
+                                    aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
+                                    aria-labelledby="select2-location_id-p8-container"><span
+                                        class="select2-selection__rendered" id="select2-location_id-p8-container"
+                                        role="textbox" aria-readonly="true"><span
+                                            class="select2-selection__placeholder">Select Location</span></span><span
+                                        class="select2-selection__arrow" role="presentation"><b
+                                            role="presentation"></b></span></span></span><span class="dropdown-wrapper"
+                                aria-hidden="true"></span></span> -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Create Discount  start-->
+    <div class="row">
+        <div class="col-md-5 ml-auto">
+            <div class="form-group d-flex float-right">
+                <button
+                    class="js_discount float-right mr-2 btn btn-outline-primary btn-block-xs mb-2 js_discount-form-modal-btn"
+                    data-bs-modal="#js_discount-create" data-bs-toggle="modal" data-bs-target="#js_discount-create">
+                    <em class="la la-plus-circle"></em>+ Create Discount
+                </button>
+
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="#"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalfDwRjCqNQrI">
+                                <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="div modal fade" id="youtubeModalfDwRjCqNQrI" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header"><button class="close" type="button" data-dismiss="modal"
+                                    aria-lable="Close"><span aria-hidden="true"
+                                        data-bs-dismiss="modal">×</span></button></div>
+                            <div class="modal-body p-0"><iframe width="100%" src="https://www.youtube.com/embed/fDwRj"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;"></iframe></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Create Discount  End-->
+
+    <!-- Table Start -->
+    <div id="js_discounts">
+        <div class="row align-items-center mb-2">
+            <div class="col-md-8">
+                <p class="m-0"> Showing <b>1 </b> to <b>3 </b> of<b> 3 </b> entries</p>
+            </div>
+            <div class="col-md-4"><a class="float-right text-decoration-none" routerLink="../discounts">Clear
+                    Filters</a></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover bg-white">
+                        <thead>
+                            <tr>
+                                <th>Discount Title</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Limit</th>
+                                <th>Expiry</th>
+                                <th>Created Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>test</td>
+                                <td>
+                                    <ul class="m-0 p-0">
+                                        <li>Warehouse</li>
+                                    </ul>
+                                </td>
+                                <td><span class="badge badge-success text-uppercase">active</span></td>
+                                <td> UNLIMITED</td>
+                                <td>No Expiry</td>
+                                <td>Aug 3, 2021 3:13 PM</td>
+                                <td class="td-fit">
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    routerLink="../discounts" data-bs-reload="true">View</a>
+                                                <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_discount-create2546"
+                                                    data-bs-reload="true">Edit</span>
+                                                <a  class="dropdown-item" routerLink="../discounts" (click)="alertDelete()">Delete</a>
+                                                <a  class="dropdown-item" routerLink="../discounts" (click)="alertDeactivate()">Deactivate</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>buy 2 get 70</td>
+                                <td>
+                                    <ul class="m-0 p-0">
+                                        <li>Warehouse</li>
+                                    </ul>
+                                </td>
+                                <td><span class="badge badge-success text-uppercase">active</span></td>
+                                <td> UNLIMITED</td>
+                                <td>No Expiry</td>
+                                <td>Aug 2, 2021 12:14 PM</td>
+                                <td class="td-fit">
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    routerLink="../discounts" data-bs-reload="true">View</a>
+
+                                                <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_discount-create2546"
+                                                    data-bs-reload="true">Edit</span>
+                                                    <a  class="dropdown-item" routerLink="../discounts" (click)="alertDelete()">Delete</a>
+                                                    <a  class="dropdown-item" routerLink="../discounts" (click)="alertDeactivate()">Deactivate</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>oijhiuhy</td>
+                                <td>
+                                    <ul class="m-0 p-0">
+                                        <li>Store 1</li>
+                                    </ul>
+                                </td>
+                                <td><span class="badge badge-danger text-uppercase">inactive</span></td>
+                                <td> UNLIMITED</td>
+                                <td>No Expiry</td>
+                                <td>Aug 2, 2021 12:00 PM</td>
+                                <td class="td-fit">
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    routerLink="../discounts" data-bs-reload="true">View</a>
+
+                                                <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_discount-create2546"
+                                                    data-bs-reload="true">Edit</span>
+
+                                                    <a  class="dropdown-item" routerLink="../discounts" (click)="alertDelete()">Delete</a>
+                                                    <a  class="dropdown-item" routerLink="../discounts" (click)="alertDeactivate()">Deactivate</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Create start  -->
+        <div class="modal fade" id="js_discount-create">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="col">
+                            <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                                <i class="la la-times"> X </i>
+                            </a>
+                        </div>
+                        <div class="col text-center">
+                            <h4 class="form-modal-title"> Create Discount</h4>
+                        </div>
+                        <div class="col">
+                            <a class="js_discount-submit-btn float-right btn btn-primary ld-ext-right"
+                                data-bs-dismiss="modal" id="js_discount-btn">Save
+                                <div class="ld ld-ring ld-spin"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-modal-body  mt-3">
+                            <div class="row">
+                                <div class="col-md-10 m-auto">
+                                    <form class="js_discount-form" id="js_discount-form" data-url="/item/discounts/">
+                                        <input type="hidden" name="_csrf"
+                                            value="i2lUG10P-IZZMCummR2K78GDHAcqEHyWGBQ0"><input class="js_discount-id"
+                                            type="hidden"><input class="js_discount-range" type="hidden" name="range"
+                                            value="{}"><input type="hidden" name="is_active" value="1">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Name<em
+                                                            class="text-danger">*</em></label><input
+                                                        class="form-control" type="text" placeholder="Name"
+                                                        name="title"></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Code</label><input class="form-control"
+                                                        type="text" placeholder="Code" name="code"></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Locations<em
+                                                            class="text-danger">*</em></label>
+                                                    <div class="clearfix select-group"><select
+                                                            class="form-control js_location-form-select2"
+                                                            name="locations[]" multiple="multiple"></select></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Valid From</label>
+                                                    <div class="hidden-group"><input
+                                                            class="form-control bg-white js_discount-date" type="text"
+                                                            readonly="readonly" value=""><input
+                                                            class="js_discount-hidden-value" type="hidden"
+                                                            name="start_date" value=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Expires On</label>
+                                                    <div class="hidden-group"><input
+                                                            class="form-control bg-white js_discount-date" type="text"
+                                                            readonly="readonly" value=""><input
+                                                            class="js_discount-hidden-value" type="hidden"
+                                                            name="end_date" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 js_offline-discount">
+                                                <div class="form-group"><label>Days</label><select
+                                                        class="form-control js_select2 text-capitalize"
+                                                        name="custom_attributes[days][]" multiple="multiple"
+                                                        placeholder="Select Day">
+                                                        <option value="sunday">Sunday</option>
+                                                        <option value="monday">Monday</option>
+                                                        <option value="tuesday">Tuesday</option>
+                                                        <option value="wednesday">Wednesday</option>
+                                                        <option value="thursday">Thursday</option>
+                                                        <option value="friday">Friday</option>
+                                                        <option value="saturday">Saturday</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden"
+                                                        name="custom_attributes[is_totp_required]" value="0"><input
+                                                        class="custom-control-input js_checkbox" type="checkbox"
+                                                        id="is_totp_requiredundefined"><label
+                                                        class="custom-control-label" for="is_totp_requiredundefined">Is
+                                                        TOTP Required</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 js_online-discount d-none">
+                                            <div class="col-md-12">
+                                                <div class="form-group"><label class="form-label">Terms and
+                                                        Conditions</label><textarea
+                                                        class="form-control js_discount-terms"
+                                                        name="custom_attributes[terms]" rows="5"></textarea></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden" name="is_online"
+                                                        value="0"><input
+                                                        class="custom-control-input js_checkbox js_online-discount-checkbox"
+                                                        type="checkbox" id="is_onlineundefined"><label
+                                                        class="custom-control-label" for="is_onlineundefined">Is
+                                                        Online</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 js_online-discount d-none">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden" name="once_per_customer"
+                                                        value="0"><input class="custom-control-input js_checkbox"
+                                                        type="checkbox" id="once_per_customerundefined"><label
+                                                        class="custom-control-label"
+                                                        for="once_per_customerundefined">Once Per Customer</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 js_offline-discount">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden"
+                                                        name="apply_automatically" value="0"><input
+                                                        class="custom-control-input js_checkbox" type="checkbox"
+                                                        id="apply_automaticallyundefined"><label
+                                                        class="custom-control-label"
+                                                        for="apply_automaticallyundefined">Apply Automatically</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row js_online-discount d-none">
+                                            <div class="col-md-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header">Customer Eligibility<div
+                                                            class="float-right"><a
+                                                                class="btn btn-sm btn-outline-secondary"
+                                                                routerLink="#js_customer-collapseundefined"
+                                                                data-toggle="collapse"><i
+                                                                    class="la la-angle-down"></i></a></div>
+                                                    </div>
+                                                    <div class="collapse" id="js_customer-collapseundefined">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-md-11"><select
+                                                                        class="form-control js_customer-criteria mb-3"
+                                                                        name="customer_criteria">
+                                                                        <option value="all">All</option>
+                                                                        <option value="customers">Specific Customers
+                                                                        </option>
+                                                                        <option value="customer_groups">Specific
+                                                                            Customer Groups
+                                                                        </option>
+                                                                    </select>
+                                                                    <div class="js_customer-eligibility-content"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group"><label class="form-label">Discount Limit
+                                                        (Total)</label><input class="form-control js_usage-limit"
+                                                        type="number" name="usage_limit" value="0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header">Buy Criteria<div class="float-right"><a
+                                                                class="btn btn-sm btn-outline-primary js_prerequisite-criteria d-none"
+                                                                routerLink="#" data-toggle="modal"></a></div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="form-group"><label>Buy Criteria</label><select
+                                                                class="form-control js_buy-criteria" name="buy_criteria"
+                                                                required="required">
+                                                                <option value="">Select Buy Criteria</option>
+                                                                <option class="js_free-shipping-option" value="order">
+                                                                    Order</option>
+                                                                <option value="item">Item</option>
+                                                                <option value="category">Category</option>
+                                                            </select></div>
+                                                        <div class="js_buy-criteria-content"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header">Get Criteria<small
+                                                            class="js_get-validation-error text-danger ml-2 d-none">Please
+                                                            add
+                                                            criteria</small>
+                                                        <div class="float-right"><a
+                                                                class="btn btn-sm btn-outline-primary js_add-criteria d-none"
+                                                                routerLink="#" data-toggle="modal"></a></div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="form-group"><label>Get Criteria</label><select
+                                                                class="form-control js_get-criteria js_required"
+                                                                name="discount_entity">
+                                                                <option value="">Select Get Criteria</option>
+                                                                <option value="all">Subtotal</option>
+                                                                <option value="item">Item</option>
+                                                                <option class="js_online-discount d-none"
+                                                                    value="shipping">Shipping
+                                                                </option>
+                                                            </select></div>
+                                                        <div class="js_get-criteria-content"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Model Create End  -->
+
+        <!-- Edit model  start -->
+        <div class="modal fade" id="js_discount-create2546">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="col">
+                            <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                                <i class="la la-times">X</i>
+                            </a>
+                        </div>
+                        <div class="col text-center">
+                            <h4 class="form-modal-title"> Edit Discount</h4>
+                        </div>
+                        <div class="col"><a class="js_discount-submit-btn float-right btn btn-primary ld-ext-right"
+                                data-bs-dismiss="modal" id="js_discount-btn2546">Save <div class="ld ld-ring ld-spin"></div></a>
+                        </div>
+
+                    </div>
+                    <div class="model-body">
+                        <div class="form-modal-body">
+                            <div class="row">
+                                <div class="col-md-10 m-auto">
+                                    <form class="js_discount-form" id="js_discount-form2546"
+                                        data-url="/item/discounts/2546"><input type="hidden" name="_csrf"
+                                            value="i2lUG10P-IZZMCummR2K78GDHAcqEHyWGBQ0"><input class="js_discount-id"
+                                            type="hidden" value="2546"><input class="js_discount-range" type="hidden"
+                                            name="range" value="{&quot;subtotal&quot;:{&quot;>=&quot;:1000}}"><input
+                                            type="hidden" name="is_active" value="1">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Name<em
+                                                            class="text-danger">*</em></label><input
+                                                        class="form-control" type="text" placeholder="Name" name="title"
+                                                        value="test"></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Code</label><input class="form-control"
+                                                        type="text" placeholder="Code" name="code" value=""></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Locations<em
+                                                            class="text-danger">*</em></label>
+                                                    <div class="clearfix select-group"><select
+                                                            class="form-control js_location-form-select2"
+                                                            name="locations[]" multiple="multiple">
+                                                            <option value="553" selected="selected">Warehouse</option>
+                                                        </select></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Valid From</label>
+                                                    <div class="hidden-group"><input
+                                                            class="form-control bg-white js_discount-date" type="text"
+                                                            readonly="readonly" value=""><input
+                                                            class="js_discount-hidden-value" type="hidden"
+                                                            name="start_date" value=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Expires On</label>
+                                                    <div class="hidden-group"><input
+                                                            class="form-control bg-white js_discount-date" type="text"
+                                                            readonly="readonly" value=""><input
+                                                            class="js_discount-hidden-value" type="hidden"
+                                                            name="end_date" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 js_offline-discount">
+                                                <div class="form-group"><label>Days</label><select
+                                                        class="form-control js_select2 text-capitalize"
+                                                        name="custom_attributes[days][]" multiple="multiple"
+                                                        placeholder="Select Day">
+                                                        <option value="sunday">Sunday</option>
+                                                        <option value="monday">Monday</option>
+                                                        <option value="tuesday">Tuesday</option>
+                                                        <option value="wednesday">Wednesday</option>
+                                                        <option value="thursday">Thursday</option>
+                                                        <option value="friday">Friday</option>
+                                                        <option value="saturday">Saturday</option>
+                                                    </select></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden"
+                                                        name="custom_attributes[is_totp_required]" value="0"><input
+                                                        class="custom-control-input js_checkbox" type="checkbox"
+                                                        id="is_totp_required2546"><label class="custom-control-label"
+                                                        for="is_totp_required2546">Is TOTP Required</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 js_online-discount d-none">
+                                            <div class="col-md-12">
+                                                <div class="form-group"><label class="form-label">Terms and
+                                                        Conditions</label><textarea
+                                                        class="form-control js_discount-terms"
+                                                        name="custom_attributes[terms]" rows="5"></textarea></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden" name="is_online"
+                                                        value="0"><input
+                                                        class="custom-control-input js_checkbox js_online-discount-checkbox"
+                                                        type="checkbox" id="is_online2546"><label
+                                                        class="custom-control-label" for="is_online2546">Is
+                                                        Online</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 js_online-discount d-none">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden" name="once_per_customer"
+                                                        value="0"><input class="custom-control-input js_checkbox"
+                                                        type="checkbox" id="once_per_customer2546"><label
+                                                        class="custom-control-label" for="once_per_customer2546">Once
+                                                        Per Customer</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2 js_offline-discount">
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox js_checkbox-group"><input
+                                                        class="js_checkbox-value" type="hidden"
+                                                        name="apply_automatically" value="0"><input
+                                                        class="custom-control-input js_checkbox" type="checkbox"
+                                                        id="apply_automatically2546"><label class="custom-control-label"
+                                                        for="apply_automatically2546">Apply Automatically</label></div>
+                                            </div>
+                                        </div>
+                                        <div class="row js_online-discount d-none">
+                                            <div class="col-md-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header">Customer Eligibility<div
+                                                            class="float-right"><a
+                                                                class="btn btn-sm btn-outline-secondary"
+                                                                routerLink="#js_customer-collapse2546"
+                                                                data-toggle="collapse"><i
+                                                                    class="la la-angle-down"></i></a></div>
+                                                    </div>
+                                                    <div class="collapse" id="js_customer-collapse2546">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-md-11"><select
+                                                                        class="form-control js_customer-criteria mb-3"
+                                                                        name="customer_criteria">
+                                                                        <option value="all">All</option>
+                                                                        <option value="customers">Specific Customers
+                                                                        </option>
+                                                                        <option value="customer_groups">Specific
+                                                                            Customer Groups
+                                                                        </option>
+                                                                    </select>
+                                                                    <div class="js_customer-eligibility-content"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group"><label class="form-label">Discount Limit
+                                                        (Total)</label><input class="form-control js_usage-limit"
+                                                        type="number" name="usage_limit" value="0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header">Buy Criteria<div class="float-right"><a
+                                                                class="btn btn-sm btn-outline-primary js_prerequisite-criteria d-none"
+                                                                routerLink="#" data-toggle="modal"></a></div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="form-group"><label>Buy Criteria</label><select
+                                                                class="form-control js_buy-criteria" name="buy_criteria"
+                                                                required="required">
+                                                                <option value="">Select Buy Criteria</option>
+                                                                <option class="js_free-shipping-option" value="order">
+                                                                    Order</option>
+                                                                <option value="item">Item</option>
+                                                                <option value="category">Category</option>
+                                                            </select></div>
+                                                        <div class="js_buy-criteria-content"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card mb-3">
+                                                    <div class="card-header">Get Criteria<small
+                                                            class="js_get-validation-error text-danger ml-2 d-none">Please
+                                                            add
+                                                            criteria</small>
+                                                        <div class="float-right"><a
+                                                                class="btn btn-sm btn-outline-primary js_add-criteria d-none"
+                                                                routerLink="#" data-toggle="modal"></a></div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="form-group"><label>Get Criteria</label><select
+                                                                class="form-control js_get-criteria js_required"
+                                                                name="discount_entity">
+                                                                <option value="">Select Get Criteria</option>
+                                                                <option value="all" selected="selected">Subtotal
+                                                                </option>
+                                                                <option value="item">Item</option>
+                                                                <option class="js_online-discount d-none"
+                                                                    value="shipping">Shipping
+                                                                </option>
+                                                            </select></div>
+                                                        <div class="js_get-criteria-content"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Edit Moldal End -->
+
+        <!-- <div class="modal fade js_discount-variation-modal-form">
+            <div class="form-modal" data-form=".js_discount-get-variation-form" data-btn=".js_discount-variation-btn">
+            </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Variation</h5><button class="close js_close-button"
+                            type="button">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="js_discount-get-variation-form" data-url="/item/discounts/get-discount-card"><input
+                                class="js_variation-custom-attributes" type="hidden" name="custom_attributes">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group"><select
+                                            class="form-control js_item-variation-select2 js_required"
+                                            name="entity_id"></select><input class="js_item-variation-name"
+                                            type="hidden" name="entity_name"><input class="js_existing-id"
+                                            type="hidden"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><input type="hidden" name="view[display_label]"
+                                            value="Get Variation Item"><input
+                                            class="form-control js_item-get-discount-quantity js_required js_number"
+                                            type="number" placeholder="Enter Get Discount Quantity" min="0"
+                                            name="discount_qty"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><input
+                                            class="form-control js_item-get-discount-max-quantity js_required js_number"
+                                            type="number" placeholder="Enter Maximum Discount Quantity" min="1"
+                                            name="max_discount_qty"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><select
+                                            class="form-control js_item-get-discount-type js_required"
+                                            name="discount_type">
+                                            <option value="">Select Get Discount Type</option>
+                                            <option value="fixed">Fixed</option>
+                                            <option value="percentage">Percentage</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><input
+                                            class="form-control js_item-get-discount-value js_required js_number"
+                                            type="number" placeholder="Enter Get Discount Value" min="1"
+                                            name="discount_value"></div>
+                                </div>
+                            </div>
+                            <div class="form-row"><label>Batch Information</label>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered m-1 p-1 mb-3">
+                                        <thead>
+                                            <tr>
+                                                <th width="45%">Location Name</th>
+                                                <th width="45%">Inventory</th>
+                                                <th width="45%">Batch</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><select
+                                                        class="form-control js_location-batch-form-select2"></select>
+                                                </td>
+                                                <td><select class="form-control js_inventory-select2"
+                                                        disabled="true"></select></td>
+                                                <td><select class="form-control js_batch-select2"
+                                                        disabled="true"></select></td>
+                                                <td><a class="js_batch-add btn btn-sm btn-success" routerLink="#">ADD</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-secondary js_close-button">Close</button><button
+                            class="js_discount-variation-btn btn btn-primary ld-ext-right">Save<div
+                                class="ld ld-ring ld-spin"></div></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade js_prerequisite-variation-modal-form">
+            <div class="form-modal" data-form=".js_prerequisite-variation-form"
+                data-btn=".js_prerequisite-variation-btn"></div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Variation</h5><button class="close js_close-button"
+                            type="button">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="js_prerequisite-variation-form" data-url="/item/discounts/get-discount-card"><input
+                                class="js_variation-custom-attributes" type="hidden" name="custom_attributes">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group"><select
+                                            class="form-control js_item-variation-select2 js_required"
+                                            name="entity_id"></select><input class="js_item-variation-name"
+                                            type="hidden" name="entity_name"><input class="js_existing-id"
+                                            type="hidden"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Select Type</label><select
+                                            class="form-control js_required" name="prerequisite_type">
+                                            <option value="">Select Type</option>
+                                            <option value="subtotal">Subtotal</option>
+                                            <option value="qty">Quantity</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Enter Prerequisite Value</label><input
+                                            class="form-control js_required js_number" type="number"
+                                            placeholder="Prerequisite Value" min="1" name="prerequisite_value"></div>
+                                </div>
+                            </div>
+                            <div class="form-row"><label>Batch Information</label>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th width="45%">Location Name</th>
+                                                <th width="45%">Inventory Name</th>
+                                                <th width="45%">Batch</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><select
+                                                        class="form-control js_location-batch-form-select2"></select>
+                                                </td>
+                                                <td><select class="form-control js_inventory-select2"
+                                                        disabled="true"></select></td>
+                                                <td><select class="form-control js_batch-select2"
+                                                        disabled="true"></select></td>
+                                                <td><a class="js_batch-add btn btn-sm btn-success" routerLink="#">ADD</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-secondary js_close-button">Close</button><button
+                            class="js_prerequisite-variation-btn btn btn-primary ld-ext-right">Save<div
+                                class="ld ld-ring ld-spin"></div></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade js_discount-category-modal-form">
+            <div class="form-modal" data-form=".js_discount-get-category-form" data-btn=".js_discount-category-btn">
+            </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Category</h5><button class="close js_close-button"
+                            type="button">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="js_discount-get-category-form" data-url="/item/discounts/get-discount-card">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group"><select class="form-control js_category-select2 js_required"
+                                            name="entity_id"></select><input class="js_category-name" type="hidden"
+                                            name="entity_name"><input class="js_existing-id" type="hidden"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><input type="hidden" name="view[display_label]"
+                                            value="Get Category"><input
+                                            class="form-control js_category-get-discount-quantity js_required js_number"
+                                            type="number" placeholder="Enter Get Discount Quantity" min="0"
+                                            name="discount_qty"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><input
+                                            class="form-control js_category-get-discount-max-quantity js_required js_number"
+                                            type="number" placeholder="Enter Maximum Discount Quantity" min="1"
+                                            name="max_discount_qty"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><select
+                                            class="form-control js_item-get-discount-type js_required"
+                                            name="discount_type">
+                                            <option value="">Select Get Discount Type</option>
+                                            <option value="fixed">Fixed</option>
+                                            <option value="percentage">Percentage</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><input
+                                            class="form-control js_item-get-discount-value js_required js_number"
+                                            type="number" placeholder="Enter Get Discount Value" min="1"
+                                            name="discount_value"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-secondary js_close-button">Close</button><button
+                            class="js_discount-category-btn btn btn-primary ld-ext-right">Save<div
+                                class="ld ld-ring ld-spin"></div></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade js_prerequisite-category-modal-form">
+            <div class="form-modal" data-form=".js_prerequisite-category-form" data-btn=".js_prerequisite-category-btn">
+            </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Category</h5><button class="close js_close-button"
+                            type="button">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="js_prerequisite-category-form" data-url="/item/discounts/buy-discount-card">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-group"><select class="form-control js_category-select2 js_required"
+                                            name="entity_id"></select><input class="js_category-name" type="hidden"
+                                            name="entity_name"><input class="js_existing-id" type="hidden"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Select Type</label><select
+                                            class="form-control js_required" name="prerequisite_type">
+                                            <option value="">Select Type</option>
+                                            <option value="subtotal">Subtotal</option>
+                                            <option value="prerequisite_qty">Quantity</option>
+                                        </select></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"><label>Enter Prerequisite Value</label><input
+                                            class="form-control js_required js_number" type="number"
+                                            placeholder="Prerequisite Value" min="1" name="prerequisite_value"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-secondary js_close-button">Close</button><button
+                            class="js_prerequisite-category-btn btn btn-primary ld-ext-right">Save<div
+                                class="ld ld-ring ld-spin"></div></button></div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <!-- table End -->
+</div>

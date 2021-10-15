@@ -1,0 +1,73 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../edit-profile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../locations">Locations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../devices">Devices</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../licences">Licences</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../change-password">Password</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../account-settings">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-payment-methods">Payment Methods</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../delete"> Delete</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../subscriptions"> Subscriptions</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../api-keys"> API Keys</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row my-3">
+        <div class="col-sm-3">
+            <div class="nav flex-column nav-pills mb-3"><a class="nav-link active" routerLink="../delete"
+                    data-toggle="tab">Sale</a></div>
+        </div>
+        <div class="col-sm-9">
+            <div class="tab-pane fade show active" id="sale">
+                <div class="card">
+                    <div class="card-header">Transactions</div>
+                    <div class="card-body">
+                        <!-- <form id="js_transaction-clear-form" data-url="/account/delete-transaction"
+                            data-btn="#js_transaction-clear-btn" data-form="#js_transaction-clear-form"
+                            novalidate="novalidate"> -->
+                            <div class="row mb-3">
+                                <div class="col-md-6 align-self-center">
+                                    <p class="m-0"> Select Transaction Date Range <em class="text-danger">*</em></p>
+                                    <small class="text-warning">* Transactions pending for completion will not be
+                                        deleted</small>
+                                </div>
+                                <div class="col-md-6"> <button class="btn btn-outline-primary dropdown-toggle btn-block"
+                                        type="button" id="js_date-range"><span> Select a Date</span></button> <input
+                                        id="js_date-range-from-date" type="hidden" name="from_date" value=""
+                                        data-timezone="Asia/Kolkata"><input id="js_date-range-to-date" type="hidden"
+                                        name="to_date" value=""></div>
+                            </div>
+                            <div class="d-inline-flex float-right">
+                                <button class="btn btn-danger float-right mr-2" >Delete</button>
+                                    
+                                    <div class="btn-group">
+                                        <button class="fa fa-info-circle ml-1 text-primary btn btn-sm"
+                                        data-bs-toggle="dropdown" title="" data-bs-content="includes Discount"
+                                        type="button" data-trigger="hover">
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none" routerLink="../delete">
+                                                    <i class="la la-book mr-1"></i>Tutorial
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none" routerLink="../delete">
+                                                    <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

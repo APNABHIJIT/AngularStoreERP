@@ -1,0 +1,945 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../cms">CMS </a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../banners">Banners</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../settings">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../app-generate">Generate App</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row my-3 js_store-content">
+        <div class="col-md-3">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="btn nav-link active mb-2" data-bs-target="#general" data-bs-toggle="tab">General</a>
+                <a class="btn nav-link active mb-2" data-bs-target="#app" data-bs-toggle="tab">App</a>
+                <a class="btn nav-link active mb-2" data-bs-target="#credentials" data-bs-toggle="tab">Credentials</a>
+                <a class="btn nav-link active mb-2" data-bs-target="#domains" data-bs-toggle="tab">Domains</a>
+                <a class="btn nav-link active mb-2" data-bs-target="#android-app" data-bs-toggle="tab">Android App</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="js_slider-image-form-modal modal fade">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <form id="js_slider-image-form" novalidate="novalidate">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add New Slider Image</h5><button class="close"
+                                    data-dismiss="modal"><span>×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group"><label class="form-label">Title</label><input
+                                        class="form-control js_slider-title" name="title" placeholder="Enter title"
+                                        type="text"></div>
+                                <div class="form-group"><label class="form-label">Image</label><input
+                                        class="form-control js_slider-image" name="image" type="file"
+                                        data-url="/store/upload-store-banner-image"></div>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-primary ld-ext-right"
+                                    id="js_slider-image-form-submit-btn" type="button">Save<div
+                                        class="ld ld-ring ld-spin"></div></button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <form class="tab-content" id="js_store-settings-form" novalidate="novalidate">
+                <input type="hidden" name="_csrf" value="wfLIL1gR-dVPvw1qQ5l8eHl4MjQBsS6Qzub4">
+               
+                <div class="tab-content">
+                     <!-- #ganarate start -->
+                    <div class="tab-pane fade active show" id="general" >
+                        <div class="card mb-3">
+                            <div class="card-header"> General
+                                <a class="m-0 align-self-center text-decoration-none" routerLink="../settings"
+                                    data-toggle="dropdown">
+                                    <i class="la la-question-circle la-lg"></i>
+                                </a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <h4>Logo</h4><small class="text-muted">Your Brand Awareness</small>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="media"><img class="d-flex mr-3" id="js_store-logo"
+                                                        src="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/logo.png?1628504348710"
+                                                        width="100">
+                                                    <div class="media-body">
+                                                        <div class="custom-file mb-2"><span class="custom-file-remove"
+                                                                id="js_remove-image-file" data-img="#js_store-logo"
+                                                                data-input="#js_store-logo-input">x</span><input
+                                                                class="custom-file-input" id="js_store-logo-file"
+                                                                type="file" accept="image/png"
+                                                                data-msg="Please upload a valid image file"
+                                                                data-img="#js_store-logo"
+                                                                data-input="#js_store-logo-input"
+                                                                data-url="/store/upload-store-logo"><label
+                                                                class="custom-file-label custom-file-control-image">Choose
+                                                                Image</label></div><small
+                                                            class="form-text text-muted">Use only image size of 512 x
+                                                            512 px that's no larger than 1MB and image format must be in
+                                                            png.</small>
+                                                        <div class="text-danger" id="js_store-logo-file-error-msg">
+                                                        </div>
+                                                    </div>
+                                                </div><input id="js_store-logo-input" type="hidden"
+                                                    value="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/logo.png"
+                                                    name="general[logo]">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <h4>Home Background Image</h4>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="media"><img class="d-flex mr-3"
+                                                        id="js_store-business-type-image"
+                                                        src="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/home_background_image.jpeg?1628504348710"
+                                                        width="100">
+                                                    <div class="media-body">
+                                                        <div class="custom-file mb-2"><span class="custom-file-remove"
+                                                                id="js_remove-image-file"
+                                                                data-img="#js_store-business-type-image"
+                                                                data-input="#js_store-business-type-input">x</span><input
+                                                                class="custom-file-input"
+                                                                id="js_store-business-type-image-file" type="file"
+                                                                accept="image/*"
+                                                                data-msg="Please upload valid image file"
+                                                                data-img="#js_store-business-type-image"
+                                                                data-url="/store/upload-store-business-image"
+                                                                data-input="#js_store-business-type-input"><label
+                                                                class="custom-file-label custom-file-control-image">Choose
+                                                                Image</label></div><small
+                                                            class="form-text text-muted">We recommend using at least a
+                                                            1920x1080 image that's no larger than 1MB.</small>
+                                                    </div>
+                                                </div><input id="js_store-business-type-input" type="hidden"
+                                                    value="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/home_background_image.jpeg"
+                                                    name="general[home_background_image]">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <h4>Default User Location</h4>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-row mb-3">
+                                                    <div class="col-md-12 form-group"> <input class="form-control"
+                                                            id="js_default-user-location-name"
+                                                            name="general[default_user_location][name]"
+                                                            placeholder="Location Name to Display" value="Warehouse">
+                                                    </div>
+                                                    <div class="col-md-6 form-group"> <input class="form-control"
+                                                            id="js_default-user-location-lat"
+                                                            name="general[default_user_location][lat]"
+                                                            placeholder="Location's Latitude" value="13.04050000"></div>
+                                                    <div class="col-md-6 form-group"> <input class="form-control"
+                                                            id="js_default-user-location-lng"
+                                                            name="general[default_user_location][lng]"
+                                                            placeholder="Location's Longitude" value="80.25030000">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">Catalog</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6">Show Out Of Stock</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_show-out-of-stock"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_show-out-of-stock"></label><input type="hidden"
+                                                        name="general[catalog][show_out_of_stock]" value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6">Show Tax Split up</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_show-tax-splitup"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_show-tax-splitup"></label><input type="hidden"
+                                                        name="general[catalog][show_tax_splitup]" value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div><input type="hidden" name="general[initiate_delivery_service]"
+                                        value="confirmed">
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6"> Item Grouping</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_item-grouping" checked=""><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_item-grouping"></label><input type="hidden"
+                                                        name="general[catalog][item_grouping]" value="1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6">Item Grouping Attributes</div>
+                                            <div class="col-md-6"><select
+                                                    class="js_item-grouping-attributes form-control select2-hidden-accessible"
+                                                    name="general[catalog][item_grouping_attributes][]" multiple=""
+                                                    data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                    <option value="weight" selected="" data-select2-id="3">weight
+                                                    </option>
+                                                    <option value="liter" selected="" data-select2-id="4">liter</option>
+                                                    <option value="color" selected="" data-select2-id="5">color</option>
+                                                    <option value="size" selected="" data-select2-id="6">size</option>
+                                                </select>
+
+                                                <!-- <span
+                                                    class="select2 select2-container select2-container--default"
+                                                    dir="ltr" data-select2-id="2" style="width: 100%;"><span
+                                                        class="selection"><span
+                                                            class="select2-selection select2-selection--multiple"
+                                                            role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                            tabindex="-1" aria-disabled="false">
+                                                            <ul class="select2-selection__rendered"><span
+                                                                    class="select2-selection__clear"
+                                                                    title="Remove all items"
+                                                                    data-select2-id="11">×</span>
+                                                                <li class="select2-selection__choice" title="weight"
+                                                                    data-select2-id="7"><span
+                                                                        class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>weight</li>
+                                                                <li class="select2-selection__choice" title="liter"
+                                                                    data-select2-id="8"><span
+                                                                        class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>liter</li>
+                                                                <li class="select2-selection__choice" title="color"
+                                                                    data-select2-id="9"><span
+                                                                        class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>color</li>
+                                                                <li class="select2-selection__choice" title="size"
+                                                                    data-select2-id="10"><span
+                                                                        class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>size</li>
+                                                                <li class="select2-search select2-search--inline">
+                                                                    <input
+                                                                        class="select2-search__field" type="search"
+                                                                        tabindex="0" autocomplete="off"
+                                                                        autocorrect="off" autocapitalize="none"
+                                                                        spellcheck="false" role="searchbox"
+                                                                        aria-autocomplete="list" placeholder=""
+                                                                        style="width: 0.75em;"></li>
+                                                            </ul>
+                                                        </span></span><span class="dropdown-wrapper"
+                                                        aria-hidden="true"></span></span> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">External Links</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row mb-2">
+                                            <div class="col-md-12"><label>Facebook</label><input class="form-control"
+                                                    type="text" name="general[external_links][social][facebook]"
+                                                    value="" placeholder="Facebook URL"></div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-12"><label>Instagram</label><input class="form-control"
+                                                    type="text" name="general[external_links][social][instagram]"
+                                                    value="" placeholder="Instagram URL"></div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-12"><label>Twitter</label><input class="form-control"
+                                                    type="text" name="general[external_links][social][twitter]" value=""
+                                                    placeholder="Twitter URL"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">Order Cancellation</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6"> Enable Cancellation</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_enable-order-cancellation" checked=""><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_enable-order-cancellation"></label><input type="hidden"
+                                                        name="general[order][cancellation_enabled]" value="1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Customer Cancellation</h5>
+                                        <div class="row mb-2">
+                                            <div class="col-md-6"><label>Enable Customer Cancellation</label></div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_enable-customer-order-cancellation" checked=""><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_enable-customer-order-cancellation"></label><input
+                                                        type="hidden"
+                                                        name="general[order][customer_cancellation][enable]" value="1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-md-12"><label>Maximum Time within the order has to be
+                                                    cancelled (In Minutes)</label><input class="form-control"
+                                                    type="number" name="general[order][customer_cancellation][window]"
+                                                    value="10" placeholder="Maximum Bandwidth Time"></div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-md-6"> Order Status Applicable to Cancel Order</div>
+                                            <div class="col-md-6 text-capitalize"><select
+                                                    class="js_customer-cancellation-status form-control select2-hidden-accessible"
+                                                    name="general[order][customer_cancellation][status][]" multiple=""
+                                                    data-select2-id="12" tabindex="-1" aria-hidden="true">
+                                                    <option value="cod_authorized" selected="" data-select2-id="14">cod
+                                                        authorized</option>
+                                                    <option value="payment_authorized" selected="" data-select2-id="15">
+                                                        payment authorized</option>
+                                                    <option value="confirmed" selected="" data-select2-id="16">confirmed
+                                                    </option>
+                                                    <option value="dispatched" selected="" data-select2-id="17">
+                                                        dispatched</option>
+                                                </select>
+                                                <!--                                                 
+                                                <span
+                                                    class="select2 select2-container select2-container--default"
+                                                    dir="ltr" data-select2-id="13" style="width: 100%;"><span
+                                                        class="selection"><span
+                                                            class="select2-selection select2-selection--multiple"
+                                                            role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                            tabindex="-1" aria-disabled="false">
+                                                            <ul class="select2-selection__rendered"><span
+                                                                    class="select2-selection__clear"
+                                                                    title="Remove all items"
+                                                                    data-select2-id="22">×</span>
+                                                                <li class="select2-selection__choice"
+                                                                    title="cod authorized" data-select2-id="18"><span
+                                                                        class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>cod authorized</li>
+                                                                <li class="select2-selection__choice"
+                                                                    title="payment authorized" data-select2-id="19">
+                                                                    <span class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>payment authorized
+                                                                </li>
+                                                                <li class="select2-selection__choice" title="confirmed"
+                                                                    data-select2-id="20"><span
+                                                                        class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>confirmed</li>
+                                                                <li class="select2-selection__choice" title="dispatched"
+                                                                    data-select2-id="21"><span
+                                                                        class="select2-selection__choice__remove"
+                                                                        role="presentation">×</span>dispatched</li>
+                                                                <li class="select2-search select2-search--inline"><input
+                                                                        class="select2-search__field" type="search"
+                                                                        tabindex="0" autocomplete="off"
+                                                                        autocorrect="off" autocapitalize="none"
+                                                                        spellcheck="false" role="searchbox"
+                                                                        aria-autocomplete="list" placeholder=""
+                                                                        style="width: 0.75em;"></li>
+                                                            </ul>
+                                                        </span></span><span class="dropdown-wrapper"
+                                                        aria-hidden="true"></span></span> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Delivery Partner Cancellation</h5>
+                                        <div class="row mb-2">
+                                            <div class="col-md-6"><label>Enable Delivery Partner Cancellation</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_enable-delivery-partner-order-cancellation"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_enable-delivery-partner-order-cancellation"></label><input
+                                                        type="hidden"
+                                                        name="general[order][delivery_partner_cancellation][enable]"
+                                                        value="0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-md-12"><label>Maximum Time within the order has to be
+                                                    cancelled (In Minutes)</label><input class="form-control"
+                                                    type="number"
+                                                    name="general[order][delivery_partner_cancellation][window]"
+                                                    value="" placeholder="Maximum Bandwidth Time"></div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-md-6"> Order Status Applicable to Cancel Order</div>
+                                            <div class="col-md-6 text-capitalize"><select
+                                                    class="js_delivery-partner-cancellation-status form-control select2-hidden-accessible"
+                                                    name="general[order][delivery_partner_cancellation][status][]"
+                                                    multiple="" data-select2-id="23" tabindex="-1" aria-hidden="true">
+
+                                                </select>
+                                                <!-- <span class="select2 select2-container select2-container--default"
+                                                    dir="ltr" data-select2-id="24" style="width: 100%;">
+                                                    <span class="selection">
+                                                        <span class="select2-selection select2-selection--multiple"
+                                                            role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                            tabindex="-1" aria-disabled="false">
+                                                            <ul class="select2-selection__rendered">
+                                                                <li class="select2-search select2-search--inline"><input
+                                                                        class="select2-search__field" type="search"
+                                                                        tabindex="0" autocomplete="off"
+                                                                        autocorrect="off" autocapitalize="none"
+                                                                        spellcheck="false" role="searchbox"
+                                                                        aria-autocomplete="list"
+                                                                        placeholder="Select Status"
+                                                                        style="width: 331.672px;"></li>
+                                                            </ul>
+                                                        </span></span><span class="dropdown-wrapper"
+                                                        aria-hidden="true"></span></span> -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #genarate end -->
+                    <!-- #app start -->
+                    <div class="tab-pane fade" id="app">
+                        <div class="card mb-4">
+                            <div class="card-header">Appearence<a class="m-0 align-self-center text-decoration-none"
+                                    routerLink="../settings" data-toggle="dropdown"> <i
+                                        class="la la-question-circle la-lg"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right"><a
+                                        class="m-0 align-self-center text-decoration-none" routerLink="../settings"
+                                        data-toggle="dropdown"></a><a class="dropdown-item"
+                                        routerLink="https://StoreERP.com/help/article/78" target="_blank"><i
+                                            class="la la-book mr-1"></i>Tutorial</a><a class="dropdown-item"
+                                        type="button" data-toggle="modal" data-target="#youtubeModalw2jIWN287aM"><i
+                                            class="la la-youtube-play mr-1"></i>Video Tutorial</a></div>
+                                <div class="div modal fade" id="youtubeModalw2jIWN287aM" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header"><button class="close" type="button"
+                                                    data-dismiss="modal" aria-lable="Close"><span
+                                                        aria-hidden="true">×</span></button></div>
+                                            <div class="modal-body p-0"><iframe width="100%"
+                                                    src="https://www.youtube.com/embed/w2jIWN287aM" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen="" style="min-height: 500px;"></iframe></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row mb-2">
+                                                    <div class="col-md-12">
+                                                        <p>Theme Color</p><select
+                                                            class="form-control js_change-theme-color"
+                                                            name="app[appearance][theme_color]">
+                                                            <option value="default" data-code="#007aff">Default</option>
+                                                            <option value="red" data-code="#ff3b30">Red</option>
+                                                            <option value="green" data-code="#4cd964">Green</option>
+                                                            <option value="blue" data-code="#2196f3">Blue</option>
+                                                            <option value="pink" data-code="#ff2d55">Pink</option>
+                                                            <option value="yellow" data-code="#ffcc00">Yellow</option>
+                                                            <option value="orange" data-code="#ff9500">Orange</option>
+                                                            <option value="purple" data-code="#9c27b0">Purple</option>
+                                                            <option value="deeppurple" data-code="#673ab7">Deep Purple
+                                                            </option>
+                                                            <option value="lightblue" data-code="#5ac8fa">Light Blue
+                                                            </option>
+                                                            <option value="teal" data-code="#009688">Teal</option>
+                                                            <option value="lime" data-code="#cddc39">Lime</option>
+                                                            <option value="deeporange" data-code="#ff6b22">Deep Orange
+                                                            </option>
+                                                            <option value="gray" data-code="#8e8e93">Gray</option>
+                                                            <option value="black" data-code="#000000" selected="">Black
+                                                            </option>
+                                                            <option value="custom" data-code="">Custom</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row js_custom-theme-block d-none">
+                                                    <div class="col-md-12"><label>Custom Theme Color</label><input
+                                                            class="form-control js_custom-theme-color-input" type="text"
+                                                            placeholder="Custom Theme code" value=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6"></div>
+                                                    <div class="col-md-6">
+                                                        <div class="p-5 js_preview-box border border-dark text-center text-white"
+                                                            style="color: white; background-color: rgb(0, 0, 0);">
+                                                            Preview</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6"> Dark Theme</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_dark-theme-switch"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_dark-theme-switch"></label><input type="hidden"
+                                                        name="app[appearance][dark_theme]" value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-6"> Fill Navigation Bar</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_fill-navigation-bar"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_fill-navigation-bar"></label><input type="hidden"
+                                                        name="app[appearance][fill_navigation_bar]" value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h4>Login Background</h4><small class="text-muted">Your App
+                                                    Background</small>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="media"><img class="d-flex mr-3"
+                                                        id="js_store-background-image"
+                                                        src="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/background_image.jpg"
+                                                        width="100">
+                                                    <div class="media-body">
+                                                        <div class="custom-file mb-2"><span class="custom-file-remove"
+                                                                id="js_remove-image-file"
+                                                                data-img="#js_store-background-image"
+                                                                data-input="#js_store-background-input">x</span><input
+                                                                class="custom-file-input"
+                                                                id="js_store-background-image-file" type="file"
+                                                                accept="image/*"
+                                                                data-msg="Please upload a valid image file"
+                                                                data-img="#js_store-background-image"
+                                                                data-input="#js_store-background-input"
+                                                                data-url="/store/upload-store-background-image"><label
+                                                                class="custom-file-label custom-file-control-image">Choose
+                                                                Image</label></div><small
+                                                            class="form-text text-muted">We recommend using at least a
+                                                            512x512px image that's no larger than 1MB.</small>
+                                                    </div>
+                                                </div><input id="js_store-background-input" type="hidden"
+                                                    value="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/background_image.jpg"
+                                                    name="app[appearance][login_background]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h4>Slider Images</h4><small class="text-muted">Your Slider
+                                                    Images</small>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="clearfix mb-2"><a class="btn btn-primary btn-sm float-right"
+                                                        routerLink="../settings" data-toggle="modal"
+                                                        data-target=".js_slider-image-form-modal" data-obj="{}">Add New
+                                                        Image</a></div>
+                                                <div class="js_upload-slider-files row">
+                                                    <div class="js_empty-slides">(No Slider Images Provided)</div>
+                                                </div>
+                                            </div>
+                                        </div><input class="js_intro-banners" name="app[appearance][intro_banners]"
+                                            type="hidden" value="[]">
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row my-3">
+                                            <div class="col-md-4">
+                                                <h4>Default Tab</h4>
+                                            </div>
+                                            <div class="col-md-8"><select class="form-control"
+                                                    name="app[appearance][default_tab]" value="home">
+                                                    <option value="home" selected="">Home</option>
+                                                    <option value="explore">Explore</option>
+                                                </select></div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h4>Home Page</h4><small class="text-muted"> </small>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="row mb-3">
+                                                    <div class="col-md-8">Banners</div>
+                                                    <div class="col-md-4">
+                                                        <div class="custom-control custom-switch"><input
+                                                                class="custom-control-input" type="checkbox"
+                                                                id="js_store-banner" checked=""><label
+                                                                class="custom-control-label float-right"
+                                                                for="js_store-banner"></label><input type="hidden"
+                                                                name="app[appearance][home_page][banner]" value="1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-8">Categories</div>
+                                                    <div class="col-md-4">
+                                                        <div class="custom-control custom-switch"><input
+                                                                class="custom-control-input" type="checkbox"
+                                                                id="js_store-categories" checked=""><label
+                                                                class="custom-control-label float-right"
+                                                                for="js_store-categories"></label><input type="hidden"
+                                                                name="app[appearance][home_page][categories]" value="1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-8">Best Seller</div>
+                                                    <div class="col-md-4">
+                                                        <div class="custom-control custom-switch"><input
+                                                                class="custom-control-input" type="checkbox"
+                                                                id="js_store-best-seller" checked=""><label
+                                                                class="custom-control-label float-right"
+                                                                for="js_store-best-seller"></label><input type="hidden"
+                                                                name="app[appearance][home_page][bestseller]" value="1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-8">Recommend</div>
+                                                    <div class="col-md-4">
+                                                        <div class="custom-control custom-switch"><input
+                                                                class="custom-control-input" type="checkbox"
+                                                                id="js_store-recommend" checked=""><label
+                                                                class="custom-control-label float-right"
+                                                                for="js_store-recommend"></label><input type="hidden"
+                                                                name="app[appearance][home_page][recommended]"
+                                                                value="1"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">External Links</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row mb-2">
+                                            <div class="col-md-12"><label>Google Play Store (Android)</label><input
+                                                    class="form-control" type="text"
+                                                    name="general[external_links][app][play_store]" value=""
+                                                    placeholder="Google Play Store URL"></div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-12"><label>Apple Store (IOS)</label><input
+                                                    class="form-control" type="text"
+                                                    name="general[external_links][app][apple_store]" value=""
+                                                    placeholder="Apple Store URL"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #app end -->
+                    <!-- #credentials start -->
+                    <div class="tab-pane fade" id="credentials">
+                        <div class="card mb-4">
+                            <div class="card-header">Google Authorization</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Social </h5>
+                                        <div class="row mb-2">
+                                            <div class="col-md-12"><label>Client ID</label><input class="form-control"
+                                                    type="text" name="credentials[google][social][client_id]" value=""
+                                                    placeholder="Google Client Id"></div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-md-12"><label>Client Secret</label><input
+                                                    class="form-control" type="text"
+                                                    name="credentials[google][social][client_secret]" value=""
+                                                    placeholder="Google Client Secret"></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6"> Status</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_switch-google-social-status"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_switch-google-social-status"></label><input
+                                                        type="hidden" name="credentials[google][social][active]"
+                                                        value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Maps</h5>
+                                        <div class="row mb-4">
+                                            <div class="col-md-12"><label>Api Token</label><input class="form-control"
+                                                    type="text" name="credentials[google][maps][api_key]" value=""
+                                                    placeholder="Google Map Api Token"></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6"> Status</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_switch-google-map-status" checked=""><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_switch-google-map-status"></label><input type="hidden"
+                                                        name="credentials[google][maps][active]" value="1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Tags</h5>
+                                        <div class="row mb-4">
+                                            <div class="col-md-12"><label>G-Tag ID</label><input class="form-control"
+                                                    type="text" name="credentials[google][gtag][id]" value=""
+                                                    placeholder="Google Tag Id"></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6"> Status</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_switch-google-gtag-status"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_switch-google-gtag-status"></label><input type="hidden"
+                                                        name="credentials[google][gtag][active]" value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">Facebook Authorization</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Social</h5>
+                                        <div class="row mb-2">
+                                            <div class="col-md-12"><label>App ID</label><input class="form-control"
+                                                    type="text" name="credentials[facebook][social][app_id]" value=""
+                                                    placeholder="Facebook App Id"></div>
+                                        </div>
+                                        <div class="row mb-4">
+                                            <div class="col-md-12"><label>App Secret</label><input class="form-control"
+                                                    type="text" name="credentials[facebook][social][app_secret]"
+                                                    value="" placeholder="Facebook App Secret"></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6"> Status</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_switch-fb-status"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_switch-fb-status"></label><input type="hidden"
+                                                        name="credentials[facebook][social][active]" value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">FreshChat</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row mb-4">
+                                            <div class="col-md-12"><label>Token</label><input class="form-control"
+                                                    type="text" name="credentials[freshchat][token]"
+                                                    value="248c78fd-f301-457f-94b6-99489310b064"
+                                                    placeholder="Freshchat Token"></div>
+                                            <div class="col-md-12"><label>Host</label><input class="form-control"
+                                                    type="text" name="credentials[freshchat][host]" value=""
+                                                    placeholder="Freshchat Host"></div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6"> Status</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_switch-freshchat-status" checked=""><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_switch-freshchat-status"></label><input type="hidden"
+                                                        name="credentials[freshchat][active]" value="1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #credentials end -->
+                    <!-- #domains start -->
+                    <div class="tab-pane fade" id="domains">
+                        <div class="card mb-4">
+                            <div class="card-header">URL Host<a class="m-0 align-self-center text-decoration-none"
+                                    routerLink="../settings" data-toggle="dropdown"> <i
+                                        class="la la-question-circle la-lg"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right"><a
+                                        class="m-0 align-self-center text-decoration-none" routerLink="../settings"
+                                        data-toggle="dropdown"></a><a class="dropdown-item"
+                                        routerLink="https://StoreERP.com/help/article/80" target="_blank"><i
+                                            class="la la-book mr-1"></i>Tutorial</a></div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Web Domain Address</h5>
+                                        <div class="row mb-2">
+                                            <div class="col-md-6">
+                                                <div class="input-group mb-3"><input type="hidden"
+                                                        name="domains[0][slug]" value="default_domain"><input
+                                                        class="js_web-domain" type="hidden" name="domains[0][domain]"
+                                                        value="pos.store.StoreERP.com"><input
+                                                        class="form-control js_web-address" type="text"
+                                                        placeholder="Website Address" value="pos" name="domain_name">
+                                                    <div class="input-group-append"><span
+                                                            class="input-group-text js_url-domain mr-2">.store.StoreERP.com</span><i
+                                                            class="la la-2x la-copy js_click-copy js_tool-tip-value"
+                                                            data-toggle="tooltip" title=""
+                                                            data-original-title="Copy to clipboard"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="float-right"><i
+                                                        class="la la-3x text-success la-check-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <h5 class="mb-3">Custom Domain Address</h5>
+                                        <div class="row mb-2">
+                                            <div class="col-md-6">
+                                                <div class="input-group mb-3">
+                                                    <div class="form-control-plaintext">Not Set</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="float-right"><i
+                                                        class="la la-3x text-danger la-times-circle"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- #domains end -->
+                    <!-- android-app start -->
+                    <div class="tab-pane fade" id="android-app">
+                        <div class="card mb-4">
+                            <div class="card-header">Appearance</div>
+                            <div class="card-body p-0">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item">
+                                        <div class="row mb-2">
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>App Text Color</label><input
+                                                        class="form-control" type="text"
+                                                        name="android-app[appearance][app_text_color]" value="#FFFFFF"
+                                                        placeholder="App Text Color"></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Progress Color</label><input
+                                                        class="form-control" type="text"
+                                                        name="android-app[appearance][progress_color]" value="#FFFFFF"
+                                                        placeholder="Progress Color"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Start Color</label><input
+                                                        class="form-control js_app-start-color" type="text"
+                                                        name="android-app[appearance][start_color]" value="#421001"
+                                                        placeholder="Start Color"></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>End Color</label><input
+                                                        class="form-control js_app-end-color" type="text"
+                                                        name="android-app[appearance][end_color]" value="#FF5722"
+                                                        placeholder="End Color"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Angle</label><input
+                                                        class="form-control js_app-angle" type="number"
+                                                        name="android-app[appearance][angle]" value="90"
+                                                        placeholder="Angle"></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Splash Screen Name</label><input
+                                                        class="form-control" type="text"
+                                                        name="android-app[appearance][splash_screen_name]" value=""
+                                                        placeholder="Splash Screen Name"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6"> Round App Icon</div>
+                                            <div class="col-md-6">
+                                                <div class="custom-control custom-switch"><input
+                                                        class="custom-control-input" type="checkbox"
+                                                        id="js_switch-android-app-icon"><label
+                                                        class="custom-control-label float-right"
+                                                        for="js_switch-android-app-icon"></label><input type="hidden"
+                                                        name="android-app[appearance][round_app_icon]" value="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </form>
+        </div>
+
+    </div>
+</div>

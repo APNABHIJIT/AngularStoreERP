@@ -1,0 +1,509 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex float-right mb-3">
+                <button class="float-right mr-2 btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#js_charge-modal">
+                    <em class="la la-plus-circle"></em>+ Create Charge
+                </button>
+                <div class="btn-group">
+                    <button class="btn  btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="../charges"><i class="la la-book mr-1"></i>Tutorial</a>
+                        </li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalbTcMt3TLYAQ">
+                                <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                            </a></li>
+                    </ul>
+                </div>
+
+
+                <div class="div modal fade" id="youtubeModalbTcMt3TLYAQ" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/watch?v=6qys-562kp4" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model Create Cahrges start -->
+    <div class="modal fade js_charge-modal-form show" id="js_charge-modal" style="display: node; padding-right: 17px;"
+        aria-modal="true">
+        <div class="form-modal" id="js_charge-create" data-form="#js_charge-form" data-btn="#js_charge-btn"></div>
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Charge</h5><button class="close js_close-button" type="button"
+                        data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <!-- <form id="js_charge-form" data-url="/item/charges/" novalidate="novalidate"> -->
+                        <input type="hidden" name="_csrf" value="ry80rXKv-FLMNulZhmK0ke6wHuteD2YIISV8">
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <div class="form-group"><label>Name<em class="text-danger">*</em></label><input
+                                        class="form-control" type="text" placeholder="Charge Name" name="name"
+                                        required=""></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group"><label> Category<em class="text-danger">*</em></label>
+                                    <div class="select-group"><select
+                                            class="form-control js_charge-category-select2 select2-hidden-accessible"
+                                            name="charge_category_id" data-slug="" data-name="charge_category"
+                                            data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                            <option value="" data-select2-id="3">Select Category</option>
+                                        </select><span class="select2 select2-container select2-container--default"
+                                            dir="ltr" data-select2-id="2" style="width: 100%;"><span
+                                                class="selection"><span
+                                                    class="select2-selection select2-selection--single" role="combobox"
+                                                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-disabled="false"
+                                                    aria-labelledby="select2-charge_category_id-hy-container"><span
+                                                        class="select2-selection__rendered"
+                                                        id="select2-charge_category_id-hy-container" role="textbox"
+                                                        aria-readonly="true"><span
+                                                            class="select2-selection__placeholder">Select
+                                                            Category</span></span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        <div class="js_charge-category-select2-error mt-2 text-danger d-none">Please
+                                            select a value</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group"><label>Value<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="number" placeholder="" name="value"></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group"><label> Type <em class="text-danger"> *</em></label><select
+                                        class="form-control" name="type">
+                                        <option value="">Select Type</option>
+                                        <option value="fixed">Fixed</option>
+                                        <option value="percentage">Percentage</option>
+                                    </select></div>
+                            </div><input class="js_charge-applicable-on" type="hidden" name="applicable_on"
+                                value="subtotal"><input class="js_charge-conditions-value" type="hidden"
+                                name="conditions">
+                        </div><label> Additional Conditions<span class="js_category-on-delivery-only d-none">(Note:
+                                Please enter your preferred Delivery Distance)</span>
+                            <div class="js_validate-msg text-danger"></div>
+                        </label>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="bg-light text-center">
+                                            <tr>
+                                                <th class="js_charge-condition-select-content" width="40%">Criteria</th>
+                                                <th class="js_criteria-value-text">Order Price</th>
+                                                <th
+                                                    class="js_cost-per-unit-text js_charge-condition-cost-content d-none">
+                                                    Packing Charge</th>
+                                                <th class="js_charge-condition-applicable-content">Validate On (Order
+                                                    Subtotal/ Total)</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot class="js_length-validation d-none">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="text-danger">Maximum Conditions reached. Please remove
+                                                        to add a new condition</div>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td class="js_charge-condition-select-content"><select
+                                                        class="form-control js_charge-condition-select"
+                                                        data-name="select_criteria">
+                                                        <option value="" selected="">Select Condition</option>
+                                                        <option value=">">Greater Than</option>
+                                                        <option value="">Lesser Than</option>
+                                                    </select>
+                                                    <div
+                                                        class="js_charge-condition-select-error mt-2 text-danger d-none">
+                                                        Please select a value</div>
+                                                </td>
+                                                <td>
+                                                    <div class="row"><span
+                                                            class="col-4 js_category-on-delivery-only d-none pr-0"><label
+                                                                class="js_category-on-delivery-only d-none">Distance (in
+                                                                KMs)</label><input
+                                                                class="js-base-price-in-kilometer form-control"
+                                                                type="number" placeholder="Base Delivery(KMs)"
+                                                                data-name="criteria_value"></span><span
+                                                            class="col-4 col-12"><label
+                                                                class="js_category-on-delivery-only d-none">Distance (in
+                                                                Meters)</label><input
+                                                                class="js-base-price-in-meter form-control js_charge-condition-value"
+                                                                type="number" placeholder="Order Price"
+                                                                data-name="criteria_value">
+                                                            <div
+                                                                class="js_charge-condition-value-error mt-2 text-danger d-none">
+                                                                Please input value greater than zero</div>
+                                                        </span><span
+                                                            class="col-4 js_category-on-delivery-only d-none pl-0"><label
+                                                                class="js_category-on-delivery-only d-none">Distance (in
+                                                                Miles)</label><input
+                                                                class="js-base-price-in-miles form-control"
+                                                                type="number" placeholder="Base Delivery(Miles)"
+                                                                data-name="criteria_value"></span></div>
+                                                </td>
+                                                <td class="js_charge-condition-cost-content d-none"><label
+                                                        class="js_category-on-delivery-only d-none">Cost</label><input
+                                                        class="form-control js_charge-condition-cost" type="number"
+                                                        placeholder="Packing Charge" data-name="cost_per_unit">
+                                                    <div class="js_charge-condition-cost-error mt-2 text-danger d-none">
+                                                        Please input value greater than zero</div>
+                                                </td>
+                                                <td class="js_charge-condition-applicable-content"><select
+                                                        class="form-control js_charge-condition-applicable-select"
+                                                        data-name="order_apply_on">
+                                                        <option value="" selected="">Select Price</option>
+                                                        <option value="subtotal">Sub Total</option>
+                                                        <option value="total">Total</option>
+                                                    </select>
+                                                    <div
+                                                        class="js_charge-condition-applicable-select-error mt-2 text-danger d-none">
+                                                        Please select a value</div>
+                                                </td>
+                                                <td><label class="js_category-on-delivery-only d-none my-4"></label><a
+                                                        class="js_add-charge-criteria btn btn-sm btn-success ld-ext-right js_loading"
+                                                        routerLink="../charges"> ADD<div class="ld ld-ring ld-spin"></div></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </form> -->
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button><button
+                        class="js_charges-save-btn btn btn-primary ld-ext-right" id="js_charge-btn"
+                        data-bs-dismiss="modal">Save<div class="ld ld-ring ld-spin"></div></button></div>
+            </div>
+        </div>
+    </div>
+    <!-- Model Create changes End -->
+
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>3 </b> of<b> 3 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <!-- table Start -->
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Charge Name</th>
+                            <th>Value</th>
+                            <th>Type</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> delivery chrg</td>
+                            <td>10</td>
+                            <td>FIXED</td>
+                            <td>Dec 1, 2020</td>
+                            <td> 
+                                
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_charge-modal58">Edit</button>
+
+                                <a class="js_charge-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    (click)="alertDelete()" routerLink="../charges" data-url="/item/charges/58">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Packing Charges</td>
+                            <td>25</td>
+                            <td>FIXED</td>
+                            <td>Jul 12, 2021</td>
+                            <td> 
+                                
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_charge-modal58">Edit</button>
+
+                                <a class="js_charge-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    (click)="alertDelete()" routerLink="../charges" data-url="/item/charges/58">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Payment for online</td>
+                            <td>10</td>
+                            <td>FIXED</td>
+                            <td>Aug 4, 2021</td>
+                            <td> 
+                                
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_charge-modal58">Edit</button>
+
+                                <a class="js_charge-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    (click)="alertDelete()" routerLink="../charges" data-url="/item/charges/58">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- table end -->
+
+    <!-- Model Edit  strart-->
+    <div class="modal fade js_charge-modal-form show" id="js_charge-modal58"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="form-modal" id="js_charge-create58" data-form="#js_charge-form58" data-btn="#js_charge-btn58"></div>
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Charge</h5><button class="close js_close-button"
+                        type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_charge-form58" data-url="/item/charges/58" novalidate="novalidate"><input type="hidden"
+                            name="_csrf" value="ry80rXKv-FLMNulZhmK0ke6wHuteD2YIISV8">
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <div class="form-group"><label>Name<em class="text-danger">*</em></label><input
+                                        class="form-control" type="text" placeholder="Charge Name" name="name"
+                                        value="delivery chrg" required=""></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group"><label> Category<em class="text-danger">*</em></label>
+                                    <div class="select-group"><select
+                                            class="form-control js_charge-category-select2 select2-hidden-accessible"
+                                            name="charge_category_id" data-slug="delivery_charge"
+                                            data-name="charge_category" disabled="" data-select2-id="4" tabindex="-1"
+                                            aria-hidden="true">
+                                            <option value="" data-select2-id="6">Select Category</option>
+                                            <option value="21" selected="" data-select2-id="7">Delivery Charges</option>
+                                        </select><span
+                                            class="select2 select2-container select2-container--default select2-container--disabled"
+                                            dir="ltr" data-select2-id="5" style="width: 100%;"><span
+                                                class="selection"><span
+                                                    class="select2-selection select2-selection--single" role="combobox"
+                                                    aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                                    aria-disabled="true"
+                                                    aria-labelledby="select2-charge_category_id-yn-container"><span
+                                                        class="select2-selection__rendered"
+                                                        id="select2-charge_category_id-yn-container" role="textbox"
+                                                        aria-readonly="true" title="Delivery Charges"><span
+                                                            class="select2-selection__clear" title="Remove all items"
+                                                            data-select2-id="8">×</span>Delivery Charges</span><span
+                                                        class="select2-selection__arrow" role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                        <div class="js_charge-category-select2-error mt-2 text-danger d-none">Please
+                                            select a value</div>
+                                    </div><input type="hidden" value="21" name="charge_category_id">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group"><label>Value<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="number" placeholder="" name="value" value="10"></div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group"><label> Type <em class="text-danger"> *</em></label><select
+                                        class="form-control" name="type">
+                                        <option value="">Select Type</option>
+                                        <option value="fixed" selected="">Fixed</option>
+                                        <option value="percentage">Percentage</option>
+                                    </select></div>
+                            </div><input class="js_charge-applicable-on" type="hidden" name="applicable_on"
+                                value="subtotal"><input class="js_charge-conditions-value" type="hidden"
+                                name="conditions"
+                                value="{&quot;distance&quot;:[{&quot;value&quot;:2000,&quot;multiplier&quot;:1,&quot;multiplier_value&quot;:5}]}">
+                        </div><label> Additional Conditions<span class="js_category-on-delivery-only">(Note: Please
+                                enter your preferred Delivery Distance)</span>
+                            <div class="js_validate-msg text-danger"></div>
+                        </label>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="bg-light text-center">
+                                            <tr>
+                                                <th class="js_charge-condition-select-content d-none" width="40%">
+                                                    Criteria</th>
+                                                <th class="js_criteria-value-text">Base Delivery Distance (in Meters)
+                                                </th>
+                                                <th class="js_cost-per-unit-text js_charge-condition-cost-content">
+                                                    Additional Delivery Cost (per KM)</th>
+                                                <th class="js_charge-condition-applicable-content d-none">Validate On
+                                                    (Order Subtotal/ Total)</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot class="js_length-validation d-none">
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="text-danger">Maximum Conditions reached. Please remove
+                                                        to add a new condition</div>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td class="js_charge-condition-select-content d-none"><select
+                                                        class="form-control js_charge-condition-select"
+                                                        data-name="select_criteria">
+                                                        <option value="" selected="">Select Condition</option>
+                                                        <option value=">">Greater Than</option>
+                                                        <option value="<">Lesser Than</option>
+                                                    </select>
+                                                    <div
+                                                        class="js_charge-condition-select-error mt-2 text-danger d-none">
+                                                        Please select a value</div>
+                                                </td>
+                                                <td>
+                                                    <div class="row"><span
+                                                            class="col-4 js_category-on-delivery-only pr-0"><label
+                                                                class="js_category-on-delivery-only">Distance (in
+                                                                KMs)</label><input
+                                                                class="js-base-price-in-kilometer form-control"
+                                                                type="number" placeholder="Base Delivery(KMs)"
+                                                                data-name="criteria_value"></span><span
+                                                            class="col-4"><label
+                                                                class="js_category-on-delivery-only">Distance (in
+                                                                Meters)</label><input
+                                                                class="js-base-price-in-meter form-control js_charge-condition-value"
+                                                                type="number" placeholder="Base Delivery(Meters)"
+                                                                data-name="criteria_value">
+                                                            <div
+                                                                class="js_charge-condition-value-error mt-2 text-danger d-none">
+                                                                Please input value greater than zero</div>
+                                                        </span><span
+                                                            class="col-4 js_category-on-delivery-only pl-0"><label
+                                                                class="js_category-on-delivery-only">Distance (in
+                                                                Miles)</label><input
+                                                                class="js-base-price-in-miles form-control"
+                                                                type="number" placeholder="Base Delivery(Miles)"
+                                                                data-name="criteria_value"></span></div>
+                                                </td>
+                                                <td class="js_charge-condition-cost-content"><label
+                                                        class="js_category-on-delivery-only">Cost</label><input
+                                                        class="form-control js_charge-condition-cost" type="number"
+                                                        placeholder="Delivery Cost per KM" data-name="cost_per_unit">
+                                                    <div class="js_charge-condition-cost-error mt-2 text-danger d-none">
+                                                        Please input value greater than zero</div>
+                                                </td>
+                                                <td class="js_charge-condition-applicable-content d-none"><select
+                                                        class="form-control js_charge-condition-applicable-select"
+                                                        data-name="order_apply_on">
+                                                        <option value="" selected="">Select Price</option>
+                                                        <option value="subtotal">Sub Total</option>
+                                                        <option value="total">Total</option>
+                                                    </select>
+                                                    <div
+                                                        class="js_charge-condition-applicable-select-error mt-2 text-danger d-none">
+                                                        Please select a value</div>
+                                                </td>
+                                                <td><label class="js_category-on-delivery-only my-4"></label><a
+                                                        class="js_add-charge-criteria btn btn-sm btn-success ld-ext-right js_loading"
+                                                        routerLink="../charges"> ADD<div class="ld ld-ring ld-spin"></div></a></td>
+                                            </tr>
+                                            <tr class="js_additional-rows">
+                                                <td class="js_charge-condition-select-content d-none"><select
+                                                        class="form-control js_charge-condition-select"
+                                                        data-name="select_criteria" required=""
+                                                        name="validate[distance][select_criteria]" disabled="">
+                                                        <option value="">Select Condition</option>
+                                                        <option value=">">Greater Than</option>
+                                                        <option value="<">Lesser Than</option>
+                                                    </select></td>
+                                                <td><input class="form-control js_charge-condition-value" type="number"
+                                                        placeholder="Base Delivery(Meters)" value="2000"
+                                                        data-name="criteria_value" required=""
+                                                        name="validate[distance][criteria_value]">
+                                                    <div class="my-1 js_category-on-delivery-only js_delivery-msg">The
+                                                        cost per 2.0000 KM(s) / 2000 meter(s) / 1.2427 Mile(s) is 5
+                                                    </div>
+                                                </td>
+                                                <td class="js_charge-condition-cost-content"><input
+                                                        class="form-control js_charge-condition-cost" type="number"
+                                                        placeholder="Delivery Cost per KM" value="5"
+                                                        data-name="cost_per_unit"
+                                                        name="validate[distance][cost_per_unit]" required=""></td>
+                                                <td class="js_charge-condition-applicable-content d-none"><select
+                                                        class="form-control js_charge-condition-applicable-select"
+                                                        data-name="order_apply_on" required=""
+                                                        name="validate[distance][order_apply_on]" disabled="">
+                                                        <option value="" selected="">Select Price</option>
+                                                        <option value="subtotal">Sub Total</option>
+                                                        <option value="total">Total</option>
+                                                    </select></td>
+                                                <td>
+                                                    <a class="js_remove-charge-criteria btn btn-sm btn-danger"
+                                                        routerLink="../charges">REMOVE</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button>
+                    <button
+                        class="js_charges-save-btn btn btn-primary ld-ext-right" id="js_charge-btn58" data-bs-dismiss="modal">Save
+                        <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model Edit End -->
+</div>

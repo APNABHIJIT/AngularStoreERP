@@ -1,0 +1,97 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle active" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none p-2" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none p-2 active" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="filter-form-modal" id="js_indent-consolidation-filter">
+            <div class="form-row">
+                <div class="col-md-9">
+                    <div class="form-row">
+                        <div class="col-md-5">
+                            <div class="form-group"> <button class="btn btn-outline-primary dropdown-toggle btn-block"
+                                    type="button" id="js_date-range"><span>Aug 11, 2021 - Aug 11, 2021 </span></button>
+                                <input id="js_date-range-from-date" type="hidden" name="from_date"
+                                    value="2021-08-11 00:00" data-timezone="Asia/Kolkata"><input
+                                    id="js_date-range-to-date" type="hidden" name="to_date" value="2021-08-11 23:59">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <select class="form-control" name="to_location_id" data-select2-id="1" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>To Location</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-outline-primary float-right text-decoration-none"
+                        routerLink="../indent-consolidation" (click)="AlertError()">Export
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row pb-3">
+        <div id="js_indent-consolidation-view">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing 0 entries</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="float-right text-decoration-none" routerLink="../indent-consolidation">Clear Filters</a>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col">
+                    <div class="empty-state border border-secondary pt-5">
+                        <i class="la la-th-list text-center"></i>
+                        <h3 class="text-center">Your Indent Orders</h3>
+                        <h5 class="text-center text-muted mb-4">You don't have any Indent Orders in this range</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

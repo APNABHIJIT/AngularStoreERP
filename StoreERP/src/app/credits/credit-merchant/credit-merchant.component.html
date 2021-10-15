@@ -1,0 +1,117 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link active text-decoration-none"
+                        routerLink="../credit-merchant">Credits</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            <div class="card mb-3 bg-success text-white">
+                <div class="card-body text-center">
+                    <h5 class="mt-3">₹0.00</h5>
+                    <h6 class="m-0 card-title">Available Balance</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card mb-3 bg-info text-white">
+                <div class="card-body text-center">
+                    <h5 class="mt-3">0</h5>
+                    <h6 class="m-0 card-title">Total Transactions</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="js_merchant-credit-filter filter-form-modal">
+        <div class="form-row">
+            <div class="col-sm-3">
+                <div class="form-group"><select class="form-control credit-select-filter-type" name="type">
+                        <option value="" selected="">Select Type</option>
+                        <option value="debit">Debit</option>
+                        <option value="credit">Credit</option>
+                    </select></div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group"><select class="form-control credit-select-filter-transaction"
+                        name="transaction_type">
+                        <option value="" selected="">Select Transaction Type</option>
+                        <option value="sms">SMS</option>
+                        <option value="online_platform">Online Platform</option>
+                    </select></div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row mb-3">
+        <div class="col-sm-6 ml-auto">
+            <div class="d-flex float-right">
+                <button class="float-right btn btn-outline-primary js_merchant-credit-create" data-bs-toggle="modal"
+                    data-bs-target="#js_merchant-credit-create-modal">
+                    <em class="la la-plus-circle">+</em> Add Merchant
+                    Credit </button>
+            </div>
+        </div>
+    </div>
+    <!-- Model  Creadit Merchant Start -->
+    <div class="modal fade show" id="js_merchant-credit-create-modal" style="display: none; padding-right: 17px;"
+        aria-modal="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Merchant Credit</h5><button class="close" type="button"
+                        data-dismiss="modal" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_merchant-credit-create-form" data-form="#js_merchant-credit-create-form"
+                        data-btn="#js_merchant-credit-create-button" novalidate="novalidate"><input type="hidden"
+                            name="_csrf" value="ejKkGEe7-hl9acBEIxYdmiqLncfI4Uk52Rhc">
+                        <div class="form-group"><label> Amount<em class="text-danger"> *</em></label><input
+                                class="form-control js_merchant-credit-amount" type="number"
+                                name="merchant_credit_amount" placeholder="Credit Amount"></div>
+                        <div class="form-group"><label>Description<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" name="merchant_credit_description"
+                                placeholder="Description"></div>
+                        <div class="row float-right mr-2"><span> Payment Gateway Charges(2%) : </span>
+                            <span class="js_payment-gateway-charge-amount label label-default">0.00</span>
+                        </div><br>
+                        <div class="row float-right mr-2"><span> Tax Charges(18%) : </span><span
+                                class="js_tax-charge label label-default">0.00</span></div><br>
+                        <div class="row float-right mr-2"><span> Total Charges : </span><span
+                                class="js_total-charge label label-default">0.00</span></div><input type="hidden"
+                            name="merchant_address"><input type="hidden" name="merchant_name" value="StoreERP"><input
+                            type="hidden" name="merchant_email" value="StoreERP@StoreERP.com"><input type="hidden"
+                            name="phone" value="9176104637">
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal"
+                        data-bs-dismiss="modal">Close</button><button class="btn btn-primary ld-ext-right"
+                        id="js_merchant-credit-create-button" data-bs-dismiss="modal">Save<div
+                            class="ld ld-ring ld-spin"></div></button></div>
+                <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+            </div>
+        </div>
+    </div>
+    <!-- Model  Creadit Merchant end -->
+    <div class="js_merchant-credits-table">
+        <div class="row align-items-center mb-2">
+            <div class="col-md-8"></div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="empty-state"><i class="settings-outline"></i>
+            <h3 class="text-center">No Merchant credits have been created</h3>
+            <div class="align-button">
+                <button class="text-center btn btn-outline-primary js_merchant-credit-create" data-bs-toggle="modal"
+                    data-bs-target="#js_merchant-credit-create-modal">
+                    <em class="la la-plus-circle">+</em>
+                    Add Merchant Credit
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div>

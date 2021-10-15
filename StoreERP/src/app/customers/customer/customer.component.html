@@ -1,0 +1,670 @@
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row bg-white pt-2 mb-3 shadow">
+                <div class="col">
+                    <ul class="nav nav-pills mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="../customer">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../credits/">Credits</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" routerLink="../groups">Groups</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input class="form-control js_prevent-enter-action" id="js_customer-filter-query"
+                    placeholder="Filter by Name, Code, Email, Phone" name="query">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <select class="form-control select2-hidden-accessible" id="js_customer-group"
+                    name="merchant_customer_group_id">
+                    <option>All Groups</option>
+                    <option>Instagram</option>
+                </select>
+            </div>
+        </div>
+        <!-- <div class="col-md-2">
+            <div class="form-group">
+                <a class="js_more-filters-btn btn btn-outline-primary text-decoration-none" routerLink="#">
+                    More filters
+                </a>
+            </div>
+        </div> -->
+        <div class="col-md-4 mb-3">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" (click)="toggle()" class="btn btn-primary"> {{ buttonName }}</button>
+            </div>
+        </div>
+    </div>
+    <form>
+        <div *ngIf="show" class="row">
+            <div class="col-md-12">
+                <div class="form-row js_more-filters">
+                    <div class="col-md-2">
+                        <div class="form-group" data-select2-id="55">
+                            <select class="form-control js_employee-filter-select2 select2-hidden-accessible"
+                                name="employee_id" data-select2-id="14" tabindex="-1" aria-hidden="true">
+                                <option>All Employee</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <select class="form-control select-filter" name="is_active">
+                                <option value="" selected="">Select Customer Status</option>
+                                <option value="1">ACTIVE</option>
+                                <option value="0">INACTIVE</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <select class="form-control select-filter" name="outstanding">
+                                <option value="" selected="">Outstanding Credit Customer</option>
+                                <option value="zero">Zero Balance</option>
+                                <option value="negative">Customer Outstanding Balance</option>
+                                <option value="positive">Merchant Outstanding Balance</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control js_location-select2 select2-hidden-accessible"
+                                name="location_id" data-select2-id="6" tabindex="-1" aria-hidden="true">
+                                <option>All Locations</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group ld-ext-right js_loading">
+                            <div class="ld ld-ring ld-spin"></div>
+                            <input class="form-control js_prevent-enter-action" id="js_customer-referral-filter-query"
+                                placeholder="Filter by Referral Code" name="referral_code">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <select class="form-control js_customer-filter-select2 select2-hidden-accessible"
+                                name="referral_merchant_customer_id" data-select2-id="12" tabindex="-1"
+                                aria-hidden="true">
+                                <option>Referred By</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row mb-3">
+        <div class="col-md-6 ml-auto">
+            <div class="form-group">
+                <div class="form-inline float-right btn-group">
+
+                    <button type="button" class="text-justify mr-2 js_customer btn btn-outline-primary mr-2"
+                        data-bs-toggle="modal" data-bs-target="#js_credit-view-modal117934">
+
+                        + Create Customer
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary dropdown-toggle float-right  mr-2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Export
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="../customer">Export Customers</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary float-right  mr-2" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="la la-question-circle la-lg">?</i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="../customer"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                            <li><a class="dropdown-item" routerLink="../customer"><i class="la la-youtube-play mr-1"></i>Video
+                                    Tutorial</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" id="js_customers">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing 1 entry</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="float-right text-decoration" routerLink="../customer">Clear Filters</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-hover bg-white">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Credits</th>
+                                    <th>Outstanding</th>
+                                    <th>Reward Points</th>
+                                    <th>Referral Code</th>
+                                    <th>Referred By</th>
+                                    <th>Created Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="m-0">
+                                            <a class="text-decoration-none" routerLink="../customer"
+                                                target="_blank">Tom Hiddleston </a>
+                                        </p>
+                                        <small class="d-block">Group: online</small>
+                                    </td>
+                                    <td></td>
+                                    <td>987654321</td>
+                                    <td>
+                                        <small class="d-block text-info">Credit Given: <b>₹100.00</b></small>
+                                        <small class="d-block text-success">Payments Received: <b>₹0.00</b></small>
+                                    </td>
+                                    <td><b class="text-danger">₹100.00</b></td>
+                                    <td>50</td>
+                                    <td>9fbdedce</td>
+                                    <td><a class="text-decoration-none" routerLink="../customer"
+                                            target="_blank">Elon musk </a></td>
+                                    <td>Jul 8, 2021</td>
+                                    <td width="210">
+                                        <a class="btn btn-outline-primary btn-sm btn-block-xs mb-2 text-decoration-none"
+                                            routerLink="../customer">View</a>
+                                        
+                                        <a class="js_customer-deactivate btn btn-sm btn-block-xs mb-2 btn-danger ld-ext-right text-decoration-none"
+                                            routerLink="../customer" (click)="alertDeactivate()">
+                                            Deactivate
+                                            <div class="ld ld-ring ld-spin"></div>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Customer Model -->
+        <div class="container-fluid">
+            <div class="modal fade" id="js_credit-view-modal117934">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="fixed-top">
+                                <div
+                                    class="p-1 bg-light border border-secondary border-top-0 border-left-0 border-right-0">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button class="close float-left" type="button" data-bs-dismiss="modal">×
+                                            </button>
+                                        </div>
+                                        <div class="col text-center">
+                                            <h4 class="form-modal-title"> Create Customer</h4>
+                                        </div>
+                                        <div class="col">
+                                            <a  data-bs-dismiss="modal"  class="float-right btn btn-primary ld-ext-right" 
+                                                id="js_customer-btn">Save
+                                                <div class="ld ld-ring ld-spin"></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-10 m-auto">
+                                    <form class="js_customer-form noenter" id="js_customer-form"
+                                        data-country="IN" novalidate="novalidate" data-select2-id="js_customer-form">
+                                        <input type="hidden" name="_csrf" value="rXXCXFSn-ncXuJamh0RzTIyrhPI-YFDgDfT0">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h4>Basic Info</h4>
+                                                <p class="text-muted">Your Customer Basic Information</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="form-row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label> First Name<em
+                                                                    class="text-danger"> *</em></label><input
+                                                                class="form-control" type="text" name="first_name"
+                                                                placeholder="First Name" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Last Name</label><input
+                                                                class="form-control" type="text" name="last_name"
+                                                                placeholder="Last Name" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Email</label><input
+                                                                class="form-control" type="email" name="email"
+                                                                placeholder="Email" value=""></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label> Phone Number<em
+                                                                    class="text-danger"> *</em></label><input
+                                                                class="form-control" type="text" name="phone"
+                                                                placeholder="Phone" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Group</label>
+                                                            <div class="select-group"><select
+                                                                    class="form-control js_group-select2 w-100 select2-hidden-accessible"
+                                                                    name="merchant_customer_group_id"
+                                                                    data-select2-id="1" tabindex="-1"
+                                                                    aria-hidden="true"></select><span
+                                                                    class="select2 select2-container select2-container--default"
+                                                                    dir="ltr" data-select2-id="2"
+                                                                    style="width: 100%;"><span class="selection"><span
+                                                                            class="select2-selection select2-selection--single"
+                                                                            role="combobox" aria-haspopup="true"
+                                                                            aria-expanded="false" tabindex="0"
+                                                                            aria-disabled="false"
+                                                                            aria-labelledby="select2-merchant_customer_group_id-c8-container"><span
+                                                                                class="select2-selection__rendered"
+                                                                                id="select2-merchant_customer_group_id-c8-container"
+                                                                                role="textbox"
+                                                                                aria-readonly="true"><span
+                                                                                    class="select2-selection__placeholder">Select
+                                                                                    Group</span></span><span
+                                                                                class="select2-selection__arrow"
+                                                                                role="presentation"><b
+                                                                                    role="presentation"></b></span></span></span><span
+                                                                        class="dropdown-wrapper"
+                                                                        aria-hidden="true"></span></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Customer Code</label><input
+                                                                class="form-control" type="text" name="customer_code"
+                                                                placeholder="Customer Code" value=""></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label> Customer DOB</label>
+                                                            <div class="hidden-group"><input
+                                                                    class="form-control bg-white js_dob-date"
+                                                                    type="text" readonly="" placeholder="Customer DOB"
+                                                                    value=""><input type="hidden" name="dob"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Customer Gender</label><select
+                                                                class="form-control" name="gender">
+                                                                <option value="">Select Gender</option>
+                                                                <option value="male">Male</option>
+                                                                <option value="female">Female</option>
+                                                            </select></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <h4>Address</h4>
+                                                <p class="text-muted">Your Customer Address</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="form-row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Line</label><input
+                                                                class="form-control" type="text" name="address[line]"
+                                                                placeholder="Line" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Land Mark</label><input
+                                                                class="form-control" type="text"
+                                                                name="address[landmark]" placeholder="Land Mark"
+                                                                value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Area</label><input
+                                                                class="form-control" type="text" name="address[area]"
+                                                                placeholder="Area" value=""></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>City</label><input
+                                                                class="form-control" type="text" name="address[city]"
+                                                                placeholder="City" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>State</label><input
+                                                                class="form-control" type="text" name="address[state]"
+                                                                placeholder="State" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>State</label><input
+                                                                class="form-control" type="text" name="address[country]"
+                                                                placeholder="Country" value=""></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Zip Code</label><input
+                                                                class="form-control" type="number" name="address[zip]"
+                                                                placeholder="Zip Code" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group"><label>Type</label><select
+                                                                class="form-control" name="address[annotation]">
+                                                                <option value="">Select Type</option>
+                                                                <option value="home">Home</option>
+                                                                <option value="work">Work</option>
+                                                                <option value="other">Other</option>
+                                                            </select></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label>Latitude</label><input
+                                                                        class="form-control js_latitude-value"
+                                                                        type="number" name="address[coordinates][1]"
+                                                                        placeholder="Latitude" value=""></div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label>Longitude</label><input
+                                                                        class="form-control js_longitude-value"
+                                                                        type="number" name="address[coordinates][0]"
+                                                                        placeholder="Longitude" value=""></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h4>Company Details</h4>
+                                                <p class="text-muted">Your Customer Company Details</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label>TRN/GSTIN</label><input
+                                                                class="form-control" type="text"
+                                                                name="custom_attributes[trn]"
+                                                                placeholder="TRN/GSTIN number" value=""></div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label>Company Name</label><input
+                                                                class="form-control" type="text"
+                                                                name="custom_attributes[company_name]"
+                                                                placeholder="Company Name" value=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h4>Credit Details</h4>
+                                                <p class="text-muted">Your Customer Credit Details</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label>Credit Limit</label><input
+                                                                class="form-control" type="number" min="0"
+                                                                name="credit_limit" placeholder="Credit Limit" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label>Opening Credit
+                                                                Balance</label><input class="form-control" type="number"
+                                                                min="0" name="credit_opening_balance"
+                                                                placeholder="Opening Credit Balance"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h4>Item Pricing</h4>
+                                                <p class="text-muted">Your Customer custom Item Pricing</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered">
+                                                                <thead class="bg-light">
+                                                                    <tr>
+                                                                        <th>Items</th>
+                                                                        <th>Price</th>
+                                                                        <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody data-select2-id="20">
+                                                                    <tr id="js_item-pricing-form"
+                                                                        data-select2-id="js_item-pricing-form">
+                                                                        <td data-select2-id="19">
+                                                                            <div class="form-row js_inventory-group">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group"
+                                                                                        data-select2-id="18">
+                                                                                        <div class="select-group"
+                                                                                            data-select2-id="17">
+                                                                                            <select
+                                                                                                class=" form-control js_location-select2 select2-hidden-accessible"
+                                                                                                data-select2-id="8"
+                                                                                                tabindex="-1"
+                                                                                                aria-hidden="true">
+                                                                                                <option>All Locations
+                                                                                                </option>
+                                                                                            </select>
+                                                                                            <!-- <span class="select2 select2-container select2-container--default select2-container--below"  dir="ltr" data-select2-id="9"
+                                                                                                style="width: 100%;">
+                                                                                                <span class="selection"><span
+                                                                                                        class="select2-selection select2-selection--single"
+                                                                                                        role="combobox"
+                                                                                                        aria-haspopup="true"
+                                                                                                        aria-expanded="false"
+                                                                                                        tabindex="0"
+                                                                                                        aria-disabled="false"
+                                                                                                        aria-labelledby="select2-oojy-container"><span
+                                                                                                            class="select2-selection__rendered"
+                                                                                                            id="select2-oojy-container"
+                                                                                                            role="textbox"
+                                                                                                            aria-readonly="true"><span
+                                                                                                                class="select2-selection__placeholder">All
+                                                                                                                Locations</span></span><span
+                                                                                                            class="select2-selection__arrow"
+                                                                                                            role="presentation"><b
+                                                                                                                role="presentation"></b></span></span></span><span
+                                                                                                    class="dropdown-wrapper"
+                                                                                                    aria-hidden="true"></span></span> -->
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <div class="select-group">
+                                                                                            <select
+                                                                                                class=" form-control js_item-select2 select2-hidden-accessible"
+                                                                                                name="item" disabled=""
+                                                                                                data-select2-id="4"
+                                                                                                tabindex="-1"
+                                                                                                aria-hidden="true">
+                                                                                                <option>Select Item
+                                                                                                </option>
+                                                                                            </select>
+
+                                                                                            <!-- <span
+                                                                                                class="select2 select2-container select2-container--default select2-container--disabled"
+                                                                                                dir="ltr"
+                                                                                                data-select2-id="5"
+                                                                                                style="width: 100%;"><span
+                                                                                                    class="selection"><span
+                                                                                                        class="select2-selection select2-selection--single"
+                                                                                                        role="combobox"
+                                                                                                        aria-haspopup="true"
+                                                                                                        aria-expanded="false"
+                                                                                                        tabindex="-1"
+                                                                                                        aria-disabled="true"
+                                                                                                        aria-labelledby="select2-item-nz-container"><span
+                                                                                                            class="select2-selection__rendered"
+                                                                                                            id="select2-item-nz-container"
+                                                                                                            role="textbox"
+                                                                                                            aria-readonly="true"><span
+                                                                                                                class="select2-selection__placeholder">Select
+                                                                                                                Item</span></span><span
+                                                                                                            class="select2-selection__arrow"
+                                                                                                            role="presentation"><b
+                                                                                                                role="presentation"></b></span></span></span><span
+                                                                                                    class="dropdown-wrapper"
+                                                                                                    aria-hidden="true"></span></span> -->
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td width="150"><input class="form-control"
+                                                                                type="number" min="0"
+                                                                                placeholder="Price" name="item_price">
+                                                                        </td>
+                                                                        <td width="100"><button class="btn btn-success"
+                                                                                type="button"
+                                                                                id="js_add-item-pricing">ADD</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <h4>Additional Details</h4>
+                                                <p class="text-muted">Your Customer Additional Details</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="form-row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label>Assign Employees</label>
+                                                            <div class="select-group">
+                                                                <select
+                                                                    class="form-control js_employee-select2 select2-hidden-accessible"
+                                                                    name="employees[]" multiple="" data-select2-id="10"
+                                                                    tabindex="-1" aria-hidden="true">
+                                                                    <option>Delivery 1</option>
+                                                                    <option>Delivery 2</option>
+                                                                    <option>Eco Shop 1</option>
+                                                                    <option>Eco Shop 2</option>
+                                                                </select>
+
+                                                                <!-- <span
+                                                                    class="select2 select2-container select2-container--default select2-container--above"
+                                                                    dir="ltr" data-select2-id="11"
+                                                                    style="width: 100%;"><span class="selection"><span
+                                                                            class="select2-selection select2-selection--multiple"
+                                                                            role="combobox" aria-haspopup="true"
+                                                                            aria-expanded="false" tabindex="-1"
+                                                                            aria-disabled="false">
+                                                                            <ul class="select2-selection__rendered">
+                                                                                <li
+                                                                                    class="select2-search select2-search--inline">
+                                                                                    <input class="select2-search__field"
+                                                                                        type="search" tabindex="0"
+                                                                                        autocomplete="off"
+                                                                                        autocorrect="off"
+                                                                                        autocapitalize="none"
+                                                                                        spellcheck="false"
+                                                                                        role="searchbox"
+                                                                                        aria-autocomplete="list"
+                                                                                        placeholder="Select Employee"
+                                                                                        style="width: 0px;">
+                                                                                </li>
+                                                                            </ul>
+                                                                        </span></span><span class="dropdown-wrapper"
+                                                                        aria-hidden="true"></span></span> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group"><label>Preferable Delivery
+                                                                Day</label><select class="form-control"
+                                                                name="custom_attributes[preferable_delivery_day]">
+                                                                <option value="">Select Day</option>
+                                                                <option value="sunday">Sunday</option>
+                                                                <option value="monday">Monday</option>
+                                                                <option value="tuesday">Tuesday</option>
+                                                                <option value="wednesday">Wednesday</option>
+                                                                <option value="thursday">Thursday</option>
+                                                                <option value="friday">Friday</option>
+                                                                <option value="saturday">Saturday</option>
+                                                            </select></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label>Notes</label><textarea
+                                                        class="form-control" name="custom_attributes[notes]"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="daterangepicker ltr single opensright">
+                                            <div class="ranges"></div>
+                                            <div class="drp-calendar left single" style="display: block;">
+                                                <div class="calendar-table"></div>
+                                                <div class="calendar-time" style="display: none;"></div>
+                                            </div>
+                                            <div class="drp-calendar right" style="display: none;">
+                                                <div class="calendar-table"></div>
+                                                <div class="calendar-time" style="display: none;"></div>
+                                            </div>
+                                            <div class="drp-buttons">
+                                                <span class="drp-selected"></span>
+                                                <button data-bs-dismiss="modal" class="cancelBtn btn btn-sm btn-default"  type="button">Cancel</button>
+                                                <button data-bs-dismiss="modal" class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> 
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Create Customer Model End -->
+
+    </div>
+</div>

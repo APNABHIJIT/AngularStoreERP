@@ -1,0 +1,318 @@
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row bg-white pt-2 mb-3 shadow">
+                <div class="col">
+                    <ul class="nav nav-pills mb-2 border-0">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales">Transactions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales/cash-drawer-shifts/">Cash Drawer Shifts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="../../sales/online-orders/">Online Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales/bulk-orders/">Sales Request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales/order-refunds/">Sales Return</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <div class="form-group">
+                <select class="form-control active">
+                    <option value="Toady" >Toady</option>
+                    <option value="Yesterday" >Yesterday</option>
+                    <option value="This Week" >This Week</option>
+                    <option value="Last Week" >Last Week</option>
+                    <option value="This Month" > This Month</option>
+                    <option value="Last Month" >Last Month</option>
+                    <option value="This Year" >This Year</option>
+                    <option value="Last Year" >Last Year</option>
+                    <option value="" > Custom Range</option>
+                </select>
+            </div>
+        </div>
+     
+        <div class="col-md-4">
+            <div class="form-group">
+                
+                <select class="form-control">
+                    <option>All Locations</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" (click)="toggle()" class="btn btn-primary">{{ buttonName }}</button>
+           </div>
+        </div>
+    </div>
+    
+    <form>
+        <div *ngIf="show" class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control js_order-state-change" name="order_state">
+                        <option value="">All Status</option>
+                        <option value="placed">Placed</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="ready">Ready</option>
+                        <option value="dispatched">Dispatched</option>
+                        <option value="modified">Modified</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ld-ext-right js_loading">
+                    <input class="form-control" placeholder="Filter by Invoice Number" name="order_id">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" name="channel" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                        <option>Select Merchant Platform</option>
+                    </select>
+                    
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" name="employee_id">
+                        <option>All Employees</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" name="transporter_id">
+                        <option>All Runners</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" name="payment_method">
+                        <option>Select Payment Method</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ld-ext-right js_loading">
+                    <input class="form-control" placeholder="Filter by Order Id" name="pos_order_id">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" name="order_type">
+                        <option value="">All Order Types</option>
+                        <option value="other">Sale</option>
+                        <option value="lease">Lease</option>
+                        <option value="delivery">Delivery (Door)</option>
+                        <option value="pickup">Pickup (self)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group ld-ext-right">
+                    <div class="ld ld-ring ld-spin"></div>
+                    <input class="form-control" placeholder="Filter by Shift Id" name="employee_shift_code">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-md-4 ml-auto mb-3">
+            <div class="form-group">
+                <div class="form-inline float-right btn-group">
+                    <button type="button" class="btn btn-outline-primary float-right mr-3">Export XSL</button>
+                    <div class="btn-group">
+                        <button class="btn btn-primary float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="la la-question-circle la-lg">?</i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" routerLink="#"><i class="la la-book"></i>Tutorial</a></li>
+                          <li><a class="dropdown-item" routerLink="#"><i class="la la-youtube-play"></i>Video Tutorial</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>5 </b> of<b> 5 </b> entries</p>
+        </div>
+        <div class="col-md-4">
+            <a class="float-right text-decoration-none" routerLink="../../sales/online-orders">Clear Filters</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Order Details</th>
+                            <th>Item Details</th>
+                            <th>Method</th>
+                            <th>Total</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-danger">CANCELLED</span></td>
+                            <td>
+                                <small> Order #: <a routerLink="../../sales/online-orders" title="5177509" target="_blank">5177509</a></small><br>
+                                <small>Customer Phone: 987654321 </small>
+                            </td>
+                            <td>
+                                <small> Items : 1</small><br>
+                                <small>Quantity : 1</small>
+                            </td>
+                            <td>COD</td>
+                            <td><b class="d-block">₹65.00</b></td>
+                            <td>Mon, Aug 2, 2021 7:42 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" routerLink="../online-orders">View</a></li>
+                                      <li><a class="dropdown-item" routerLink="../online-orders">Save as PDF</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><span class="badge badge-secondary">CANCELLED</span></td>
+                            <td>
+                                <small> Order #: <a routerLink="../online-orders" title="5177509" target="_blank">5177509</a></small><br>
+                                <small>Customer Phone: 987654322 </small>
+                            </td>
+                            <td>
+                                <small> Items : 2</small><br>
+                                <small>Quantity : 2</small>
+                            </td>
+                            <td>COD</td>
+                            <td><b class="d-block">₹65.00</b></td>
+                            <td>Mon, Aug 2, 2021 7:42 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" routerLink="../online-orders">View</a></li>
+                                      <li><a class="dropdown-item" routerLink="../online-orders">Save as PDF</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><span class="badge badge-success">CANCELLED</span></td>
+                            <td>
+                                <small> Order #: <a routerLink="../online-orders" title="5177509" target="_blank">5177509</a></small><br>
+                                <small>Customer Phone: 987654321 </small>
+                            </td>
+                            <td>
+                                <small> Items : 3</small><br>
+                                <small>Quantity : 3</small>
+                            </td>
+                            <td>COD</td>
+                            <td><b class="d-block">₹65.00</b></td>
+                            <td>Mon, Aug 2, 2021 7:42 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" routerLink="../online-orders">View</a></li>
+                                      <li><a class="dropdown-item" routerLink="../online-orders">Save as PDF</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><span class="badge badge-primary">READY</span></td>
+                            <td>
+                                <small> Order #: <a routerLink="../online-orders" title="5177509" target="_blank">5177509</a></small><br>
+                                <small>Customer Phone: 987654321 </small>
+                            </td>
+                            <td>
+                                <small> Items : 3</small><br>
+                                <small>Quantity : 4</small>
+                            </td>
+                            <td>COD</td>
+                            <td><b class="d-block">₹65.00</b></td>
+                            <td>Mon, Aug 2, 2021 7:42 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" routerLink="../online-orders">View</a></li>
+                                      <li><a class="dropdown-item" routerLink="../online-orders">Save as PDF</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><span class="badge badge-danger">CANCELLED</span></td>
+                            <td>
+                                <small> Order #: <a routerLink="../online-orders" title="5177509" target="_blank">5177509</a></small><br>
+                                <small>Customer Phone: 7358170456 </small>
+                            </td>
+                            <td>
+                                <small> Items : 2</small><br>
+                                <small>Quantity : 1</small>
+                            </td>
+                            <td>COD</td>
+                            <td><b class="d-block">₹65.00</b></td>
+                            <td>Mon, Aug 2, 2021 7:42 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" routerLink="../online-orders">View</a></li>
+                                      <li><a class="dropdown-item" routerLink="../sales/online-orders">Save as PDF</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  
+
+
+</div>

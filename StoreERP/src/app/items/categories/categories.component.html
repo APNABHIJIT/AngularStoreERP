@@ -1,0 +1,383 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 align-items-center">
+            <div class="clearfix float-right d-flex">
+                <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="modal"
+                    data-bs-target="#js_category-update-status-modal">+ Update Status</button>
+                <button class="mr-2 btn btn-outline-primary btn-block-xs mb-2" data-bs-toggle="modal"
+                    data-bs-target="#js_category-modal">
+                    <em class="la la-plus-circle"></em> + Create Category
+                </button>
+
+
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="#"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalbTcMt3TLYAQ">
+                                <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="div modal fade" id="youtubeModalbTcMt3TLYAQ" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/watch?v=6qys-562kp4" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Model Update Start -->
+    <div class="modal fade show" id="js_category-update-status-modal" data-backdrop="static"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="form-modal" id="js_category-update-status-form-modal" data-form="#js_category-update-status-form"
+            data-btn="#js_category-update-status-btn"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Category Status</h5>
+                    <button class="close js_close-button" type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_category-update-status-form" data-url="../items/categories/status/toggle"
+                        novalidate="novalidate">
+                        <div class="form-group"><label>Availability Status Type</label><select class="form-control"
+                                name="status_type">
+                                <option value="is_active">Active</option>
+                                <option value="is_available">Availability</option>
+                            </select></div>
+                        <div class="form-group"><label>Status</label><select class="form-control" name="status">
+                                <option value="1">Enable</option>
+                                <option value="0">Disable</option>
+                            </select></div>
+                        <div class="form-group">
+                            <label>Categories To Exclude</label>
+
+                            <input class=" form-control select2-search__field" type="search" tabindex="0"
+                                autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+                                role="searchbox" aria-autocomplete="list" placeholder="Select Categories">
+                            <!-- <select
+                                class="js_categories-list-select2 form-control select2-hidden-accessible" multiple=""
+                                name="category_ids[]" data-select2-id="1" tabindex="-1"
+                                aria-hidden="true">
+                            </select>
+                            <span
+                                class="select2 select2-container select2-container--default" dir="ltr"
+                                data-select2-id="2" style="width: 100%;"><span class="selection"><span
+                                        class="select2-selection select2-selection--multiple" role="combobox"
+                                        aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false">
+                                        <ul class="select2-selection__rendered">
+                                            <li class="select2-search select2-search--inline">
+                                            <input
+                                                    class="select2-search__field" type="search" tabindex="0"
+                                                    autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                    spellcheck="false" role="searchbox" aria-autocomplete="list"
+                                                    placeholder="Select Categories" style="width: 0px;"></li>
+                                        </ul>
+                                    </span></span><span class="dropdown-wrapper" aria-hidden="true">
+                                        
+                                    </span>
+                            </span> -->
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button><button
+                        class="btn btn-primary ld-ext-right" id="js_category-update-status-btn"
+                        data-bs-dismiss="modal">Save
+                        <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model Update Close -->
+
+    <!-- model Create Categories Start -->
+    <div class="modal fade show" id="js_category-modal" data-backdrop="static"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="form-modal" id="js_category-create" data-form="#js_category-form" data-btn="#js_category-btn"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Category</h5>
+                    <button class="close js_close-button" type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_category-form" data-url="/item/categories/" novalidate="novalidate"><input
+                            type="hidden" name="_csrf" value="or5iH6NW-IUiHjhaA1oqd__95PrT7gZZjIrs"><input type="hidden"
+                            name="is_active" value="1">
+                        <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" placeholder="Category Name" name="name"></div>
+                        <div class="form-group"><label>Alternate Name</label><input class="form-control" type="text"
+                                placeholder="Alternate Name" name="custom_attributes[alternate_language]"><input
+                                type="hidden" name="is_available" value="1"></div>
+                        <div class="form-group"><label>Image</label>
+                            <div class="media"><img class="d-flex mr-2" src="../assets/images/image-placeholder.png"
+                                    width="100">
+                                <div class="media-body"><input class="form-control js_category-image-upload" name="file"
+                                        type="file" accept="image/*" data-url="/item/categories/upload"><input
+                                        class="js_category-image-upload-input" type="hidden" name="image_path" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button><button class="btn btn-primary ld-ext-right"
+                        id="js_category-btn" data-bs-dismiss="modal">Save<div class="ld ld-ring ld-spin">
+                        </div></button></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model Create Categories Close -->
+
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <!-- Table Start-->
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>id #</th>
+                            <th>Name</th>
+                            <th>Active</th>
+                            <th>Availability</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>28523</td>
+                            <td>Nutritional Diets</td>
+                            <td>
+                                <div class="custom-control custom-switch text-center">
+                                    <input class="custom-control-input js_category-change-availability"
+                                        id="isActiveCheckbox-28523" type="checkbox" checked=""  data-obj="{&quot;is_active&quot;: 0}"
+                                        data-url="/item/categories/28523/change-availability">
+                                        <label  class="custom-control-label" for="isActiveCheckbox-28523"></label></div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isAvailableCheckbox-28523" type="checkbox" checked=""
+                                        data-obj="{&quot;is_available&quot;: 0}"
+                                        data-url="/item/categories/28523/change-availability"><label
+                                        class="custom-control-label" for="isAvailableCheckbox-28523"></label></div>
+                            </td>
+                            <td>Aug 6, 2021 4:11 PM</td>
+                            <td>
+                                <button class="js_category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2" type="button" data-bs-toggle="modal" data-bs-target="#js_category-modal28523">Edit</button>
+                                <a class="js_category-delete btn btn-danger btn-sm ld-ext-right btn-block-xs mb-2 text-decoration-none" (click)="alertDelate()"  routerLink="../categories" data-url="/items/categories/28523">Delete
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>28521</td>
+                            <td>Essentials</td>
+                            <td>
+                                <div class="custom-control custom-switch text-center">
+                                <input class="custom-control-input js_category-change-availability"
+                                        id="isActiveCheckbox-28521" type="checkbox" checked=""
+                                        data-obj="{&quot;is_active&quot;: 0}"
+                                        data-url="/item/categories/28521/change-availability"><label
+                                        class="custom-control-label" for="isActiveCheckbox-28521"></label></div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isAvailableCheckbox-28521" type="checkbox" checked=""
+                                        data-obj="{&quot;is_available&quot;: 0}"
+                                        data-url="/items/categories/28521/change-availability"><label
+                                        class="custom-control-label" for="isAvailableCheckbox-28521"></label></div>
+                            </td>
+                            <td>Aug 6, 2021 11:22 AM</td>
+                            <td> 
+                                <button class="js_category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2" type="button" data-bs-toggle="modal" data-bs-target="#js_category-modal28523">Edit</button>
+                                <a class="js_category-delete btn btn-danger btn-sm ld-ext-right btn-block-xs mb-2 text-decoration-none"  (click)="alertDelate()"  routerLink="../categories" data-url="/item/categories/28523">Delete
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>28520</td>
+                            <td>emoji test</td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isActiveCheckbox-28520" type="checkbox" checked=""
+                                        data-obj="{&quot;is_active&quot;: 0}"
+                                        data-url="/item/categories/28520/change-availability"><label
+                                        class="custom-control-label" for="isActiveCheckbox-28520"></label></div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isAvailableCheckbox-28520" type="checkbox" checked=""
+                                        data-obj="{&quot;is_available&quot;: 0}"
+                                        data-url="/item/categories/28520/change-availability"><label
+                                        class="custom-control-label" for="isAvailableCheckbox-28520"></label></div>
+                            </td>
+                            <td>Aug 6, 2021 11:14 AM</td>
+                            <td> 
+                                <button class="js_category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2" type="button" data-bs-toggle="modal" data-bs-target="#js_category-modal28523">Edit</button>
+                                <a class="js_category-delete btn btn-danger btn-sm ld-ext-right btn-block-xs mb-2 text-decoration-none"(click)="alertDelate()"  routerLink="../categories" data-url="/item/categories/28523">Delete
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>28488</td>
+                            <td>Chocochocy</td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isActiveCheckbox-28488" type="checkbox" checked=""
+                                        data-obj="{&quot;is_active&quot;: 0}"
+                                        data-url="/item/categories/28488/change-availability"><label
+                                        class="custom-control-label" for="isActiveCheckbox-28488"></label></div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isAvailableCheckbox-28488" type="checkbox" checked=""
+                                        data-obj="{&quot;is_available&quot;: 0}"
+                                        data-url="/item/categories/28488/change-availability"><label
+                                        class="custom-control-label" for="isAvailableCheckbox-28488"></label></div>
+                            </td>
+                            <td>Aug 6, 2021 12:16 PM</td>
+                            <td> 
+                                <button class="js_category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2" type="button" data-bs-toggle="modal" data-bs-target="#js_category-modal28523">Edit</button>
+                                <a class="js_category-delete btn btn-danger btn-sm ld-ext-right btn-block-xs mb-2 text-decoration-none" (click)="alertDelate()"  routerLink="../categories" data-url="/item/categories/28523">Delete
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>28442</td>
+                            <td>soap</td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isActiveCheckbox-28442" type="checkbox" checked=""
+                                        data-obj="{&quot;is_active&quot;: 0}"
+                                        data-url="/item/categories/28442/change-availability"><label
+                                        class="custom-control-label" for="isActiveCheckbox-28442"></label></div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch text-center"><input
+                                        class="custom-control-input js_category-change-availability"
+                                        id="isAvailableCheckbox-28442" type="checkbox" checked=""
+                                        data-obj="{&quot;is_available&quot;: 0}"
+                                        data-url="/item/categories/28442/change-availability"><label
+                                        class="custom-control-label" for="isAvailableCheckbox-28442"></label></div>
+                            </td>
+                            <td>Aug 6, 2021 6:13 PM</td>
+                            <td> 
+                                <button class="js_category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2" type="button" data-bs-toggle="modal" data-bs-target="#js_category-modal28523">Edit</button>
+                                <a class="js_category-delete btn btn-danger btn-sm ld-ext-right btn-block-xs mb-2 text-decoration-none"  (click)="alertDelate()"  routerLink="../categories" data-url="/item/categories/28523">Delete
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </a>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    <!-- Model Edit -->
+    <div class="modal fade" id="js_category-modal28523" data-backdrop="static" aria-hidden="true"
+    style="display: none;">
+    <div class="form-modal" id="js_category-create28523" data-form="#js_category-form28523"
+        data-btn="#js_category-btn28523"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Category</h5>
+                <button class="close js_close-button" type="button"  data-bs-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="js_category-form28523" data-url="/item/categories/28523" novalidate="novalidate"><input
+                        type="hidden" name="_csrf" value="or5iH6NW-IUiHjhaA1oqd__95PrT7gZZjIrs"><input type="hidden"
+                        name="is_active" value="1">
+                    <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                            class="form-control" type="text" placeholder="Category Name" name="name"
+                            value="Nutritional Diets"></div>
+                    <div class="form-group"><label>Alternate Name</label><input class="form-control" type="text"
+                            placeholder="Alternate Name" name="custom_attributes[alternate_language]"
+                            value=""><input type="hidden" name="is_available" value="1"></div>
+                    <div class="form-group"><label>Image</label>
+                        <div class="media"><img class="d-flex mr-2"
+                                src="https://StoreERP.s3.ap-south-1.amazonaws.com/categories/dryfruits.jpg"
+                                width="100">
+                            <div class="media-body">
+                                <input class="form-control js_category-image-upload" name="file" type="file"
+                                    accept="image/*" data-url="/item/categories/upload"><input
+                                    class="js_category-image-upload-input" type="hidden" name="image_path"
+                                    value="/categories/dryfruits.jpg"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary ld-ext-right" id="js_category-btn28523"  data-bs-dismiss="modal">Save
+                    <div class="ld ld-ring ld-spin"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal Edit Close -->
+    </div>
+    <!-- Table close -->
+
+
+</div>

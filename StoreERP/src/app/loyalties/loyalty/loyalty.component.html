@@ -1,0 +1,297 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0 justify-content-between">
+                <li class="nav-item"><a class="nav-link  text-decoration-none active"
+                        routerLink="../loyalty">Loyalties</a></li>
+                <li class="nav-item d-flex align-items-center">
+
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="la la-question-circle la-lg">?</i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-decoration-none" routerLink="../loyalty"><i
+                                        class="la la-book mr-1"></i>Tutorial</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rajdhan</td>
+                            <td>Demo Des</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td>Aug 6, 2021 10:32 AM</td>
+                            <td>
+                                <button
+                                    class="btn btn-outline-primary js_loyalty-form-modal-btn btn-sm mr-1 btn-block-xs mb-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_loyalty-create45">Edit
+                                </button>
+
+                                <a class="js_loyalty-delete btn btn-danger btn-sm mr-1 btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    routerLink="../loyalty" (click)="alertDelete()" >Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                                <a class="js_loyalty-rule btn btn-outline-primary btn-sm mr-1 btn-block-xs js_loyalty-change-status mb-2 text-decoration-none"
+                                    routerLink="../loyalty" data-url="/loyalty/45/change-status" data-active="0">Change
+                                    Status</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal Start -->
+        <div class="modal fade show" id="js_loyalty-create45" data-backdrop="static"
+            style="display: none; padding-right: 17px;" aria-modal="true">
+            <div class="form-modal" id="js_category-update-status-form-modal"
+                data-form="#js_category-update-status-form" data-btn="#js_category-update-status-btn"></div>
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="col">
+                            <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                                <i class="la la-times">X</i></a>
+                        </div>
+                        <div class="col text-center">
+                            <h4 class="form-modal-title"> Edit Loyalty</h4>
+                        </div>
+                        <div class="col">
+                            <button class="js_loyalty-submit-btn float-right btn btn-primary ld-ext-right"
+                                data-bs-dismiss="modal" id="js_loyalty-btn45">Save
+                                <div class="ld ld-ring ld-spin"></div>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-modal-body">
+                            <div class="row">
+                                <div class="col-sm-11 m-auto">
+                                    <form class="js_loyalty-form" id="js_loyalty-form45" data-url="/loyalty/45"
+                                        novalidate="novalidate"><input type="hidden" name="_csrf"
+                                            value="FDhfpKPY-1PzRmAHtGlqefvCqmZ6BZMYI3L0"><input type="hidden"
+                                            name="is_active" value="1"><input class="js_loyalty-mode" type="hidden"
+                                            name="mode" value="edit">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Name<em class="text-danger">
+                                                            *</em></label><input class="form-control" type="text"
+                                                        placeholder="Loyalty Name" name="name" value="abcd"></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label>Locations<em
+                                                            class="text-danger">*</em></label>
+                                                    <div class="clearfix select-group"><select
+                                                            class="form-control js_location-form-select2 select2-hidden-accessible"
+                                                            name="locations[]" multiple="" data-select2-id="3"
+                                                            tabindex="-1" aria-hidden="true">
+                                                            <option value="554" selected="" data-select2-id="13">Store 1
+                                                            </option>
+                                                        </select>
+                                                        <!-- <span
+                                                            class="select2 select2-container select2-container--default"
+                                                            dir="ltr" data-select2-id="4" style="width: 100%;"><span
+                                                                class="selection"><span
+                                                                    class="select2-selection select2-selection--multiple"
+                                                                    role="combobox" aria-haspopup="true"
+                                                                    aria-expanded="false" tabindex="-1"
+                                                                    aria-disabled="false">
+                                                                    <ul class="select2-selection__rendered"><span
+                                                                            class="select2-selection__clear"
+                                                                            title="Remove all items"
+                                                                            data-select2-id="17">×</span>
+                                                                        <li class="select2-selection__choice"
+                                                                            title="Store 1" data-select2-id="16"><span
+                                                                                class="select2-selection__choice__remove"
+                                                                                role="presentation">×</span>Store 1</li>
+                                                                        <li
+                                                                            class="select2-search select2-search--inline">
+                                                                            <input class="select2-search__field"
+                                                                                type="search" tabindex="0"
+                                                                                autocomplete="off" autocorrect="off"
+                                                                                autocapitalize="none" spellcheck="false"
+                                                                                role="searchbox"
+                                                                                aria-autocomplete="list" placeholder=""
+                                                                                style="width: 0.75em;"></li>
+                                                                    </ul>
+                                                                </span></span><span class="dropdown-wrapper"
+                                                                aria-hidden="true"></span></span> -->
+                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label> Valid from</label>
+                                                    <div class="hidden-group"><input
+                                                            class="form-control bg-white js_reward-date" type="text"
+                                                            readonly="" placeholder="Valid from Date" name="start_date"
+                                                            data-date="2021-07-29"><input class="js_valid-from-input"
+                                                            type="hidden" name="reward[valid_from]"
+                                                            value="2021-07-29 00:00:00"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group"><label> Expires On</label>
+                                                    <div class="hidden-group"><input
+                                                            class="form-control bg-white js_reward-date" type="text"
+                                                            readonly="" placeholder="Expires On Date" name="end_date"
+                                                            data-date="2021-08-26"><input class="js_valid-to-input"
+                                                            type="hidden" name="reward[expires_on]"
+                                                            value="2021-08-26 00:00:00"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group"><label>Description</label><textarea
+                                                        class="form-control" type="text" placeholder="Description"
+                                                        name="description">gdrg</textarea></div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header">Points on Signup for loyalty Program</div>
+                                                    <div class="card-body">
+                                                        <div class="form-group"><label>Customer Signup Points<em
+                                                                    class="text-danger"> *</em></label><input
+                                                                class="form-control js_reward-value" type="number"
+                                                                placeholder="Signup Points"
+                                                                name="rules[0][reward_points_per_unit_value]"><input
+                                                                type="hidden" name="rules[0][unit_value]"
+                                                                value="1"><input class="js_rule-parameter" type="hidden"
+                                                                name="rules[0][reward_parameter]" value="signup"><input
+                                                                class="js_rule-type" type="hidden"
+                                                                name="rules[0][rule_type_id]" value="64"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header">Points on Making a Purchase</div>
+                                                    <div class="card-body">
+                                                        <div class="form-group"><label>Specify the amount required to
+                                                                earn 1 loyalty point<em class="text-danger">
+                                                                    *</em></label><input
+                                                                class="form-control js_reward-value" type="number"
+                                                                placeholder="Amount Spent to earn 1 point"
+                                                                name="rules[1][unit_value]"><input type="hidden"
+                                                                name="rules[1][reward_points_per_unit_value]"
+                                                                value="1"><input class="js_rule-parameter" type="hidden"
+                                                                name="rules[1][reward_parameter]" value="sale"><input
+                                                                class="js_rule-type" type="hidden"
+                                                                name="rules[1][rule_type_id]" value="63"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card mb-2">
+                                                    <div class="card-header">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-3">
+                                                                <div class="my-2">Customer Rewards</div>
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                <div class="float-right"><a
+                                                                        class=" text-decoration-none btn btn-outline-primary btn-sm js_reward-description"
+                                                                        routerLink="../loyalty">Check Reward Description</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row"><input
+                                                                class="form-control js_reward-type w-100"
+                                                                name="reward[reward_type_id]" type="hidden" value="65">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label>Discount Type (Applicable
+                                                                        on order)<em class="text-danger">
+                                                                            *</em></label><select
+                                                                        class="form-control js_redeem-amount-type"
+                                                                        name="reward[redeem_amount_type]">
+                                                                        <option value="">Select Discount Type</option>
+                                                                        <option value="fixed">Fixed</option>
+                                                                        <option value="percentage">Percentage</option>
+                                                                    </select></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label>Discount Value
+                                                                        (Applicable on order)<em class="text-danger">
+                                                                            *</em></label><input
+                                                                        class="form-control js_redeem-amount-value"
+                                                                        type="number" placeholder="Redeem Amount Value"
+                                                                        name="reward[redeem_amount_value]"></div>
+                                                            </div>
+                                                            <div class="col-md-4 js_max-redeem-amount-block d-none">
+                                                                <div class="form-group"><label>Max Redeemable Amount
+                                                                        (Applicable on order)<em class="text-danger">
+                                                                            *</em></label><input
+                                                                        class="form-control js_max-redeem-amount"
+                                                                        type="number"
+                                                                        placeholder="Maximum Redeemable Amount"
+                                                                        name="reward[max_redeem_amount]"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label>Minimum Reward Points
+                                                                        Needed (For Earning Reward)<em
+                                                                            class="text-danger"> *</em></label><input
+                                                                        class="form-control js_minimum-reward-point"
+                                                                        type="number"
+                                                                        placeholder="Minimum Points to earn reward"
+                                                                        name="reward[minimum_point]"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label>Discount Amount for each
+                                                                        point<em class="text-danger">
+                                                                            *</em></label><input
+                                                                        class="form-control js_amount-per-point"
+                                                                        type="number" placeholder="Amount Per Point"
+                                                                        name="reward[amount_per_point]"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row js_reward-description d-none">
+                                                            <div class="col-md-12">Reward Description :</div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12 js_reward-text"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal End -->
+    </div>
+
+</div>

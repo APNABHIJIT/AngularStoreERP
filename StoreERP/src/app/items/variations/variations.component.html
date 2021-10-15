@@ -1,0 +1,510 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <form class="filter-form-modal" id="js_variation-filter">
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-group ld-ext-right js_loading">
+                        <div class="ld ld-ring ld-spin"></div><input type="hidden" name="filter" value="1"><input
+                            class="js_variation-filter-name form-control" placeholder="Search Variation" name="query">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <span class="float-right">
+                        <div class="btn-group">
+                            <button class="btn btn-primary float-right  mr-2" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="la la-question-circle la-lg">?</i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" routerLink="#"><i class="la la-book mr-1"></i>Tutorial</a>
+                                </li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal"
+                                        data-bs-target="#youtubeModalbTcMt3TLYAQ">
+                                        <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                    </a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="div modal fade" id="youtubeModalbTcMt3TLYAQ" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body p-0">
+                                        <iframe width="100%" src="https://www.youtube.com/watch?v=6qys-562kp4"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen="" style="min-height: 500px;">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="js_variation-table">
+        <div class="row align-items-center mb-2">
+            <div class="col-md-8">
+                <p class="m-0"> Showing <b>1 </b> to <b>5 </b> of<b> 5 </b> entries</p>
+            </div>
+            <div class="col-md-4">
+                <a class="float-right text-decoration-none" routerLink="../variations">Clear Filters</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover bg-white">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>SKU</th>
+                                <th>Type</th>
+                                <th>Barcode</th>
+                                <th>Measurement Unit</th>
+                                <th>Created Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Golden Kiwi / 1 piece</td>
+                                <td> 100007<br></td>
+                                <td class="text-capitalize">sale</td>
+                                <td><i class="la la-barcode"></i> </td>
+                                <td class="text-capitalize"> count</td>
+                                <td>Aug 6, 2021 4:39 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_variation-create1275851"
+                                                    data-bs-reload="true">Edit</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Banana Kunnam (yellaki)</td>
+                                <td> 100081<br></td>
+                                <td class="text-capitalize">sale</td>
+                                <td><i class="la la-barcode"></i> 0100081</td>
+                                <td class="text-capitalize"> weight</td>
+                                <td>Aug 6, 2021 4:39 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_variation-create1275851"
+                                                    data-bs-reload="true">Edit</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>biiki 5g</td>
+                                <td> 123445800<br></td>
+                                <td class="text-capitalize">sale</td>
+                                <td><i class="la la-barcode"></i> </td>
+                                <td class="text-capitalize"> count</td>
+                                <td>Jul 25, 2021 6:17 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_variation-create1275851"
+                                                    data-bs-reload="true">Edit</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> Pumpkin</td>
+                                <td> 2017<br></td>
+                                <td class="text-capitalize">sale</td>
+                                <td><i class="la la-barcode"></i> </td>
+                                <td class="text-capitalize"> weight</td>
+                                <td>Jun 23, 2020 1:13 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_variation-create1275851"
+                                                    data-bs-reload="true">Edit</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>milk bikis</td>
+                                <td> 9877<br></td>
+                                <td class="text-capitalize">sale</td>
+                                <td><i class="la la-barcode"></i> </td>
+                                <td class="text-capitalize"> count</td>
+                                <td>Apr 8, 2021 2:53 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                    data-bs-toggle="modal" data-bs-target="#js_variation-create1275851"
+                                                    data-bs-reload="true">Edit</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Edit Item start  -->
+        <div class="modal fade" id="js_variation-create1275851">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="col">
+                            <button class="close float-left" type="button" data-bs-dismiss="modal">×</button>
+                        </div>
+                        <div class="col text-center">
+                            <h4 class="form-modal-title"> Edit Variation</h4>
+                        </div>
+                        <div class="col">
+                            <a class="float-right btn btn-primary ld-ext-right js_variation-form-submit text-decoration-none"
+                               data-bs-dismiss="modal" id="js_variation-btn1275851">Save
+                                <div class="ld ld-ring ld-spin"></div>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-modal-body ">
+                            <form data-url="/items/1248222/variation/1275851" id="js_variation-form1275851"
+                                data-view="#js_variation-view1275851" data-btn="#js_variation-btn1275851"
+                                novalidate="novalidate">
+                                <input type="hidden" name="_csrf" value="TFqpRWRF-ZgMn_-czAG7v5lN_t-eQnGqycMk">
+                                <div class="form-row mt-3">
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                                class="form-control" type="text" placeholder="Variation Name"
+                                                name="name" value="Golden Kiwi / 1 piece"><input type="hidden"
+                                                name="refresh_page"></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label>Alternate Name</label><input class="form-control"
+                                                type="text" placeholder="Alternate Name"
+                                                name="custom_attributes[alternate_language]" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Food Type</label><em
+                                                class="text-danger">*</em><select class="form-control" name="food_type"
+                                                data-rule-required="true">
+                                                <option value="" selected="selected">Select Food Type</option>
+                                                <option value="veg" selected="selected">Veg</option>
+                                                <option value="nveg">Non-Veg</option>
+                                                <option value="egg">Egg</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Type</label><em class="text-danger">
+                                                *</em><select class="form-control js_variation-type" name="type">
+                                                <option value="" selected="selected">Select Type</option>
+                                                <option value="sale" selected="selected">Sale</option>
+                                                <option value="combo">Combo</option>
+                                                <option value="ingredient">Ingredient</option>
+                                                <option value="modifier">Modifier</option>
+                                                <option value="recipe">Recipe</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label>Image</label>
+                                            <div class="media"><input class="js_variation-img-input" type="hidden"
+                                                    name="img_url"
+                                                    value="https://s3-ap-south-1.amazonaws.com/StoreERP/items/9824911e-4807-47bf-ae6f-2f390946c04e-large.jpg"><img
+                                                    class="d-flex mr-3 js_variation-img"
+                                                    src="https://s3-ap-south-1.amazonaws.com/StoreERP/items/9824911e-4807-47bf-ae6f-2f390946c04e-large.jpg"
+                                                    width="100">
+                                                <div class="media-body">
+                                                    <div class="custom-file mb-2"><input
+                                                            class="custom-file-input js_variation-img-file" type="file"
+                                                            accept="image/*" name="file"
+                                                            data-msg="Please upload a valid image file"><label
+                                                            class="custom-file-label custom-file-control-image">Choose
+                                                            Image</label>
+                                                    </div><small class="form-text text-muted">We recommend using at
+                                                        least a
+                                                        1024x768px (2:1 ratio) image that's no larger than 10MB.</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label>Description</label><textarea class="form-control"
+                                                placeholder="Description" name="description" value=""
+                                                rows="3"></textarea></div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label>Alternate Description</label><textarea
+                                                class="form-control" placeholder="Description"
+                                                name="custom_attributes[alternate_language_description]"
+                                                rows="3"></textarea></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Unit of measurement</label><em
+                                                class="text-danger">
+                                                *</em><select class="form-control js_item-uom" name="unit_measure_type">
+                                                <option value="" selected="selected">Select Unit Measure Type</option>
+                                                <option value="count" selected="selected">Count</option>
+                                                <option value="length">Length</option>
+                                                <option value="capacity">Capacity</option>
+                                                <option value="volume">Volume (l)</option>
+                                                <option value="weight">Weight (kg)</option>
+                                                <option value="time">Time</option>
+                                                <option value="area">Area</option>
+                                                <option value="other">Other</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="col-md-2 js_yield-block d-none">
+                                        <div class="form-group"><label>Yield (Per Unit of Unit Measure)</label><input
+                                                class="form-control" type="number" name="custom_attributes[yield]"
+                                                placeholder="Yield Percentage"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>SKU<em class="text-danger"> *</em></label><input
+                                                class="form-control" type="text" placeholder="SKU" name="sku"
+                                                value="100007" data-type="sku"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Barcode</label><input class="form-control"
+                                                type="text" placeholder="Barcode" name="barcode" value=""></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Alternate Code</label><input class="form-control"
+                                                type="text" name="alternate_code" placeholder="Alternate Code" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Minimum Price</label><input class="form-control"
+                                                type="number" min="0" placeholder="Minimum Price"
+                                                name="custom_attributes[min_price]" value=""></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Maximum Price </label><input
+                                                class="form-control js_item-max-price" type="number" min="0"
+                                                placeholder="Maximum Price" name="custom_attributes[max_price]"
+                                                value=""></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Shelf Life</label><input class="form-control"
+                                                type="number" min="0" placeholder="Shelf Life"
+                                                name="custom_attributes[shelf_life]"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Comfort Factor</label><input class="form-control"
+                                                type="number" min="0" placeholder="Comfort Factor"
+                                                name="custom_attributes[comfort_factor]"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Normal Lead Time</label><input
+                                                class="form-control" type="number" min="0"
+                                                placeholder="Normal Lead Time"
+                                                name="custom_attributes[normal_lead_time]"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Urgent Lead Time</label><input
+                                                class="form-control" type="number" min="0"
+                                                placeholder="Urgent Lead Time"
+                                                name="custom_attributes[urgent_lead_time]"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group"><label>Max. Modifiers Selectable</label><input
+                                                class="form-control" type="number"
+                                                name="custom_attributes[group_conditions][max_selectable]"
+                                                placeholder="Maximum Modifiers Selectable" min="0"></div>
+                                    </div>
+                                    <div class="col-md-2 js_alternate-uom">
+                                        <div class="form-group"><label>Alternate UOM</label><input class="form-control"
+                                                type="text" maxlength="15" placeholder="Alternate UOM"
+                                                name="custom_attributes[alternate_uom]">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 js_alternate-uom">
+                                        <div class="form-group"><label>Alternate UOM per Qty</label><input
+                                                class="form-control js_restrict-input-integer" type="number" min="0"
+                                                placeholder="Alternate UOM Qty"
+                                                name="custom_attributes[alternate_uom_qty]"></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox"><input
+                                                    class="custom-control-input" type="checkbox" name="primary"
+                                                    id="primaryVariation1275851" value="1"><label
+                                                    class="custom-control-label" for="primaryVariation1275851">Primary
+                                                    Variation</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox"><input
+                                                    class="custom-control-input js_change-checkbox" type="checkbox"
+                                                    id="isRecommended1275851"><input class="js_change-input"
+                                                    type="hidden" name="custom_attributes[recommended]" value="0"><label
+                                                    class="custom-control-label" for="isRecommended1275851">Is
+                                                    Recommended</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox"><input
+                                                    class="custom-control-input" type="checkbox"
+                                                    name="custom_attributes[weighing_scale]"
+                                                    id="customWeighingScale1275851"><label class="custom-control-label"
+                                                    for="customWeighingScale1275851">Enable Weighing Scale</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox"><input
+                                                    class="custom-control-input" type="checkbox"
+                                                    name="custom_attributes[foc]" id="customFoc1275851"><label
+                                                    class="custom-control-label" for="customFoc1275851">Enable Free of
+                                                    Cost
+                                                    (FOC)</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 js_alternate-uom">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox"><input
+                                                    class="custom-control-input js_apply-alternate-uom" type="checkbox"
+                                                    name="custom_attributes[alternate_uom_apply_po]"
+                                                    id="customAlternateUomApplyPo1275851" value="true"><label
+                                                    class="custom-control-label"
+                                                    for="customAlternateUomApplyPo1275851">Apply
+                                                    Alternate UOM Qty in PO</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion" id="merchant-platforms-accordion1275851">
+                                    <div class="card border">
+                                        <div class="card-header" id="merchant-platforms-header1275851">
+                                            <h2 class="mb-0"><button class="btn btn-link text-dark" type="button"
+                                                    data-toggle="collapse"
+                                                    data-target="#merchant-platforms-table1275851"
+                                                    aria-expanded="aria-expanded"
+                                                    aria-controls="#merchant-platforms-table1275851">Merchant
+                                                    Platforms</button><a
+                                                    class="float-right btn btn-sm btn-outline-secondary" routerLink="#"
+                                                    data-toggle="collapse"
+                                                    data-target="#merchant-platforms-table1275851"
+                                                    aria-expanded="aria-expanded"
+                                                    aria-controls="#merchant-platforms-table1275851"><i
+                                                        class="la la-angle-down"></i></a></h2>
+                                        </div>
+                                    </div>
+                                    <div class="collapse show" id="merchant-platforms-table1275851"
+                                        data-parent="#merchant-platforms-accordion1275851"
+                                        aria-labelledby="merchant-platforms-header1275851">
+                                        <div class="card-body bg-light border">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead class="bg-light">
+                                                        <tr>
+                                                            <th>Platform Name</th>
+                                                            <th>Is Active</th>
+                                                            <th width="50%">Tags</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="js_variation-platform-contents"
+                                                        data-variationid="1275851" data-tags="{}">
+                                                        <tr data-select2-id="5">
+                                                            <td>StoreERP</td>
+                                                            <td>
+                                                                <input class="js_merchant-platform-enabled m-auto"
+                                                                    type="checkbox" checked="checked"
+                                                                    data-platformid="22" data-method="POST"
+                                                                    data-variationplatformid="22">
+                                                            </td>
+                                                            <td data-select2-id="4">
+                                                                <!-- <select class="form-control js_variation-tags-select2 select2-hidden-accessible" multiple="" data-platform="pos_store" name="custom_attributes[tags][pos_store][]"
+                                                                    data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                                
+                                                                </select> -->
+                                                                <input class=" form-control select2-search__field"
+                                                                    type="search" tabindex="0" autocomplete="off"
+                                                                    autocorrect="off" autocapitalize="none"
+                                                                    spellcheck="false" role="searchbox"
+                                                                    aria-autocomplete="list" placeholder="Select Tags"
+                                                                    style="width: 525px;">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Model Edit Item End -->
+    </div>
+
+
+</div>

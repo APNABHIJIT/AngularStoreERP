@@ -1,0 +1,250 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link active" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <form class="filter-form-modal" data-select2-id="10">
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-group" data-select2-id="9"><select
+                            class="form-control js_category-select2 select2-hidden-accessible"
+                            id="js_item-filter-category" data-select2-id="js_item-filter-category" tabindex="-1"
+                            aria-hidden="true">
+                            <option>Select Categories</option>
+                        </select>
+                        <!-- <span
+                            class="select2 select2-container select2-container--default select2-container--below"
+                            dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span
+                                    class="select2-selection select2-selection--single" role="combobox"
+                                    aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false"
+                                    aria-labelledby="select2-js_item-filter-category-container"><span
+                                        class="select2-selection__rendered"
+                                        id="select2-js_item-filter-category-container" role="textbox"
+                                        aria-readonly="true"><span class="select2-selection__placeholder">Select
+                                            Categories</span></span><span class="select2-selection__arrow"
+                                        role="presentation"><b role="presentation"></b></span></span></span><span
+                                class="dropdown-wrapper" aria-hidden="true"></span></span>
+                             -->
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group ld-ext-right js_loading">
+                        <div class="ld ld-ring ld-spin"></div><input class="js_prevent-enter-action form-control"
+                            id="js_item-filter-name" placeholder="Filter by Item Name" value="">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 ml-auto">
+            <div class="d-flex float-right form-group">
+
+                <button class="js_item btn mr-2 btn-outline-primary" data-bs-toggle="modal" data-bs-reset="reset"
+                    data-bs-target="#js_item-modal">
+                    <em class="la la-plus"></em> + Create Item
+                </button>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary float-right  mr-2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="../item"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalbTcMt3TLYAQ">
+                                <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                            </a></li>
+                    </ul>
+                </div>
+
+
+                <a class="m-0 align-self-center text-decoration-none" routerLink="../item" data-bs-toggle="dropdown">
+                    <i class="la la-question-circle la-lg"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="m-0 align-self-center text-decoration-none"routerLink="../item" data-bs-toggle="dropdown"></a>
+                    <a class="dropdown-item" routerLink="../item">
+                        <i class="la la-book mr-1"></i>Tutorial
+                    </a>
+                    <!-- <a class="dropdown-item" type="button" data-toggle="modal" data-target="#youtubeModalbTcMt3TLYAQ">
+                        <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                    </a> -->
+                </div>
+                <!-- Model Create Item start -->
+                <div class="modal fade item-modal-create" id="js_item-modal" data-backdrop="static"
+                    style="display: none;" aria-hidden="true">
+                    <div class="form-modal" id="js_item-create" data-form="#js_item-form" data-btn="#js_item-btn"></div>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Create Item</h5>
+                                <button data-bs-dismiss="modal" class="close js_close-button" type="button">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="js_item-add-form" data-url="/item/" id="js_item-form"
+                                    data-view="#js_item-view" data-form="#js_item-form" data-btn="#js_item-btn"
+                                    novalidate="novalidate">
+                                    <input type="hidden" name="_csrf" value="jgNZKaqr-BAg8DXpV6SxhJjqCLc2zPw7g1lM">
+                                    <div class="form-group">
+                                        <label>Name<em class="text-danger"> *</em></label>
+                                        <input class="form-control js_item-duplicate" type="text"
+                                            placeholder="Item Name" name="name">
+                                    </div>
+                                    <div class="form-group"><label>Category<em class="text-danger"> *</em></label>
+                                        <div class="select-group"><select
+                                                class="form-control js_category-select2 js_form-category-select2 select2-hidden-accessible"
+                                                name="category_id" tabindex="-1" aria-hidden="true" data-select2-id="5">
+                                                <option value="" data-select2-id="7">Select Category</option>
+                                            </select><span class="select2 select2-container select2-container--default"
+                                                dir="ltr" data-select2-id="6" style="width: auto;"><span
+                                                    class="selection"><span
+                                                        class="select2-selection select2-selection--single"
+                                                        role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                        tabindex="0" aria-disabled="false"
+                                                        aria-labelledby="select2-category_id-6y-container"><span
+                                                            class="select2-selection__rendered"
+                                                            id="select2-category_id-6y-container" role="textbox"
+                                                            aria-readonly="true"><span
+                                                                class="select2-selection__placeholder">Select
+                                                                Category</span></span><span
+                                                            class="select2-selection__arrow" role="presentation"><b
+                                                                role="presentation"></b></span></span></span><span
+                                                    class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                                    </div>
+                                    <div class="form-group m-0"><label>Image</label>
+                                        <div class="media"><img class="d-flex mr-3" id="js_item-img"
+                                                src="http://via.placeholder.com/100x100" width="100">
+                                            <div class="media-body">
+                                                <div class="custom-file mb-2"><input class="custom-file-input"
+                                                        id="js_item-img-file" type="file" accept="image/*" name="file"
+                                                        data-msg="Please upload a valid image file"><label
+                                                        class="custom-file-label custom-file-control-image">Choose
+                                                        Image</label></div><small class="form-text text-muted">We
+                                                    recommend using at least a 1024x768px (2:1 ratio) image that's no
+                                                    larger than 10MB.</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><input id="js_item-img-input" type="hidden"
+                                            name="primary_image_url"></div>
+                                    <div class="form-group"><label>Description</label><textarea class="form-control"
+                                            type="text"
+                                            placeholder="Enter a description of this item. Describe details like features, options and measurements."
+                                            name="description"></textarea></div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button data-bs-dismiss="modal" class="btn btn-secondary js_close-button">Close</button>
+                                <button data-bs-dismiss="modal" class="btn btn-primary ld-ext-right"
+                                    id="js_item-btn">Save
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Model Create Item end -->
+                <div class="div modal fade" id="youtubeModalbTcMt3TLYAQ" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/watch?v=6qys-562kp4" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="js_item-library">
+        <div class="row align-items-center mb-2">
+            <div class="col-md-8">
+                <p class="m-0"> Showing <b>1 </b> to <b>3 </b> of<b> 3 </b> entries</p>
+            </div>
+            <div class="col-md-4"><a class="float-right text-decoration-none" routerLink="../item">Clear Filters</a></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover bg-white">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Variation</th>
+                                <th>Category</th>
+                                <th>In Stock</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dry Fruits</td>
+                                <td>3 Variations</td>
+                                <td>Nutritional Diets</td>
+                                <td> 650</td>
+                                <td>
+                                    <div>₹700.00 - 850.00</div>
+                                    <div> <small>MRP:₹750.00 - 900.00</small></div>
+                                </td>
+                                <td> <a class="js_item btn btn-outline-primary btn-sm text-decoration-none"
+                                        routerLink="../item" >View</a></td>
+                            </tr>
+                            <tr>
+                                <td>chocolate</td>
+                                <td>
+                                    <p class="m-0">123445830</p>
+                                </td>
+                                <td>Chocochocy</td>
+                                <td> 100</td>
+                                <td>
+                                    <div>₹10.00</div>
+                                    <div> <small>MRP:₹10.00</small></div>
+                                </td>
+                                <td> <a class="js_item btn btn-outline-primary btn-sm" routerLink="../item"
+                                        >View</a></td>
+                            </tr>
+                            <tr>
+                                <td>Dark chocy</td>
+                                <td>3 Variations</td>
+                                <td>Chocochocy</td>
+                                <td> 359</td>
+                                <td>
+                                    <div>₹135.00</div>
+                                    <div> <small>MRP:₹150.00 - 160.00</small></div>
+                                </td>
+                                <td> <a class="js_item btn btn-outline-primary btn-sm" routerLink="../item"
+                                        >View</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

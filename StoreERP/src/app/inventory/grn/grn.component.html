@@ -1,0 +1,433 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <form class="filter-form-modal" id="js_transfer-order-filter"> -->
+        <div class="form-row">
+            <div class="col-md-7">
+                <div class="form-row">
+                    <div class="col-md-5">
+                        <div class="form-group"> <button class="btn btn-outline-primary dropdown-toggle btn-block"
+                                type="button" id="js_date-range"><span> Select a Date</span></button> <input
+                                id="js_date-range-from-date" type="hidden" name="from_date" value=""
+                                data-timezone="Asia/Kolkata"><input id="js_date-range-to-date" type="hidden"
+                                name="to_date" value=""></div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary" (click)="toggle()">{{ buttonName }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 js_more-filters" *ngIf="show">
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="supplier_id">
+                                <option>Select Vendor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="to_location_id">
+                                <option>To Location</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" name="created_by">
+                                <option>Select Created By</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" name="assigned_to">
+                                <option>Select Assigned To or Approver</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control js_transfer-order-status" name="transfer_order_status">
+                                <option value="" selected="">Select Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="completed">Completed</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 ml-auto">
+                <div class="form-group">
+                    <div class="form-inline float-right btn-group">
+
+                        <button type="button" class="text-justify btn btn-outline-primary mr-2" data-bs-toggle="modal"
+                            data-bs-target="#js_grn_order">
+                            + Create Grn Order
+                        </button>
+
+                        <div class="btn-group">
+                            <button class="btn btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown">
+                                <i class="la la-question-circle la-lg">?</i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" routerLink="../grn"><i
+                                            class="la la-book mr-1"></i>Tutorial</a></li>
+                                <li><a class="dropdown-item" routerLink="../grn"><i
+                                            class="la la-youtube-play mr-1"></i>Video
+                                        Tutorial</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- </form> -->
+    </div>
+
+    <!-- Modal Start -->
+    <div class="modal fade show" id="js_grn_order" data-backdrop="static" style="display: none; padding-right: 17px;"
+        aria-modal="true">
+        <div class="form-modal" id="js_category-update-status-form-modal" data-form="#js_category-update-status-form"
+            data-btn="#js_category-update-status-btn">
+        </div>
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col">
+                        <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                            <i class="la la-times">X</i></a>
+                    </div>
+                    <div class="col text-center">
+                        <h4 class="form-modal-title"> New grn Order</h4>
+                    </div>
+                    <div class="col">
+                        <button class="js_loyalty-submit-btn float-right btn btn-primary ld-ext-right"
+                            data-bs-dismiss="modal" id="js_loyalty-btn45">Save
+                            <div class="ld ld-ring ld-spin"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-11 m-auto">
+                            <form class="js_transfer-order-form" data-url="../grn/" id="js_transfer-order-form"
+                                novalidate="novalidate">
+                                <input type="hidden" name="_csrf" value="min4uUyJ-uslWQdPyLM-ldyDhVR9NXf2VsFs">
+                                <input class="js_to-type" type="hidden" name="type" value="grn">
+                                <input class="js_edit-id" type="hidden" value="">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label> Vendor<em class="text-danger">*</em></label>
+                                            <div class="select-group">
+                                                <select class="form-control" name="supplier_id">
+                                                    <option>Select Vendor</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> Ship To<em class="text-danger">*</em></label>
+                                            <span class="text-danger d-none js_from-to-location-err-msg"> Locations can
+                                                not be same</span>
+                                            <div class="select-group">
+                                                <select class="form-control" name="to_location_id">
+                                                    <option>Select Location</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> Approver<em class="text-danger">*</em></label>
+                                            <div class="select-group">
+                                                <select class="form-control" name="assigned_to">
+                                                    <option>Select Approver</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Notes</label>
+                                            <textarea class="form-control" name="notes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-row align-items-center mb-2">
+                                                <div class="col-md-6">
+                                                    <label class="mr-2 mb-0">Items To Transfer</label>
+                                                    <span class="text-danger d-none">Please add Items</span>
+                                                </div>
+                                                <div class="col-md-6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered th-light">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="40%">Item Name</th>
+                                                        <th> Current Stock at Destination Location</th>
+                                                        <th width="10%">Buying Price</th>
+                                                        <th width="10%">MRP</th>
+                                                        <th width="10%">Selling Price</th>
+                                                        <th width="10%"> Receive Stock</th>
+                                                        <th width="10%">Expiry Date</th>
+                                                        <th> Barcode</th>
+                                                        <th width="10%">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="js_transfer-order-item-row">
+                                                        <td>
+                                                            <select class="form-control" disabled="" data-type="grn"
+                                                                data-select2-id="5" tabindex="-1" aria-hidden="true">
+                                                                <option>Select Variation</option>
+                                                            </select>
+                                                        </td>
+                                                        <td>
+                                                            <p
+                                                                class="js_destination-inventory js_variation-placeholder">
+                                                                Select Variation</p>
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control js_new-buy" type="number"
+                                                                disabled="" value="0" name="buying_price">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control js_new-mrp" type="number"
+                                                                disabled="" value="0" name="mrp">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control js_new-sell" type="number"
+                                                                disabled="" value="0" name="selling_price">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control" type="number" disabled=""
+                                                                data-unrestriction="0">
+                                                        <td>
+                                                            <input class="form-control js_input-expiry-date" type="text"
+                                                                disabled="">
+                                                            <input class="js_input-hidden-expiry-date" type="hidden">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control js_new-barcode" disabled=""
+                                                                name="barcode">
+                                                        </td>
+                                                        <td>
+                                                            <button
+                                                                class="btn btn-sm btn-success text-white text-uppercase ld-ext-right"
+                                                                type="button" disabled=""
+                                                                data-view=".js_transfer-order-item-row">Add
+                                                                <div class="ld ld-ring ld-spin"></div>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End -->
+    <!-- Table start -->
+    <div class="row">
+        <div class="col-md-12" id="js_customers">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="float-right text-decoration" routerLink="../customer">Clear Filters</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover bg-white">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Status</th>
+                                <th> Vendor Name</th>
+                                <th>To Location</th>
+                                <th>Assigned To</th>
+                                <th>Created By</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>56846</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td> Oriental Suppliers</td>
+                                <td><p class="m-0"><small></small></p>Warehouse</td>
+                                <td>StoreERP</td>
+                                <td> <p class="m-0"><small></small></p>StoreERP</td>
+                                <td>Aug 10, 2021 2:39 AM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item text-decoration-none" routerLink="../grn">Details</a></li>
+                                        </ul>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>56513</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td> Foods India Limited</td>
+                                <td><p class="m-0"><small></small></p>Warehouse</td>
+                                <td>StoreERP</td>
+                                <td><p class="m-0"><small></small></p>StoreERP</td>
+                                <td>Aug 10, 2021 6:14 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item text-decoration-none" routerLink="../grn">Details</a></li>
+                                        </ul>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>54602</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td> Oriental Suppliers</td>
+                                <td><p class="m-0"><small></small></p>Warehouse</td>
+                                <td>StoreERP</td>
+                                <td> <p class="m-0"><small></small></p>StoreERP </td>
+                                <td>Aug 10, 2021 3:15 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item text-decoration-none" routerLink="../grn">Details</a></li>
+                                        </ul>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>53927</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td> Spice International</td>
+                                <td> <p class="m-0"><small></small></p>Warehouse</td>
+                                <td>StoreERP</td>
+                                <td><p class="m-0"><small></small></p>StoreERP</td>
+                                <td>Aug 10, 2021 1:44 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item text-decoration-none" routerLink="../grn">Details</a></li>
+                                        </ul>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>53855</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td> Spice International</td>
+                                <td><p class="m-0"><small></small></p>Warehouse </td>
+                                <td>StoreERP</td>
+                                <td> <p class="m-0"><small></small></p>StoreERP</td>
+                                <td>Aug 10, 2021 8:16 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item text-decoration-none" routerLink="../grn">Details</a></li>
+                                        </ul>
+                                    </div> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Table end -->
+</div>

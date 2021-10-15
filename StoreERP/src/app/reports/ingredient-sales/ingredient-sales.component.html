@@ -1,0 +1,137 @@
+<div class="container bg-white">
+    <div class="row my-3 pt-3">
+        <div class="col-md-3">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="nav-link" routerLink="../sales-summary">Sales Summary</a>
+                <a class="nav-link" routerLink="../payment-methods">Payment Methods</a>
+                <a class="nav-link" routerLink="../item-sales">Item Sales</a>
+                <a class="nav-link" routerLink="../category-sales">Category Sales</a>
+                <a class="nav-link" routerLink="../employee-sales">Employee Sales</a>
+                <a class="nav-link" routerLink="../location-sales">Location Sales</a>
+                <a class="nav-link" routerLink="../customer-sales">Customer Sales</a>
+                <a class="nav-link" routerLink="../customer-items">Customer Items</a>
+                <a class="nav-link" routerLink="../customer-no-sales">Customer Without Sales</a>
+                <a class="nav-link" routerLink="../report-taxes">Taxes</a>
+                <a class="nav-link" routerLink="../combo-sales">Combo/Modifier Sales</a>
+                <a class="nav-link" routerLink="../item-price-category">Price Category</a>
+                <a class="nav-link" routerLink="../report-charges">Charges</a>
+                <a class="nav-link active" routerLink="../ingredient-sales">Ingredients</a>
+                <a class="nav-link" routerLink="../food-recipe">Food Recipe</a>
+                <a class="nav-link" routerLink="../kot-items">KOT Item</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <!-- <form class="filter-form-modal" id="js_sales-summary-filter"> -->
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                            id="js_date-range">
+                            <span>Aug 1, 2021 - Aug 9, 2021 </span>
+                        </button>
+                        <input id="js_date-range-from-date" type="hidden" name="from_date" value="2021-08-01 00:00"
+                            data-timezone="Asia/Kolkata">
+                        <input id="js_date-range-to-date" type="hidden" name="to_date" value="2021-08-09 23:59">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button (click)="toggle()" class="btn btn-outline-primary">{{ buttonName }}</button>
+                    </div>
+                </div>
+                <div class="col-md-12 js_more-filters" *ngIf="show">
+                    <div class="form-row">
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select class="form-control" name="location_id" data-select2-id="1" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>All Locations</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select class="form-control" name="all_ingredients" data-select2-id="3" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>All Ingredients</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" name="device_id" data-select2-id="9" tabindex="-1"
+                                    aria-hidden="true" name="select_categories">
+                                    <option>Select Categories</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 ml-auto">
+                    <div class="form-group d-flex float-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-primary dropdown-toggle float-right  mr-2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Export
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item text-decoration-none"
+                                        routerLink="../ingredient-sales">CSV</a></li>
+                                <li><a class="dropdown-item text-decoration-none" routerLink="../ingredient-sales">Daily
+                                        Report</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- </form> -->
+            <!-- box start -->
+            <div id="js_ingredient-sales">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-8">
+                        <p class="m-0"> Showing <b>1 </b> to <b>1</b> of <b> 1 </b> entries</p>
+                    </div>
+                    <div class="col-md-4"><a class="float-right text-decoration-none"
+                            routerLink="../ingredient-sales">Clear Filters</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>Item Variation Name</th>
+                                        <th>Category</th>
+                                        <th>Items Sold</th>
+                                        <th>Items Refunded</th>
+                                        <th>Net Items Sold</th>
+                                        <th>Net Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>urid dhal</td>
+                                        <td>provisions</td>
+                                        <td>0.2</td>
+                                        <td>0</td>
+                                        <td>0.2</td>
+                                        <td>22</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- box end -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,363 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Report Start -->
+    <div class="row">
+        <div class="col-md-2">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="nav-link" routerLink="../purchase-orders-summary">Purchase Orders Summary</a>
+                <a class="nav-link" routerLink="../report-stock">Stocks</a>
+                <a class="nav-link" routerLink="../cost-of-goods">Cost of Goods</a>
+                <a class="nav-link" routerLink="../report-item-sales">Purchase Item Summary</a>
+                <a class="nav-link" routerLink="../report-transfer-items">Transfer Order Item</a>
+                <a class="nav-link" routerLink="../report-stock-adjust-items">Waste Management Item</a>
+                <a class="nav-link" routerLink="../report-return-item">Vendor Return Item</a>
+                <a class="nav-link active" routerLink="../price-change">Price Change</a>
+                <a class="nav-link" routerLink="../report-stock-valuation">Stock Valuation</a>
+            </div>
+        </div>
+        
+        <div class="col-md-10">
+            <form class="filter-form-modal" id="js_purchase-orders-summary-filter">
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                                id="js_date-range">
+                                <span> Select a Date</span>
+                            </button>
+                            <input id="" type="hidden" name="from_date" value="" data-timezone="Asia/Kolkata">
+                            <input id="js_date-range-to-date" type="hidden" name="to_date" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <a class="btn btn-outline-primary text-decoration-none" routerLink="../price-change"
+                                (click)="toggle()">
+                                {{ buttonName}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row js_more-filters" *ngIf="show">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="location_id" data-select2-id="1" tabindex="-1"
+                                aria-hidden="true">
+                                <option>All Locations</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="supplier_id" data-select2-id="3" tabindex="-1"
+                                aria-hidden="true">
+                                <option>All Variations</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group ld-ext-right js_loading">
+                            <div class="ld ld-ring ld-spin"></div>
+                            <input class="form-control js_variation-query" name="query"
+                                placeholder="Filter by SKU, Item Name">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="from-group">
+                            <select class="form-control js_category-select2 select2-hidden-accessible"
+                                name="category_id" data-select2-id="5" tabindex="-1" aria-hidden="true">
+                                <option>Select Categories</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex float-right form-group">
+                            <div class="btn-group">
+                                <button type="button" class="text-justify btn btn-outline-primary mr-2 dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Export
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../price-change"
+                                            (click)="exportError()">
+                                            CSV
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../price-change"
+                                            (click)="exportError()">
+                                            CSV (With Batch)
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown">
+                                    <i class="la la-question-circle la-lg">?</i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../price-change">
+                                            <i class="la la-book mr-1"></i>Tutorial
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../price-change">
+                                            <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- box start -->
+            <div class="mb-3" id="js_cost-of-goods-view">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-8">
+                        <p class="m-0"> Showing 1 entry</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="float-right text-decoration-none" routerLink="../price-change">Clear Filters</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>Variation Name</th>
+                                        <th>SKU</th>
+                                        <th>Location Name</th>
+                                        <th>Buying Price</th>
+                                        <th>Selling Price</th>
+                                        <th>MRP</th>
+                                        <th>Method</th>
+                                        <th>Updated By</th>
+                                        <th>Created Date</th>
+                                        <th>Action</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> Yardley London 100g Talc<br><small>Yardley London 100g Talc</small></td>
+                                        <td>123445837</td>
+                                        <td>Warehouse</td>
+                                        <td> New: ₹96.77<br> Old: ₹0.00<br><small><i
+                                                    class="la la-arrow-up text-success"><b>₹96.77
+                                                        Increased</b></i></small></td>
+                                        <td> New: ₹120.00<br> Old: ₹0.00<br><small><i
+                                                    class="la la-arrow-up text-success"><b>₹120.00
+                                                        Increased</b></i></small></td>
+                                        <td> New: ₹120.00<br> Old: ₹0.00<br><small><i
+                                                    class="la la-arrow-up text-success"><b>₹120.00
+                                                        Increased</b></i></small></td>
+                                        <td class="text-capitalize"> manual </td>
+                                        <td>StoreERP</td>
+                                        <td>Aug 11, 2021 3:29 PM</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <span data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="la la-ellipsis-h la-2x">...</i>
+                                                </span>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a class="dropdown-item text-decoration-none"
+                                                            data-bs-toggle="modal" data-bs-target="#js_batch-modal-list"
+                                                            routerLink="../price-change">Batch Info</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="js_batch-modal-list-1838201" data-backdrop="static">
+                    <div class="modal-dialog modal-dialog-scrollbar modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Batch List</h5><button class="close" data-dismiss="modal"
+                                    type="button"><span>×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col m-9">
+                                        <div id="js_batch-modal-content-1838201"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- box end -->
+        </div>
+    </div>
+    <!-- Report End -->
+
+    <!-- modal batch info start -->
+
+    <div class="modal fade" id="js_batch-modal-list" data-backdrop="static" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollbar modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Batch List</h5><button class="close" data-bs-dismiss="modal"
+                        type="button"><span>×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col m-9">
+                            <div id="js_batch-modal-content-1838201">
+                                <div class="row align-items-center mb-2" style="display: none;">
+                                    <div class="col-md-8">
+                                        <p class="m-0"> Showing 1 entry</p>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                                <div class="row" style="display: none;">
+                                    <div class="col">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover bg-white">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Batch ID</th>
+                                                        <th>Buying Price</th>
+                                                        <th>MRP</th>
+                                                        <th>Selling Price</th>
+                                                        <th>Quantity Received</th>
+                                                        <th>Quantity Sold</th>
+                                                        <th>Quantity Remaining</th>
+                                                        <th>Barcode</th>
+                                                        <th>Expiry Date</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>422</td>
+                                                        <td>₹8.00</td>
+                                                        <td>₹10.00</td>
+                                                        <td>₹10.00</td>
+                                                        <td>108.0000</td>
+                                                        <td>8.0000</td>
+                                                        <td>100.0000</td>
+                                                        <td></td>
+                                                        <td> (No Expiry Date Provided)</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-md-8">
+                                        <p class="m-0"> Showing 1 entry</p>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover bg-white">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Batch ID</th>
+                                                        <th>Buying Price</th>
+                                                        <th>MRP</th>
+                                                        <th>Selling Price</th>
+                                                        <th>Quantity Received</th>
+                                                        <th>Quantity Sold</th>
+                                                        <th>Quantity Remaining</th>
+                                                        <th>Barcode</th>
+                                                        <th>Expiry Date</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>422</td>
+                                                        <td>₹8.00</td>
+                                                        <td>₹10.00</td>
+                                                        <td>₹10.00</td>
+                                                        <td>108.0000</td>
+                                                        <td>8.0000</td>
+                                                        <td>100.0000</td>
+                                                        <td></td>
+                                                        <td> (No Expiry Date Provided)</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal batch info end -->
+
+</div>

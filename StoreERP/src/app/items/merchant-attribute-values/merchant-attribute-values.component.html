@@ -1,0 +1,245 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../merchant-attribute-values/">Attribute
+                        Values</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex float-right mb-3">
+                <button class="float-right btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#js_merchant-attribute-value-modal">
+                    <em class="la la-plus-circle">+</em>
+                    Create</button>
+            </div>
+        </div>
+    </div>
+    <!-- Model Attribute Create start-->
+    <div class="modal fade js_merchant-attribute-value-modal-form show" id="js_merchant-attribute-value-modal"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="form-modal" id="js_merchant-attribute-value-create" data-form="#js_merchant-attribute-value-form"
+            data-btn="#js_merchant-attribute-value-btn"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Attribute Value</h5><button class="close js_close-button"
+                        type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_merchant-attribute-value-form" data-url="/item/merchant-attribute-values/"
+                        novalidate="novalidate"><input type="hidden" name="_csrf"
+                            value="vDMZLzcb-kBZ7vxnIeCaboch-_Fm1EodOkVQ"><input type="hidden" name="is_active"
+                            value="1">
+                        <div class="form-group"><label> Attribute<em class="text-danger">*</em></label>
+                            <div class="select-group"><select
+                                    class="form-control js_attribute-select2 select2-hidden-accessible"
+                                    name="attribute_id" data-name="attribute_id" required="" data-select2-id="1"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option value="" data-select2-id="3">Select Attribute</option>
+                                </select><span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="2" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-disabled="false"
+                                            aria-labelledby="select2-attribute_id-w4-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-attribute_id-w4-container" role="textbox"
+                                                aria-readonly="true"><span class="select2-selection__placeholder">Select
+                                                    Attribute</span></span><span class="select2-selection__arrow"
+                                                role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                        </div>
+                        <div class="form-group"><label>Label</label><input class="form-control" type="text"
+                                placeholder="Label" name="label"></div>
+                        <div class="form-group"><label>Value<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" placeholder="Value" name="value" required=""></div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button><button
+                        class="js_charges-save-btn btn btn-primary ld-ext-right" id="js_merchant-attribute-value-btn"
+                        data-bs-dismiss="modal">Save<div class="ld ld-ring ld-spin"></div></button></div>
+            </div>
+        </div>
+    </div>
+    <!-- Model Attribute Create end-->
+
+    <!-- table start -->
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>5</b> of<b> 5 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <!-- table start -->
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Value</th>
+                            <th>Label</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Weight</td>
+                            <td>1kg</td>
+                            <td>1kg</td>
+                            <td>Apr 20, 2021</td>
+                            <td>
+
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#js_merchant-attribute-value-modal57">Edit</button>
+
+                                <a class="js_merchant-attribute-value-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    routerLink="../merchant-attribute-values" (click)="alertDelete()">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Weight</td>
+                            <td>0.500</td>
+                            <td>1/2kg</td>
+                            <td>Apr 20, 2021</td>
+                            <td>
+
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#js_merchant-attribute-value-modal57">Edit
+                                </button>
+
+                                <a class="js_merchant-attribute-value-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    routerLink="../merchant-attribute-values" (click)="alertDelete()">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Liter</td>
+                            <td>1 litre</td>
+                            <td>1 ltr</td>
+                            <td>May 10, 2021</td>
+                            <td>
+
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#js_merchant-attribute-value-modal57">Edit
+                                </button>
+
+                                <a class="js_merchant-attribute-value-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                routerLink="../merchant-attribute-values" (click)="alertDelete()">Delete
+                                <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Liter</td>
+                            <td>1/2 litre</td>
+                            <td>1/2 ltr</td>
+                            <td>May 10, 2021</td>
+                            <td>
+
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#js_merchant-attribute-value-modal57">Edit</button>
+
+                                    <a class="js_merchant-attribute-value-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    routerLink="../merchant-attribute-values" (click)="alertDelete()">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> Color</td>
+                            <td>Red</td>
+                            <td>Red</td>
+                            <td>May 10, 2021</td>
+                            <td>
+
+                                <button class="js_charge btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-1" data-bs-toggle="modal"
+                                    data-bs-target="#js_merchant-attribute-value-modal57">Edit</button>
+                            
+                                    <a class="js_merchant-attribute-value-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    routerLink="../merchant-attribute-values" (click)="alertDelete()">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- table end -->
+    <!-- modal Edit Start -->
+    <div class="modal fade js_merchant-attribute-value-modal-form show" id="js_merchant-attribute-value-modal57"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="form-modal" id="js_merchant-attribute-value-create57"
+            data-form="#js_merchant-attribute-value-form57" data-btn="#js_merchant-attribute-value-btn57"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Attribute Value</h5><button class="close js_close-button"
+                        type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_merchant-attribute-value-form57" data-url="/item/merchant-attribute-values/57"
+                        novalidate="novalidate"><input type="hidden" name="_csrf"
+                            value="vDMZLzcb-kBZ7vxnIeCaboch-_Fm1EodOkVQ"><input type="hidden" name="is_active"
+                            value="0">
+                        <div class="form-group"><label> Attribute<em class="text-danger">*</em></label>
+                            <div class="select-group"><select
+                                    class="form-control js_attribute-select2 select2-hidden-accessible"
+                                    name="attribute_id" data-name="attribute_id" required="" disabled=""
+                                    data-select2-id="4" tabindex="-1" aria-hidden="true">
+                                    <option value="" data-select2-id="6">Select Attribute</option>
+                                    <option value="78" selected="" data-select2-id="7">Weight</option>
+                                </select><span
+                                    class="select2 select2-container select2-container--default select2-container--disabled"
+                                    dir="ltr" data-select2-id="5" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                            aria-disabled="true"
+                                            aria-labelledby="select2-attribute_id-j0-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-attribute_id-j0-container" role="textbox"
+                                                aria-readonly="true" title="Weight"><span
+                                                    class="select2-selection__clear" title="Remove all items"
+                                                    data-select2-id="8">×</span>Weight</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span></div><input
+                                type="hidden" value="78" name="attribute_id">
+                        </div>
+                        <div class="form-group"><label>Label</label><input class="form-control" type="text"
+                                placeholder="Label" name="label" value="1kg"></div>
+                        <div class="form-group"><label>Value<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" placeholder="Value" name="value" value="1kg"
+                                required=""></div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button><button
+                        class="js_charges-save-btn btn btn-primary ld-ext-right"
+                        id="js_merchant-attribute-value-btn57" data-bs-dismiss="modal">Save<div class="ld ld-ring ld-spin"></div></button></div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Edit end -->
+
+</div>

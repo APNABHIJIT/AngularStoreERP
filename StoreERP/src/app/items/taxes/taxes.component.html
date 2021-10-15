@@ -1,0 +1,242 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group d-flex float-right">
+                <button class="float-right mr-2 btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#js_tax-modal">
+                    <em class="la la-plus-circle"></em> Create Tax</button>
+
+                <div class="btn-group">
+                    <button class="btn  btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="#"><i class="la la-book mr-1"></i>Tutorial</a>
+                        </li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalbTcMt3TLYAQ">
+                                <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                            </a></li>
+                    </ul>
+                </div>
+
+
+                <div class="div modal fade" id="youtubeModalbTcMt3TLYAQ" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/watch?v=6qys-562kp4" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Model TaX -->
+        <div class="modal fade show" id="js_tax-modal" data-backdrop="static"
+            style="display: none; padding-right: 17px;" aria-modal="true">
+            <div class="form-modal" id="js_tax-create" data-form="#js_tax-form" data-btn="#js_tax-btn"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Created Tax</h5><button class="close js_close-button" type="button"
+                            data-bs-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="js_tax-form" data-url="/item/taxes/" novalidate="novalidate"><input type="hidden"
+                                name="_csrf" value="ENjlEngW-USEz3MIGqowzDmBpgdmohL_XLf8">
+                            <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                    class="form-control" type="text" placeholder="Tax Name" name="name"></div>
+                            <div class="form-row">
+                                <div class="col-sm-6">
+                                    <div class="form-group"><label>Percentage<em class="text-danger">
+                                                *</em></label><input class="form-control" type="number" placeholder="0%"
+                                            name="rate"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group"><label>Type</label><select class="form-control"
+                                            name="inclusion_type">
+                                            <option value="additive">Add Tax to Item Price</option>
+                                            <option value="inclusive">Include Tax in Item Price</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-primary ld-ext-right" id="js_tax-btn" data-bs-dismiss="modal">Save
+                            <div class="ld ld-ring ld-spin"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mODEL TAX END -->
+    </div>
+
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <!-- table start -->
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Tax Name</th>
+                            <th>Percentage</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CESS 20</td>
+                            <td>20</td>
+                            <td>Jul 11, 2021</td>
+                            <td>
+                                <button class="js_tax btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_tax-modal1828">Edit</button>
+
+                                <a class="js_tax-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                   (click)="alertDelete()" routerLink="../taxes" data-url="/item/taxes/1828">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>cess 79.16</td>
+                            <td>79.16</td>
+                            <td>Jul 11, 2021</td>
+                            <td>
+                                <button class="js_tax btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_tax-modal1828">Edit</button>
+
+                                <a class="js_tax-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    (click)="alertDelete()" routerLink="../taxes" data-url="/item/taxes/1828">Delete
+                                     <div class="ld ld-ring ld-spin"> </div>
+                                 </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CGST 15</td>
+                            <td>15</td>
+                            <td>Jul 11, 2021</td>
+                            <td>
+                                <button class="js_tax btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_tax-modal1828">Edit</button>
+
+                                <a class="js_tax-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    (click)="alertDelete()" routerLink="../taxes" data-url="/item/taxes/1828">Delete
+                                     <div class="ld ld-ring ld-spin"> </div>
+                                 </a>
+                            </td>
+                           </tr>
+                        <tr>
+                            <td>CGST 2.5%</td>
+                            <td>2.5</td>
+                            <td>Jan 4, 2021</td>
+                            <td>
+                                <button class="js_tax btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_tax-modal1828">Edit</button>
+
+                                <a class="js_tax-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    (click)="alertDelete()" routerLink="../taxes" data-url="/item/taxes/1828">Delete
+                                     <div class="ld ld-ring ld-spin"> </div>
+                                 </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CGST 6%</td>
+                            <td>6</td>
+                            <td>Jun 10, 2021</td>
+                            <td>
+                                <button class="js_tax btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_tax-modal1828">Edit</button>
+
+                                <a class="js_tax-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                    (click)="alertDelete()" routerLink="../taxes" data-url="/item/taxes/1828">Delete
+                                     <div class="ld ld-ring ld-spin"> </div>
+                                 </a>
+                            </td>    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- table End -->
+
+    <!-- Model Edit  tax start-->
+    <div class="modal fade show" id="js_tax-modal1828" data-backdrop="static"
+        style="display: node; padding-right: 17px;" aria-modal="true">
+        <div class="form-modal" id="js_tax-create1828" data-form="#js_tax-form1828" data-btn="#js_tax-btn1828"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Tax</h5><button class="close js_close-button" type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_tax-form1828" data-url="/item/taxes/1828" novalidate="novalidate"><input type="hidden"
+                            name="_csrf" value="ENjlEngW-USEz3MIGqowzDmBpgdmohL_XLf8">
+                        <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" placeholder="Tax Name" name="name" value="CESS 20">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="form-group"><label>Percentage<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="number" placeholder="0%" name="rate" value="20">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group"><label>Type</label><select class="form-control"
+                                        name="inclusion_type">
+                                        <option value="additive" selected="">Add Tax to Item Price</option>
+                                        <option value="inclusive">Include Tax in Item Price</option>
+                                    </select></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button><button
+                        class="btn btn-primary ld-ext-right" id="js_tax-btn1828" data-bs-dismiss="modal">Save<div class="ld ld-ring ld-spin">
+                        </div></button></div>
+            </div>
+        </div>
+    </div>
+    <!-- Model Edit End -->
+
+</div>

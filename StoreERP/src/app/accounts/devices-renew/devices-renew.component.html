@@ -1,0 +1,145 @@
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-12 w-100 d-flex flex-row justify-content-center">
+            <a class="media align-items-center mr-3 text-dark mb-4 mt-4 text-decoration-none" [routerLink]="['../licences']">
+                <img class="logo mr-2" src="assets/images/logoERP.png" height="80">
+                <div class="media-body StoreERP-logo">
+                    <h5 class="m-0"><b>StoreERP</b>
+                        <small class="d-block text-muted">Your Smart POS Solution</small>
+                    </h5>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-md-12 w-100 text-center">
+            <h2>Device Renewal</h2><b>Please select the devices needed to renew</b>
+        </div>
+    </div>
+    <!-- table STart -->
+    <div class="row">
+        <div class="col-md-8 m-auto">
+            <!-- <form class="js_device-renewal-form" data-url="/account/service-order"> -->
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <input class="js_service-order-id" type="hidden" name="service_order_id">
+                        <thead class="thead bg-light">
+                            <tr>
+                                <th width="30">
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="js_device-checkbox-all custom-control-input" id="custom-checkbox"  type="checkbox">
+                                        <label class="custom-control-label"  for="custom-checkbox"></label>
+                                    </div>
+                                </th>
+                                <th>Device Name</th>
+                                <th>Expiry Date</th>
+                                <th>AMC Amount</th>
+                                <th>Subscription Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox"><input
+                                            class="js_device-checkbox custom-control-input" type="checkbox" checked=""
+                                            data-amc="0" name="items[1329][is_subscribed]"
+                                            id="custom-checkbox-1329"><label class="custom-control-label"
+                                            for="custom-checkbox-1329"></label></div>
+                                </td>
+                                <td>FISH RETAIL 0</td>
+                                <td>Jun 2, 2021</td>
+                                <td> ₹<span>0</span></td>
+                                <td> ₹<span class="js_device-subscription">0</span></td><input type="hidden"
+                                    name="items[1329][qty]" value="1"><input type="hidden"
+                                    name="items[1329][product_id]" value="1"><input type="hidden"
+                                    name="items[1329][sub_total]" value="0"><input type="hidden"
+                                    name="items[1329][selling_price]" value="0"><input type="hidden"
+                                    name="items[1329][total]" value="0"><input type="hidden" name="items[1329][tax]"
+                                    value="0"><input type="hidden" name="items[1329][discount]" value="0"><input
+                                    type="hidden" name="items[1329][device_id]" value="1329"><input type="hidden"
+                                    name="items[1329][name]" value="Device"><input type="hidden"
+                                    name="items[1329][slug]" value="device"><input type="hidden"
+                                    name="items[1329][is_renewal]" value="1">
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox"><input
+                                            class="js_device-checkbox custom-control-input" type="checkbox" data-amc="0"
+                                            name="items[1330][is_subscribed]" id="custom-checkbox-1330"><label
+                                            class="custom-control-label" for="custom-checkbox-1330"></label></div>
+                                </td>
+                                <td>FISH RETAIL</td>
+                                <td>Jun 2, 2021</td>
+                                <td> ₹<span>0</span></td>
+                                <td> ₹<span class="js_device-subscription">0.00</span></td>
+                                <input type="hidden" name="items[1330][qty]" value="1">
+                                    <input type="hidden" name="items[1330][product_id]" value="1">
+                                    <input type="hidden" name="items[1330][sub_total]" value="0">
+                                    <input type="hidden" name="items[1330][selling_price]" value="0">
+                                    <input type="hidden" name="items[1330][total]" value="0">
+                                    <input type="hidden" name="items[1330][tax]" value="0">
+                                    <input type="hidden" name="items[1330][discount]" value="0">
+                                    <input type="hidden" name="items[1330][device_id]" value="1330">
+                                    <input type="hidden" name="items[1330][name]" value="Device">
+                                    <input type="hidden" name="items[1330][slug]" value="device">
+                                    <input type="hidden" name="items[1330][is_renewal]" value="1">
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="custom-control custom-checkbox"><input
+                                            class="js_device-checkbox custom-control-input" type="checkbox" data-amc="0"
+                                            name="items[1331][is_subscribed]" id="custom-checkbox-1331"><label
+                                            class="custom-control-label" for="custom-checkbox-1331"></label></div>
+                                </td>
+                                <td>Saravan Laptop</td>
+                                <td>Jun 2, 2021</td>
+                                <td> ₹<span>0</span></td>
+                                <td> ₹<span class="js_device-subscription">0.00</span></td><input type="hidden"
+                                    name="items[1331][qty]" value="1"><input type="hidden"
+                                    name="items[1331][product_id]" value="1"><input type="hidden"
+                                    name="items[1331][sub_total]" value="0"><input type="hidden"
+                                    name="items[1331][selling_price]" value="0"><input type="hidden"
+                                    name="items[1331][total]" value="0"><input type="hidden" name="items[1331][tax]"
+                                    value="0"><input type="hidden" name="items[1331][discount]" value="0"><input
+                                    type="hidden" name="items[1331][device_id]" value="1331"><input type="hidden"
+                                    name="items[1331][name]" value="Device"><input type="hidden"
+                                    name="items[1331][slug]" value="device"><input type="hidden"
+                                    name="items[1331][is_renewal]" value="1">
+                            </tr>
+
+                        </tbody>
+                        <tfoot>
+                            <tr><input class="js_device-total" type="hidden" name="total" value="0.00"><input
+                                    class="js_device-subtotal" type="hidden" name="sub_total" value="0.00"><input
+                                    class="js_device-tax" type="hidden" name="tax" value="0.00"><input
+                                    class="js_device-inclusive-tax" type="hidden" name="inclusive_tax" value="0"><input
+                                    class="js_device-additive-tax" type="hidden" name="additive_tax" value="0.00"><input
+                                    class="js_device-discount" type="hidden" name="discount" value="0">
+                                <td class="text-right font-weight-bold" colspan="4">SubTotal</td>
+                                <td> ₹<span class="js_device-total-subtotal">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right font-weight-bold" colspan="4">GST(18%)</td>
+                                <td> ₹<span class="js_device-total-tax">0.00</span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right font-weight-bold" colspan="4">Total Amount To Pay</td>
+                                <td> ₹<span class="js_device-total-amount">0.00</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <!-- </form> -->
+        </div>
+    </div>
+    <!-- table end -->
+
+    <div class="row">
+        <div class="col-md-8 m-auto text-center">
+            <a class="btn btn-dark text-white mr-3 text-decoration-none" [routerLink]="['../licences']">Back</a>
+            <a class="btn btn-success text-white text-decoration-none" [routerLink]="['../licences']">Pay Amount</a></div>
+    </div>
+</div>

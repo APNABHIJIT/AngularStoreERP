@@ -1,0 +1,297 @@
+<div class="container bg-white">
+    <div class="row my-3 pt-3">
+        <div class="col-md-3">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="nav-link" routerLink="../sales-summary">Sales Summary</a>
+                <a class="nav-link" routerLink="../payment-methods">Payment Methods</a>
+                <a class="nav-link" routerLink="../item-sales">Item Sales</a>
+                <a class="nav-link" routerLink="../category-sales">Category Sales</a>
+                <a class="nav-link" routerLink="../employee-sales">Employee Sales</a>
+                <a class="nav-link" routerLink="../location-sales">Location Sales</a>
+                <a class="nav-link" routerLink="../customer-sales">Customer Sales</a>
+                <a class="nav-link active" routerLink="../customer-items">Customer Items</a>
+                <a class="nav-link" routerLink="../customer-no-sales">Customer Without Sales</a>
+                <a class="nav-link" routerLink="../report-taxes">Taxes</a>
+                <a class="nav-link" routerLink="../combo-sales">Combo/Modifier Sales</a>
+                <a class="nav-link" routerLink="../item-price-category">Price Category</a>
+                <a class="nav-link" routerLink="../report-charges">Charges</a>
+                <a class="nav-link" routerLink="../ingredient-sales">Ingredients</a>
+                <a class="nav-link" routerLink="../food-recipe">Food Recipe</a>
+                <a class="nav-link" routerLink="../kot-items">KOT Item</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <!-- <form class="filter-form-modal" id="js_sales-summary-filter"> -->
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                            id="js_date-range">
+                            <span>Aug 1, 2021 - Aug 9, 2021 </span>
+                        </button>
+                        <input id="js_date-range-from-date" type="hidden" name="from_date" value="2021-08-01 00:00"
+                            data-timezone="Asia/Kolkata">
+                        <input id="js_date-range-to-date" type="hidden" name="to_date" value="2021-08-09 23:59">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button (click)="toggle()" class="btn btn-outline-primary">{{ buttonName }}</button>
+                    </div>
+                </div>
+                <div class="col-md-12 js_more-filters" *ngIf="show">
+                    <div class="form-row">
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select class="form-control" name="location_id" data-select2-id="1" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>All Locations</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select class="form-control" name="merchant_customer_group_id" data-select2-id="3"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option>All Groups</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group ld-ext-right js_loading">
+                                <div class="ld ld-ring ld-spin"></div><input
+                                    class="form-control js_prevent-enter-action" id="js_customer-filter-query"
+                                    placeholder="Filter by Name, Code, Email, Phone" name="query">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" name="merchant_price_category_id" data-select2-id="7"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option>Select Price Categories</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" name="device_id" data-select2-id="9" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>All Location</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" name="device_id" data-select2-id="9" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>Licence Name</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 ml-auto">
+                    <div class="form-group d-flex float-right">
+                        <div class="mr-2">
+                            <button class="btn btn-outline-primary float-right">Export</button>
+                        </div>
+                        <!-- add model  -->
+                    </div>
+                </div>
+            </div>
+            <!-- </form> -->
+            <!-- box start -->
+            <div id="js_customer-items">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-8">
+                        <p class="m-0"> Showing <b>1 </b> to <b>3 </b> of<b> 3 </b> entries</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="float-right text-decoration-none"  routerLink="../customer-items">Clear Filters</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>Customer Code</th>
+                                        <th>Customer Name</th>
+                                        <th>Ash Gourd</th>
+                                        <th>Baby Potato 1kg</th>
+                                        <th>Bajji Chilli</th>
+                                        <th>Banana Flower / 1 piece</th>
+                                        <th>Banana Kunnam (yellaki)</th>
+                                        <th>Banana Leaf</th>
+                                        <th>Baby Potato 1/2kg</th>
+                                        <th>dairy milk</th>
+                                        <th>chicken nuggets</th>
+                                        <th>veg nuggets</th>
+                                        <th>Mandarin Orange</th>
+                                        <th>Fresh Dates Yellow</th>
+                                        <th>Apple Royal Gala Pack of 4</th>
+                                        <th>Longan</th>
+                                        <th>Grapefruit</th>
+                                        <th>Mango Alphonso</th>
+                                        <th>Agathi Keerai</th>
+                                        <th>milk bread</th>
+                                        <th>wheat bread</th>
+                                        <th>bourneville</th>
+                                        <th>Anjeer/Fig</th>
+                                        <th>Anjeer Box 250gm</th>
+                                        <th>Aavin Milk 500ml</th>
+                                        <th>Aavin gee 1/2 ltr Jar</th>
+                                        <th>milk burfi</th>
+                                        <th>Banana Hills</th>
+                                        <th>SPARX SM 626 Grey Black (6/10,1649)</th>
+                                        <th>Custard Apple</th>
+                                        <th>Grapes-Panner Seeded</th>
+                                        <th>Green Apple</th>
+                                        <th>Brinjal Round (bhavani katiri)</th>
+                                        <th>Butter Fruits (Avocado)</th>
+                                        <th>Coconut</th>
+                                        <th>Baby Corn-Peeled</th>
+                                        <th>Australia Plums</th>
+                                        <th>Rambutan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10</td>
+                                        <td> <a class="text-decoration-none" routerLink="../customer-item">Rajdhan Bhagat</a></td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td> <a  class="text-decoration-none" routerLink="../customer-item2">Chetan </a></td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td> <a class="text-decoration-none" routerLink="../customer-item">Prathmesh</a></td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>200</td>
+                                        <td>431</td>
+                                        <td>120</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- box end -->
+        </div>
+    </div>
+</div>

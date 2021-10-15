@@ -1,0 +1,497 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link text-decoration-none active"
+                        routerLink="../employee/">Employees</a></li>
+                <li class="nav-item"><a class="nav-link text-decoration-none" routerLink="../role/">Roles</a></li>
+                <li class="nav-item"><a class="nav-link text-decoration-none" routerLink="../activity/">Activity</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+            <div class="d-flex float-right">
+                <button class="js_employee mr-2 btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#js_employee-modal">
+                    <em class="la la-plus-circle">+</em> Create Employee
+                </button>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary float-right  mr-2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                        <li>
+                            <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalIqKoxDCU8dI">
+                            <i class="la la-youtube-play mr-1"></i>
+                            Video Tutorial</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="div modal fade" id="youtubeModalIqKoxDCU8dI" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true" >×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/embed/IqKoxDC" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Employee create start -->
+    <div class="modal fade show" id="js_employee-modal" data-backdrop="static"
+        style="padding-right: 17px; display: none;" aria-modal="true">
+        <div class="js_employee-form" id="js_employee-create" data-form="#js_employee-form" data-btn="#js_employee-btn">
+        </div>
+        <div class="modal-dialog">
+            <form name="form" [formGroup]="employeeForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Employee</h5><button class="close js_close-button" type="button"
+                        data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <!-- <form data-url="/employee/" id="js_employee-form" novalidate="novalidate"> -->
+                        <input type="hidden"
+                            name="_csrf" value="kWdY3oAa-l3uOghCRrZ1rr7mQRUDHBNz65DY"><input type="hidden"
+                            name="is_admin">
+                        <div class="form-group"><label> Name<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" name="name" placeholder="Name" 
+                                formControlName="name"
+                                id="name"
+                                maxlength="50"
+                                [(ngModel)]="employee.name">
+                                <div *ngIf="submitted && f.name.errors">
+                                    <div *ngIf="f.name.errors.isRequired">
+                                      <label style="color: red; font-size: 14px"
+                                        >Required</label
+                                      >
+                                    </div>
+                                  </div>
+                            </div>
+                        <div class="form-group">
+                            <label> Type<em class="text-danger"> *</em></label>
+                            <div class="clearfix select-group">
+                                <select class="form-control js_user-type-select2 w-100 select2-hidden-accessible"
+                                    name="user_type_id" data-select2-id="174" tabindex="-1" aria-hidden="true" formControlName="type" [(ngModel)]="employee.type">
+                                    <option>Select Type</option>
+                                    <option value="permanent">Permanent</option>
+                                </select>
+                                <!-- <span
+                                    class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="175" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-disabled="false"
+                                            aria-labelledby="select2-user_type_id-cu-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-user_type_id-cu-container" role="textbox"
+                                                aria-readonly="true"><span class="select2-selection__placeholder">Select
+                                                    Type</span></span><span class="select2-selection__arrow"
+                                                role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                            </div>
+                            <div *ngIf="submitted && f.type.errors">
+                                <div *ngIf="f.type.errors.isRequired">
+                                  <label style="color: red; font-size: 14px"
+                                    >Required</label
+                                  >
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group"><label class="form-label required">Password<em
+                                            class="text-danger"> *</em></label>
+                                    <div class="input-group"><input class="form-control shadow-none" type="password"
+                                            name="password" placeholder="Password"
+                                            formControlName="password"
+                                id="password"
+                                maxlength="50"
+                                [(ngModel)]="employee.password"
+                                >
+                                        <div class="input-group-append"><button
+                                                class="btn theme-color js_password-toggle" type="button"><i
+                                                    class="la la-eye-slash"></i></button></div>
+                                    </div>
+                                    <div *ngIf="submitted && f.password.errors">
+                                        <div *ngIf="f.password.errors.isRequired">
+                                          <label style="color: red; font-size: 14px"
+                                            >Required</label
+                                          >
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"><label> Passcode<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="number" name="passcode"
+                                        placeholder="6 Digit Passcode" 
+                                        formControlName="passcode"
+                                        id="passcode"
+                                        [(ngModel)]="employee.passcode"
+                                         maxlength="6" minlength="6" min="0">
+                                        <div *ngIf="submitted && f.passcode.errors">
+                                            <div *ngIf="f.passcode.errors.isRequired">
+                                              <label style="color: red; font-size: 14px"
+                                                >Required</label
+                                              >
+                                            </div>
+                                          </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group"><label> Username<em class="text-danger"> * </em></label><input
+                                        class="form-control" type="text" name="username" placeholder="Username"
+                                        formControlName="username"
+                                        id="username"
+                                        [(ngModel)]="employee.username"
+                                        >
+                                        <div *ngIf="submitted && f.username.errors">
+                                            <div *ngIf="f.username.errors.isRequired">
+                                              <label style="color: red; font-size: 14px"
+                                                >Required</label
+                                              >
+                                            </div>
+                                          </div></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"><label> Email<em class="text-danger"> * </em></label><input
+                                        class="form-control" type="text" name="email" placeholder="Email" 
+                                        formControlName="email"
+                                        id="email"
+                                        [(ngModel)]="employee.email"
+                                        >
+                                        <div *ngIf="submitted && f.email.errors">
+                                            <div *ngIf="f.email.errors.isRequired">
+                                              <label style="color: red; font-size: 14px"
+                                                >Required</label
+                                              >
+                                            </div>
+                                          </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"><label> Phone<em class="text-danger"> *</em></label><input
+                                class="form-control" type="number" name="phone" placeholder="Phone Number" 
+                                formControlName="phone"
+                                        id="phone"
+                                        [(ngModel)]="employee.phone">
+                                <div *ngIf="submitted && f.phone.errors">
+                                    <div *ngIf="f.phone.errors.isRequired">
+                                      <label style="color: red; font-size: 14px"
+                                        >Required</label
+                                      >
+                                    </div>
+                                  </div>
+                        </div>
+                        <div class="form-group">
+                            <label> Roles<em class="text-danger"> *</em></label>
+                            <div class="clearfix select-group">
+                                <select class="form-control js_role-select2 w-100 select2-hidden-accessible"
+                                    name="role_id" data-select2-id="92" tabindex="-1" aria-hidden="true" [(ngModel)]="employee.roles" formControlName="roles">
+                                    <option>Select Roles</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                                <!-- <span
+                                    class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="93" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-disabled="false" aria-labelledby="select2-role_id-un-container"><span
+                                                class="select2-selection__rendered" id="select2-role_id-un-container"
+                                                role="textbox" aria-readonly="true"><span
+                                                    class="select2-selection__placeholder">Select
+                                                    Roles</span></span><span class="select2-selection__arrow"
+                                                role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                            </div>
+                            <div *ngIf="submitted && f.roles.errors">
+                                <div *ngIf="f.roles.errors.isRequired">
+                                  <label style="color: red; font-size: 14px"
+                                    >Required</label
+                                  >
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-group"><label>Locations</label>
+                            <div class="clearfix">
+                                <select class="form-control js_location-select2 w-100 select2-hidden-accessible"
+                                    multiple="" name="locations[]" data-select2-id="1" tabindex="-1" aria-hidden="true" [(ngModel)]="employee.locations" formControlName="locations">
+                                    <option>Select Locations</option>
+                                    <option value="nagpur">Nagpur</option>
+                                </select>
+                                <!-- <span
+                                    class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="2" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--multiple" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                            aria-disabled="false">
+                                            <ul class="select2-selection__rendered">
+                                                <li class="select2-search select2-search--inline"><input
+                                                        class="select2-search__field" type="search" tabindex="0"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                        spellcheck="false" role="searchbox" aria-autocomplete="list"
+                                                        placeholder="All Locations" style="width: 0px;"></li>
+                                            </ul>
+                                        </span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                            </div>
+                            <div *ngIf="submitted && f.locations.errors">
+                                <div *ngIf="f.locations.errors.isRequired">
+                                  <label style="color: red; font-size: 14px"
+                                    >Required</label
+                                  >
+                                </div>
+                              </div>
+                        </div>
+                    <!-- </form> -->
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button><button class="btn btn-primary ld-ext-right"
+                        id="js_employee-btn" (click)="saveEmployee($event)">Save<div class="ld ld-ring ld-spin">
+                        </div></butto<button class="btn btn-primary ld-ext-right"
+                        id="js_employee-btn" (click)="resetData()">Reset<div class="ld ld-ring ld-spin">
+                        </div></button>n></div>
+                        
+            </div>
+        </form>
+        </div>
+    </div>
+    <!-- Model Employee create start -->
+
+    <!-- Table Start -->
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Id #</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Locations</th>
+                            <th>Roles</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of empdata; let i = index">
+                            <td>{{item.employee_id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{ item.locations}}</td>
+                            <td class="text-capitalize">{{item.roles}}</td>
+                            <td>{{item.modified_on}}</td>
+                            <td width="200">
+
+                                <div class="btn-group">
+                                    <span class="btn-outline-primary float-right mb-2" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <i class="la la-ellipsis-h">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="js_employee dropdown-item" routerLink="../employee"
+                                                data-toggle="modal" data-target="#js_employee-modal803">View</a>
+                                        </li>
+                                        <li>
+                                            <span type="button" class="dropdown-item " data-bs-reset="reset"
+                                                data-bs-toggle="modal" data-bs-target="#js_employee-modal803"
+                                                data-bs-reload="true">Edit</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Table End -->
+    <!-- Edit Employee Modal start-->
+    <div class="modal fade show" id="js_employee-modal803" data-backdrop="static"
+        style="display: none; padding-right: 17px;" aria-modal="true" data-select2-id="js_employee-modal803">
+        <div class="js_employee-form" id="js_employee-create803" data-form="#js_employee-form803"
+            data-btn="#js_employee-btn803"></div>
+        <div class="modal-dialog" data-select2-id="320">
+            <div class="modal-content" data-select2-id="319">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Employee</h5><button class="close js_close-button"
+                        type="button">×</button>
+                </div>
+                <div class="modal-body" data-select2-id="318">
+                    <form data-url="/employee/803" id="js_employee-form803" novalidate="novalidate"
+                        data-select2-id="js_employee-form803"><input type="hidden" name="_csrf"
+                            value="kWdY3oAa-l3uOghCRrZ1rr7mQRUDHBNz65DY"><input type="hidden" name="is_admin" value="">
+                        <div class="form-group"><label> Name<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" name="name" placeholder="Name" value="StoreERP"></div>
+                        <div class="form-group d-none"><label> Type<em class="text-danger"> *</em></label>
+                            <div class="clearfix select-group"><select
+                                    class="form-control js_user-type-select2 w-100 select2-hidden-accessible"
+                                    name="user_type_id" data-select2-id="176" tabindex="-1" aria-hidden="true">
+                                    <option value="66" selected="" data-select2-id="178">Admin</option>
+                                </select>
+                                <!-- <span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="177" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-disabled="false"
+                                            aria-labelledby="select2-user_type_id-1i-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-user_type_id-1i-container" role="textbox"
+                                                aria-readonly="true" title="Admin"><span
+                                                    class="select2-selection__clear" title="Remove all items"
+                                                    data-select2-id="179">×</span>Admin</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group"><label> Passcode<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="number" name="passcode"
+                                        placeholder="6 Digit Passcode" value="123456" maxlength="6" minlength="6"
+                                        min="0"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group"><label> Username<em class="text-danger"> * </em></label><input
+                                        class="form-control" type="text" name="username" placeholder="Username"
+                                        value="StoreERP"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"><label> Email<em class="text-danger"> * </em></label><input
+                                        class="form-control" type="text" name="email" placeholder="Email"
+                                        value="StoreERP@StoreERP.com"></div>
+                            </div>
+                        </div>
+                        <div class="form-group d-none"><label> Phone<em class="text-danger"> *</em></label><input
+                                class="form-control" type="number" name="phone" placeholder="Phone Number"
+                                value="9176104637"></div>
+                        <div class="form-group d-none"><label> Roles<em class="text-danger"> *</em></label>
+                            <div class="clearfix select-group"><select
+                                    class="form-control js_role-select2 w-100 select2-hidden-accessible" name="role_id"
+                                    data-select2-id="94" tabindex="-1" aria-hidden="true">
+                                    <option value="583" selected="" data-select2-id="96">master</option>
+                                </select>
+                                <!-- <span class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="95" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-disabled="false" aria-labelledby="select2-role_id-gs-container"><span
+                                                class="select2-selection__rendered" id="select2-role_id-gs-container"
+                                                role="textbox" aria-readonly="true" title="master"><span
+                                                    class="select2-selection__clear" title="Remove all items"
+                                                    data-select2-id="97">×</span>master</span><span
+                                                class="select2-selection__arrow" role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                            </div>
+                        </div>
+                        <div class="form-group"><label>Locations</label>
+                            <div class="clearfix"><select
+                                    class="form-control js_location-select2 w-100 select2-hidden-accessible" multiple=""
+                                    name="locations[]" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                                    <option>Select Locations</option>
+                                </select>
+                                <!-- <span
+                                    class="select2 select2-container select2-container--default select2-container--above"
+                                    dir="ltr" data-select2-id="4" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--multiple" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                            aria-disabled="false">
+                                            <ul class="select2-selection__rendered">
+                                                <li class="select2-search select2-search--inline"><input
+                                                        class="select2-search__field" type="search" tabindex="0"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                        spellcheck="false" role="searchbox" aria-autocomplete="list"
+                                                        placeholder="All Locations" style="width: 0px;"></li>
+                                            </ul>
+                                        </span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button><button class="btn btn-primary ld-ext-right"
+                        id="js_employee-btn803" data-bs-dismiss="modal">Save<div class="ld ld-ring ld-spin"></div>
+                        </button></div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Employee modal End -->
+    <!-- Change Password Model start -->
+    <div class="modal fade show" id="js_employee-password-modal" data-backdrop="static"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="js_employee-password-form" id="js_employee-password-create804"
+            data-form="#js_employee-password-form804" data-btn="#js_employee-password-btn"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Change Password</h5><button class="close js_close-button"
+                        type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form data-url="/employee/change-password" id="js_employee-password-form"
+                        novalidate="novalidate"><input type="hidden" name="_csrf"
+                            value="kWdY3oAa-l3uOghCRrZ1rr7mQRUDHBNz65DY"><input type="hidden" name="employee_id"
+                            value="804">
+                        <div class="form-group"><label class="form-label required">New Password<em class="text-danger">
+                                    *</em></label>
+                            <div class="input-group"><input class="form-control shadow-none" type="password"
+                                    placeholder="New Password" name="password">
+                                <div class="input-group-append"><button class="btn theme-color js_password-toggle"
+                                        type="button"><i class="la la-eye-slash"></i></button></div>
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="form-label required">Confirm Password<em
+                                    class="text-danger"> *</em></label>
+                            <div class="input-group"><input class="form-control shadow-none" type="password"
+                                    placeholder="Confirm Password" name="password_confirmation">
+                                <div class="input-group-append"><button class="btn theme-color js_password-toggle"
+                                        type="button"><i class="la la-eye-slash"></i></button></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button><button
+                        class="btn btn-primary ld-ext-right" id="js_employee-password-btn" data-bs-dismiss="modal">Save<div
+                            class="ld ld-ring ld-spin"></div></button></div>
+            </div>
+        </div>
+    </div>
+    <!-- Change password Model end -->
+</div>

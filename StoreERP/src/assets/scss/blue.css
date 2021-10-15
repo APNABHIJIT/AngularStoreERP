@@ -1,0 +1,55 @@
+
+.nb-theme-blue nb-layout-header {
+    background-color: #3700b3!important;
+}
+.nb-theme-blue nb-sidebar {
+    background-color: #3700b3!important;
+}
+
+.nb-theme-blue [_nghost-yam-c255] .header-container[_ngcontent-yam-c255] .sidebar-toggle[_ngcontent-yam-c255] {
+    text-decoration: none;
+    color: #edf1f7!important;
+}
+
+.nb-theme-blue [_nghost-uhb-c255] .header-container[_ngcontent-uhb-c255] .sidebar-toggle[_ngcontent-uhb-c255] nb-icon[_ngcontent-uhb-c255] {
+    font-size: 1.75rem;
+    color: #fffcfc!important;
+}
+
+.nb-theme-blue nb-layout .layout {
+    background-color: #edf1f7!important;
+    color: #f3f3f3;
+    font-family: Open Sans, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    min-height: 100vh;
+}
+
+.nb-theme-blue p, .nb-theme-blue .paragraph {
+    color: #252c42!important;
+    font-family: Open Sans, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+}
+
+.nb-theme-blue h1, .nb-theme-blue h2, .nb-theme-blue h3, .nb-theme-blue h4, .nb-theme-blue h5, .nb-theme-blue h6, .nb-theme-blue .h1, .nb-theme-blue .h2, .nb-theme-blue .h3, .nb-theme-blue .h4, .nb-theme-blue .h5, .nb-theme-blue .h6 {
+    color: #222b45!important;
+}
+.nb-theme-blue nb-layout .layout {
+    background-color: #edf1f7;
+    color: #222b45!important;
+    font-family: Open Sans, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    min-height: 100vh;
+}
+.nb-theme-blue nb-action nb-icon {
+    color: #fffcfc!important;
+}
+[dir=ltr] .nb-theme-blue nb-action {
+    border-left: 1px solid #fffcfc!important;
+}
+

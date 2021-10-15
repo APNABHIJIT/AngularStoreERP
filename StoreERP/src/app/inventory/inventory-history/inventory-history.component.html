@@ -1,0 +1,162 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-orders-summary">Reports</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <form class="filter-form-modal" id="history-form">
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button" id="js_date-range">
+                            <span>Select Date</span>
+                        </button> 
+                        <input id="js_date-range-from-date" type="hidden" name="from_date" value="2021-08-11 00:00"
+                            data-timezone="Asia/Kolkata">
+                        <input id="js_date-range-to-date" type="hidden" name="to_date" value="2021-08-11 23:59">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <input type="hidden" name="export" value="xlsx">
+                        <a  class="js_more-filters-btn btn btn-outline-primary text-decoration-none" (click)="toggle()" routerLink="../inventory-history">
+                            {{ buttonName }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row js_more-filters" *ngIf="show" >
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <select class="form-control js_location-select2 select2-hidden-accessible"
+                            name="location_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <option>All Locations</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group ld-ext-right js_loading">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <input class="form-control" id="js_history-filter-name" placeholder="Filter by Item" name="query">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <select class="form-control js_history-stock-adjustment-type" name="stock_adjustment_type">
+                            <option value="">Stock Received By</option>
+                            <option value="sale">Sale(Sold)</option>
+                            <option value="master">Master</option>
+                            <option value="void">Void</option>
+                            <option value="recount">Recounted</option>
+                            <option value="damage">Damaged</option>
+                            <option value="theft">Theft</option>
+                            <option value="receive">Purchase Order(Receive)</option>
+                            <option value="transfer">Transfer</option>
+                            <option value="return">Returned</option>
+                            <option value="expired">Expired</option>
+                            <option value="loss">Lost</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ml-auto">
+                    <div class="d-flex float-right form-group">
+                       
+                        <div class="btn-group">
+                            <button type="button" class="text-justify btn btn-outline-primary mr-2 dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Export
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item text-decoration-none"  routerLink="../inventory-history"  (click)="exportError()">
+                                    Export CSV
+                                </a>
+                         
+                            
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <button class="btn btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown">
+                                <i class="la la-question-circle la-lg">?</i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../inventory-history">
+                                        <i class="la la-book mr-1"></i>Tutorial
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../inventory-history">
+                                        <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row pb-3">
+        <div id="js_indent-consolidation-view">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing 0 entries</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="float-right text-decoration-none" routerLink="../inventory-history">Clear Filters</a>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col">
+                    <div class="empty-state border border-secondary pt-5">
+                        <i class="la la-th-list text-center"></i>
+                        <h3 class="text-center">No History in this Time Frame</h3>
+                        <h5 class="text-center text-muted mb-4">No history took place during the time frame you have selected. Please select a different range.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

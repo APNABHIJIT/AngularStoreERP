@@ -1,0 +1,334 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../cms">CMS </a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../banners">Banners</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../settings">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../app-generate">Generate App</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <div class="d-flex float-right">
+                <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="modal"
+                    data-bs-target="#js_merchant-banner-modal">
+                    <em class="la la-plus-circle"></em> Add Banner
+                </button>
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-decoration-none" routerLink="../banners"><i
+                                    class="la la-book mr-1"></i>Tutorial</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Table start -->
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Banner</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                            <th>Client</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Offer 2</td>
+                            <td>
+                                <img src="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/home-banners/2.jpg"
+                                    width="100">
+                            </td>
+                            <td>1</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td class="text-capitalize">mobile</td>
+                            <td>Aug 9, 2020 6:20 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#js_merchant-banner-modal_edit">Edit</span>
+                                        </li>
+                                        <li> <span (click)="alertDeactivate()" type="button" class="dropdown-item">Deactivate</span></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>daily fresh</td>
+                            <td><img src="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/home-banners/banner.PNG"
+                                    width="100"></td>
+                            <td>1</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td class="text-capitalize">mobile</td>
+                            <td>Aug 11, 2020 12:26 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#js_merchant-banner-modal_edit">Edit</span>
+                                        </li>
+                                        <li> <span (click)="alertDeactivate()" type="button" class="dropdown-item">Deactivate</span></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fruits</td>
+                            <td><img src="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/home-banners/veg.png"
+                                    width="100"></td>
+                            <td>1</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td class="text-capitalize">web</td>
+                            <td>Nov 5, 2020 3:54 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#js_merchant-banner-modal_edit">Edit</span>
+                                        </li>
+                                        <li> <span (click)="alertDeactivate()" type="button" class="dropdown-item">Deactivate</span></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Test</td>
+                            <td><img src="https://StoreERP.s3.ap-south-1.amazonaws.com/stores/441/home-banners/Fruits.jpg"
+                                    width="100"></td>
+                            <td>1</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td class="text-capitalize">web</td>
+                            <td>Nov 5, 2020 3:57 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <span type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#js_merchant-banner-modal_edit">Edit</span>
+                                        </li>
+                                        <li> <span (click)="alertDeactivate()" type="button" class="dropdown-item">Deactivate</span></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Table end -->
+
+    <!-- add banner model start -->
+    <div class="modal" id="js_merchant-banner-modal" style="display: none;" aria-hidden="true">
+        <div class="form-modal js_merchant-page-modal" id="js_merchant-banner-create-modal"
+            data-form="#js_merchant-banner-form" data-btn="#js_merchant-banner-btn">
+        </div>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Banner</h5>
+                    <button class="close js_close-button" type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <!-- <form class="js_merchant-banner-form" id="js_merchant-banner-form" data-url="/store/banners/"
+                        novalidate="novalidate"> -->
+                    <input type="hidden" name="_csrf" value="JuCajDX3-Nth-31HBC4jw60LhyMxVQaWnU1E"><input type="hidden"
+                        name="active" value="1">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                    class="form-control" type="text" placeholder="Name" name="name"></div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"><label>Position<em class="text-danger"> *</em></label><input
+                                    class="form-control" type="number" placeholder="Position" name="position"></div>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Image</label>
+                        <div class="media">
+                            <input class="js_banner-upload-input" type="hidden" name="file_path" value="">
+                            <img class="mr-2" src="assets/images/image-placeholder.png" width="100">
+                            <div class="media-body">
+                                <div class="custom-file mb-2">
+                                    <input class="custom-file-input js_banner-upload" type="file" accept="image/*"
+                                        name="file" data-url="/store/banners/upload"><label
+                                        class="custom-file-label custom-file-control-image">Choose Image</label>
+                                </div>
+                                <small>
+                                    <p class="text-danger js_img-validation d-none">This field is required</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group"><label>Client</label><select
+                                    class="js_banner-type-select2 form-control" name="client">
+                                    <option class="text-capitalize" value="web">Web </option>
+                                    <option class="text-capitalize" value="mobile">Mobile</option>
+                                </select></div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"><label>Entity Type</label>
+                                <div class="clearfix">
+                                    <select class="form-control" name="entity[]type" data-select2-id="30" tabindex="-1"
+                                        aria-hidden="true">
+                                        <option class="text-capitalize" value="" data-select2-id="32">Select Offer
+                                            Type</option>
+                                        <option class="text-capitalize" value="category">Category </option>
+                                        <option class="text-capitalize" value="item">Item</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-none" id="banner-entity">
+                        <div class="col"><input class="js_banner-entity-name" type="hidden" name="entity[]name" value=""
+                                disabled="">
+                            <div class="form-group">
+                                <label>Entity Value</label>
+                                <div class="clearfix val">
+                                    <select class="form-control" name="entity[]id" disabled="">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-primary ld-ext-right"
+                        id="js_merchant-banner-btn" data-bs-dismiss="modal">Save
+                        <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- add banner modal end -->
+
+    <!-- Edit banner modal end -->
+    <div class="modal" id="js_merchant-banner-modal_edit" style="display: none;" aria-hidden="true">
+        <div class="form-modal js_merchant-page-modal" id="js_merchant-banner-create-modal"
+            data-form="#js_merchant-banner-form" data-btn="#js_merchant-banner-btn">
+        </div>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Banner</h5>
+                    <button class="close js_close-button" type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <!-- <form class="js_merchant-banner-form" id="js_merchant-banner-form" data-url="/store/banners/"
+                        novalidate="novalidate"> -->
+                    <input type="hidden" name="_csrf" value="JuCajDX3-Nth-31HBC4jw60LhyMxVQaWnU1E"><input type="hidden"
+                        name="active" value="1">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                    class="form-control" type="text" placeholder="Name" name="name"></div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"><label>Position<em class="text-danger"> *</em></label><input
+                                    class="form-control" type="number" placeholder="Position" name="position"></div>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Image</label>
+                        <div class="media">
+                            <input class="js_banner-upload-input" type="hidden" name="file_path" value="">
+                            <img class="mr-2" src="assets/images/image-placeholder.png" width="100">
+                            <div class="media-body">
+                                <div class="custom-file mb-2">
+                                    <input class="custom-file-input js_banner-upload" type="file" accept="image/*"
+                                        name="file" data-url="/store/banners/upload"><label
+                                        class="custom-file-label custom-file-control-image">Choose Image</label>
+                                </div>
+                                <small>
+                                    <p class="text-danger js_img-validation d-none">This field is required</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group"><label>Client</label><select
+                                    class="js_banner-type-select2 form-control" name="client">
+                                    <option class="text-capitalize" value="web">Web </option>
+                                    <option class="text-capitalize" value="mobile">Mobile</option>
+                                </select></div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"><label>Entity Type</label>
+                                <div class="clearfix">
+                                    <select class="form-control" name="entity[]type" data-select2-id="30" tabindex="-1"
+                                        aria-hidden="true">
+                                        <option class="text-capitalize" value="" data-select2-id="32">Select Offer
+                                            Type</option>
+                                        <option class="text-capitalize" value="category">Category </option>
+                                        <option class="text-capitalize" value="item">Item</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-none" id="banner-entity">
+                        <div class="col"><input class="js_banner-entity-name" type="hidden" name="entity[]name" value=""
+                                disabled="">
+                            <div class="form-group">
+                                <label>Entity Value</label>
+                                <div class="clearfix val">
+                                    <select class="form-control" name="entity[]id" disabled="">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-primary ld-ext-right"
+                        id="js_merchant-banner-btn" data-bs-dismiss="modal">Save
+                        <div class="ld ld-ring ld-spin"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit banner modal end -->
+
+</div>

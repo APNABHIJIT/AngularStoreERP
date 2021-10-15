@@ -1,0 +1,153 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../edit-profile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../locations">Locations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../devices">Devices</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../licences">Licences</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../change-password">Password</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../account-settings">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-payment-methods">Payment Methods</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../delete"> Delete</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../subscriptions"> Subscriptions</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../api-keys"> API Keys</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6 ml-auto">
+            <div class="form-group">
+                <div class="form-inline float-right btn-group">
+
+                    <button type="button" class="text-justify btn btn-outline-primary mr-2" data-bs-toggle="modal"
+                        data-bs-target="#js_device-modal">
+                        + Add More Licences
+                    </button>
+
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown">
+                            <i class="la la-question-circle la-lg">?</i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item text-decoration-none" [routerLink]="['../licences']">
+                                    <i class="la la-book mr-1"></i>Tutorial
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-decoration-none" [routerLink]="['../licences']">
+                                    <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- table start -->
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>3</b> of <b> 3 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Active Login Date</th>
+                            <th>Location</th>
+                            <th>Expiry Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>FISH RETAIL 0</td>
+                            <td> F29D1A66<p class="m-0 text-muted"> <small class="text-truncate">UUID:
+                                        ce7831e8-53b0-46f3-a7ce-5937f35b64d3</small></p>
+                            </td>
+                            <td> Aug 13, 2021 3:02 PM</td>
+                            <td>FISH RETAIL</td>
+                            <td>Jun 2, 2021</td>
+                            <td> <span class="badge badge-success text-uppercase">Active</span></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="text-justify btn btn-sm btn-outline-primary mr-2"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        ...
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item text-decoration-none" [routerLink]="['../licences']"
+                                                data-bs-toggle="modal" data-bs-target="#js_device-modal">
+                                                Edit</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item text-decoration-none" [routerLink]="['../devices-renew']">Renew Licence</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- modal Start -->
+            <div class="modal fade" id="js_device-modal" data-backdrop="static" style="display: none;"
+                aria-hidden="true">
+                <div class="form-modal" id="js_device-create1329" data-form="#js_device-form1329"
+                    data-btn="#js_device-btn1329"></div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Device</h5>
+                            <button class="close" data-bs-dismiss="modal" type="button">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <form data-url="/account/devices/1329" id="js_device-form1329" novalidate="novalidate">
+                                <input type="hidden" name="_csrf" value="2JJ8uk3o-Rj5nX0YwazBCJ3U5dSxCWKCEyTM">
+                                <div class="form-group"><label> Name<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="text" name="name" placeholder="Name"
+                                        value="FISH RETAIL 0"><input type="hidden" name="is_active" value="1"></div>
+                                <div class="form-group"><label> Location<em class="text-danger"> *</em></label>
+                                    <div class="select-group"><select
+                                            class="form-control js_location-select2 select2-hidden-accessible"
+                                            type="text" name="location_id" data-select2-id="3" tabindex="-1"
+                                            aria-hidden="true">
+                                            <option value="935" selected="" data-select2-id="5">FISH RETAIL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input class="" type="hidden" name="device_type_id" value="1">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-primary"data-bs-dismiss="modal">Save
+                                <div class="ld ld-ring ld-spin"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal End -->
+        </div>
+    </div>
+    <!-- table end -->
+
+</div>

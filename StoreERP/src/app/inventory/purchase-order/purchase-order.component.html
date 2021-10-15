@@ -1,0 +1,607 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <form class="filter-form-modal" id="js_transfer-order-filter"> -->
+        <div class="form-row">
+            <div class="col-md-7">
+                <div class="form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                                id="js_date-range">
+                                <span> Select a Date</span>
+                            </button>
+                            <input id="js_date-range-from-date" type="hidden" name="from_date" value=""
+                                data-timezone="Asia/Kolkata">
+                            <input id="js_date-range-to-date" type="hidden" name="to_date" value="">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <select class="select-filter form-control" name="date_type">
+                                <option value="created_date">Created Date</option>
+                                <option value="billing_date">Billing Date</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary" (click)="toggle()">{{ buttonName }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 js_more-filters" *ngIf="show">
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="supplier_id">
+                                <option>All Locations</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="to_location_id">
+                                <option>All Vendors</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group"><select class="select-filter form-control" name="paid_status">
+                                <option value="">Select Payment Status</option>
+                                <option value="paid">Payment Pending</option>
+                                <option value="refundpaid">Refund Payment Pending</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="select-filter form-control" id="js_purchase-order-filter-status"
+                                name="status">
+                                <option value="">All Status</option>
+                                <option value="pending_approval">Pending Approval</option>
+                                <option value="approved">Approved</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="received_partial">Received Partial</option>
+                                <option value="received_full">Received Full</option>
+                                <option value="closed">Closed</option>
+                                <option value="returned">Returned</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group ld-ext-right js_loading">
+                            <div class="ld ld-ring ld-spin"></div>
+                            <input class="js_prevent-enter-action form-control js_text-search-filter" type="text"
+                                name="invoice_no" placeholder="GRN Invoice No.">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group ld-ext-right js_loading">
+                            <div class="ld ld-ring ld-spin"></div>
+                            <input class="form-control" type="text" name="po_code" placeholder="PO Number">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group ld-ext-right js_loading">
+                            <div class="ld ld-ring ld-spin"></div>
+                            <input class="form-control" type="text" name="indent_transfer_order_id"
+                                placeholder="Indent Id">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="to_location_id">
+                                <option>Select Created By</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 ml-auto">
+                <div class="form-group">
+                    <div class="form-inline float-right btn-group">
+
+                        <button type="button" class="text-justify btn btn-outline-primary mr-2" data-bs-toggle="modal"
+                            data-bs-target="#js_grn_order">
+                            + Create Purchase Order
+                        </button>
+
+                        <div class="btn-group">
+                            <button type="button" class="text-justify btn btn-outline-primary mr-2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                ...
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../purchase-order">Export
+                                        Purchase Order</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../purchase-order">Export
+                                        Purchase Order Items</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../purchase-order">Export
+                                        GRN Itemss</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <button class="btn btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown">
+                                <i class="la la-question-circle la-lg">?</i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" routerLink="../grn">
+                                        <i class="la la-book mr-1"></i>Tutorial
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" routerLink="../grn">
+                                        <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </form> -->
+    </div>
+
+    <!-- Modal Start -->
+    <div class="modal fade show" id="js_grn_order" data-backdrop="static" style="display: none; padding-right: 17px;"
+        aria-modal="true">
+        <div class="form-modal" id="js_category-update-status-form-modal" data-form="#js_category-update-status-form"
+            data-btn="#js_category-update-status-btn">
+        </div>
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col">
+                        <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                            <i class="la la-times">X</i></a>
+                    </div>
+                    <div class="col text-center">
+                        <h4 class="form-modal-title"> New Purchase Order</h4>
+                    </div>
+                    <div class="col">
+                        <button class="js_loyalty-submit-btn float-right btn btn-primary ld-ext-right"
+                            data-bs-dismiss="modal" id="js_loyalty-btn45">Save
+                            <div class="ld ld-ring ld-spin"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-10 m-auto">
+                            <form class="js_purchase-order-form" data-url="../purchase-order/"
+                                id="js_purchase-order-form" novalidate="novalidate">
+                                <input type="hidden" name="_csrf" value="0qjmPDAQ-XIYFgyZDkyKYvyH3MdCp6yxQyeI">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> Vendor<em class="text-danger"> *</em></label>
+                                            <div class="select-group">
+                                                <select class="form-control" name="supplier_id">
+                                                    <option>Select Vendor</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label> Ship To<em class="text-danger"> *</em></label>
+                                            <div class="select-group">
+                                                <select class="form-control" name="location_id" data-select2-id="9"
+                                                    tabindex="-1" aria-hidden="true">
+                                                    <option>Select Location</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label> Expected Delivery<em class="text-danger">
+                                                    *</em></label>
+                                            <div class="hidden-group"><input
+                                                    class="form-control bg-white js_delivery-date" type="text"
+                                                    readonly="" value=""><input type="hidden" name="delivery_date"
+                                                    value=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> PO Number<em class="text-danger">*</em></label>
+                                            <input class="form-control js_auto-counter-generate" type="text"
+                                                name="po_code" value="987530" data-counter="987530" data-type="po">
+                                            <input type="hidden" name="po_generated" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> PO Invoice Number</label>
+                                            <input class="form-control" type="text" name="custom_attributes[invoice_no]"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> Billing Date</label>
+                                            <div class="hidden-group">
+                                                <input class="form-control bg-white js_billing-date" type="text"
+                                                    readonly="" value="">
+                                                <input type="hidden" name="custom_attributes[billing_date]" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Notes</label><textarea class="form-control"
+                                        name="custom_attributes[notes]"></textarea>
+                                </div>
+                                <div class="clearfix mb-3">
+                                    <h5 class="float-left my-1"> <b>Items</b></h5>
+                                    <div class="clearfix float-left m-1"><input class="js_items-input" type="hidden"
+                                            name="items" data-msg="Add some items"></div><button
+                                        class="float-right js_item-add btn btn-outline-primary btn-sm" type="button"
+                                        data-modal="#js_item-modal" data-form="#js_purchase-order-form"><em
+                                            class="la la-plus-circle"></em> Add Item</button>
+                                </div><span id="hidden-item"></span>
+                                <div class="table-responsive">
+                                    <table class="table border border-bottom-0 border-left-0 border-top-0 border-white">
+                                        <tbody>
+                                            <tr>
+                                                <td class="m-0 p-0" colspan="5">
+                                                    <table
+                                                        class="table m-0 border border-grey border-top-0 border-bottom-0">
+                                                        <thead class="border-0">
+                                                            <tr class="bg-light">
+                                                                <th>Sl. No.</th>
+                                                                <th>Item</th>
+                                                                <th>SKU</th>
+                                                                <th>Unit Buying Price</th>
+                                                                <th>Unit Selling Price</th>
+                                                                <th>MRP</th>
+                                                                <th>Qty</th>
+                                                                <th>Discount</th>
+                                                                <th>Tax</th>
+                                                                <th class="text-right">Amount</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="js_item-table">
+                                                            <tr class="js_item-table-empty">
+                                                                <td colspan="11">No Items</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="1"></td>
+                                                <td class="border border-grey border-right-0">Subtotal</td>
+                                                <td class="text-right border-right-0">₹ <span
+                                                        class="js_subtotal">0.00</span></td>
+                                                <td class="border border-grey border-left-0" width="56"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-0" colspan="1"> </td>
+                                                <td class="border border-grey border-right-0">Tax </td>
+                                                <td class="text-right border border-grey border-left-0 border-right-0">₹
+                                                    <span class="js_tax-total">0.00</span>
+                                                </td>
+                                                <td class="border border-grey border-left-0" width="56"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-0" colspan="1"> </td>
+                                                <td class="border border-grey border-right-0">Discount </td>
+                                                <td class="text-right border border-grey border-left-0 border-right-0">₹
+                                                    <span class="js_discount-total">0.00</span>
+                                                </td>
+                                                <td class="border border-grey border-left-0" width="56"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-0" colspan="1"> </td>
+                                                <td class="border border-grey border-right-0 py-2 pb-0" colspan="2">
+                                                    <small>Order Level Discount</small>
+                                                </td>
+                                                <td class="border border-grey border-left-0" width="56"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-0" colspan="1"> </td>
+                                                <td class="border border-grey border-right-0"><select
+                                                        class="js_order-discount-type form-control form-control-sm"
+                                                        name="discount_type" data-form="#js_purchase-order-form">
+                                                        <option value="percentage">Percentage</option>
+                                                        <option value="fixed">Fixed</option>
+                                                    </select></td>
+                                                <td class="text-right border border-grey border-left-0 border-right-0">
+                                                    <input
+                                                        class="js_order-discount-amount form-control form-control-sm text-right"
+                                                        type="number" placeholder="0.00" name="discount_amount" min="0"
+                                                        data-form="#js_purchase-order-form">
+                                                </td>
+                                                <td class="border border-grey border-left-0" width="56"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-0" colspan="1"> </td>
+                                                <td class="bg-light border border-grey border-right-0" width="150">
+                                                    <h5 class="m-0">Total Due</h5>
+                                                </td>
+                                                <td class="text-right bg-light border border-right-0 border-left-0"
+                                                    width="200">
+                                                    <h5 class="m-0"> ₹ <span class="js_total">0.00</span></h5>
+                                                </td>
+                                                <td class="bg-light border border-grey border-left-0" width="56"></td>
+                                                <input class="js_apply-tax-after-discount" type="hidden"
+                                                    name="apply_tax_after_discount" value="1">
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="daterangepicker ltr single opensright">
+                                    <div class="ranges"></div>
+                                    <div class="drp-calendar left single" style="display: block;">
+                                        <div class="calendar-table"></div>
+                                        <div class="calendar-time" style="display: none;"></div>
+                                    </div>
+                                    <div class="drp-calendar right" style="display: none;">
+                                        <div class="calendar-table"></div>
+                                        <div class="calendar-time" style="display: none;"></div>
+                                    </div>
+                                    <div class="drp-buttons">
+                                        <span class="drp-selected"></span>
+                                        <button class="cancelBtn btn btn-sm btn-default" type="button"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <button class="applyBtn btn btn-sm btn-primary" disabled="disabled"
+                                            type="button">Apply</button>
+                                    </div>
+                                </div>
+                                <div class="daterangepicker ltr single opensright">
+                                    <div class="ranges"></div>
+                                    <div class="drp-calendar left single" style="display: block;">
+                                        <div class="calendar-table"></div>
+                                        <div class="calendar-time" style="display: none;"></div>
+                                    </div>
+                                    <div class="drp-calendar right" style="display: none;">
+                                        <div class="calendar-table"></div>
+                                        <div class="calendar-time" style="display: none;"></div>
+                                    </div>
+                                    <!-- <div class="drp-buttons">
+                                        <span class="drp-selected"></span>
+                                        <button class="cancelBtn btn btn-sm btn-default" type="button">Cancel</button>
+                                        <button class="applyBtn btn btn-sm btn-primary" disabled="disabled" type="button">Apply</button> 
+                                    </div> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End -->
+    <!-- Table start -->
+    <div class="row">
+        <div class="col-md-12" id="js_customers">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="float-right text-decoration-none" routerLink="../transfer">Clear Filters</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover bg-white">
+                        <thead>
+                            <tr>
+                                <th>PO Number</th>
+                                <th>Status</th>
+                                <th>Updated</th>
+                                <th>Expected On</th>
+                                <th>Vendor</th>
+                                <th>Destination</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>987529</td>
+                                <td><span class="badge badge-info">CLOSED</span></td>
+                                <td>Aug 10, 2021</td>
+                                <td> Aug 27, 2021</td>
+                                <td>Oriental Suppliers</td>
+                                <td>Warehouse</td>
+                                <td> <b>₹228,000.00</b></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Details</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Save As PDF</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>987528</td>
+                                <td><span class="badge badge-info">PENDING_APPROVAL</span></td>
+                                <td>Aug 9, 2021</td>
+                                <td> Aug 9, 2021</td>
+                                <td>Foods India Limited</td>
+                                <td>Warehouse</td>
+                                <td> <b>₹109,931.25</b></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Details</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Save As PDF</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>987528</td>
+                                <td><span class="badge badge-info">PENDING_APPROVAL</span></td>
+                                <td>Aug 9, 2021</td>
+                                <td> Aug 9, 2021</td>
+                                <td>Foods India Limited</td>
+                                <td>Warehouse</td>
+                                <td> <b>₹109,931.25</b></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Details</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Save As PDF</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>987528</td>
+                                <td><span class="badge badge-info">PENDING_APPROVAL</span></td>
+                                <td>Aug 9, 2021</td>
+                                <td> Aug 9, 2021</td>
+                                <td>Foods India Limited</td>
+                                <td>Warehouse</td>
+                                <td> <b>₹109,931.25</b></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Details</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Save As PDF</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>987521</td>
+                                <td><span class="badge badge-danger">REJECTED</span></td>
+                                <td>Aug 4, 2021</td>
+                                <td> Aug 4, 2021</td>
+                                <td>Sri Foods</td>
+                                <td>Store 1</td>
+                                <td> <b>₹2,700.00</b></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Details</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../purchase-order">Save As PDF</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Table end -->
+</div>

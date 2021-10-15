@@ -1,0 +1,23 @@
+.nb-theme-golden nb-layout-header {
+    background-color: #3a3636!important;
+}
+
+.nb-theme-golden h1, .nb-theme-golden h2, .nb-theme-golden h3, .nb-theme-golden h4, .nb-theme-golden h5, .nb-theme-golden h6, .nb-theme-golden .h1, .nb-theme-golden .h2, .nb-theme-golden .h3, .nb-theme-golden .h4, .nb-theme-golden .h5, .nb-theme-golden .h6 {
+    color: #332b2b!important;
+}
+.nb-theme-golden nb-menu .menu-item a.active {
+    background-color: transparent;
+    color: #3a3636!important;
+}
+
+.nb-theme-golden nb-menu .menu-item .menu-icon a.active{
+    color: #3a3636!important;
+}
+
+.nb-theme-golden nb-menu .menu-item .menu-icon {
+    color: #3a3636!important;
+}
+
+.nb-theme-golden nb-card {
+    background-color: #3a3636!impor;
+}

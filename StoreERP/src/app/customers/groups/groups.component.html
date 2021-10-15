@@ -1,0 +1,180 @@
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row bg-white pt-2 mb-3 shadow">
+                <div class="col">
+                    <ul class="nav nav-pills mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../customer">Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../credits/">Credits</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link active" routerLink="../groups">Groups</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="d-flex float-right mb-3">
+                <button class="float-right mr-2 btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#js_group-modal">
+                    <em class="la la-plus-circle"></em> + Create Group
+                </button>
+                <a class="m-0 align-self-center text-decoration-none" routerLink="#" data-toggle="dropdown">
+                    <i class="la la-question-circle la-lg"></i>
+                </a>
+                <div class="btn-group">
+                    <button class="btn btn-primary float-right  mr-2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="#"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                        <li><a class="dropdown-item" routerLink="#"><i class="la la-youtube-play mr-1"></i>Video
+                                Tutorial</a></li>
+                    </ul>
+                </div>
+                <div class="div modal fade" id="youtubeModalIqKoxDCU8dI?t=150" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header"><button class="close" type="button" data-dismiss="modal"
+                                    aria-lable="Close"><span aria-hidden="true">×</span></button></div>
+                            <div class="modal-body p-0"><iframe width="100%"
+                                    src="https://www.youtube.com/embed/IqKoxDCU8dI?t=150" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;"></iframe></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="js_customer-group">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-8">
+                        <p class="m-0"> Showing <b>1 </b> to <b>4 </b> of<b> 4 </b> entries</p>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>id #</th>
+                                        <th>Name</th>
+                                        <th>Created Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1288</td>
+                                        <td>StoreERP</td>
+                                        <td>Aug 07, 2021</td>
+                                        <td> <button class="js_group btn btn-outline-primary btn-sm btn-block-xs mb-2"
+                                                type="button" data-bs-toggle="modal"
+                                                data-bs-target="#js_group-modal1288">Edit</button> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1248</td>
+                                        <td>Instagram</td>
+                                        <td>Aug 08, 2021</td>
+                                        <td> 
+                                            <button class="js_group btn btn-outline-primary btn-sm btn-block-xs mb-2" type="button" data-bs-toggle="modal" data-bs-target="#js_group-modal1288">
+                                                Edit</button>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1247</td>
+                                        <td>FB</td>
+                                        <td>Aug 08, 2021</td>
+                                        <td> <button class="js_group btn btn-outline-primary btn-sm btn-block-xs mb-2"
+                                                type="button" data-bs-toggle="modal"
+                                                data-bs-target="#js_group-modal1288">Edit</button> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1208</td>
+                                        <td>school</td>
+                                        <td>Aug 08, 2021</td>
+                                        <td> <button class="js_group btn btn-outline-primary btn-sm btn-block-xs mb-2"
+                                                type="button" data-bs-toggle="modal" data-bs-target="#js_group-modal1288">Edit</button> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Create Group Model  -->
+                <div class="modal fade" id="js_group-modal" data-bs-backdrop="static" aria-hidden="true"
+                    style="display: none;">
+                    <div class="form-modal" id="js_group-create" data-form="#js_group-form" data-btn="#js_group-btn">
+                    </div>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Create Group</h5>
+                                <button data-bs-dismiss="modal" class="close js_close-button" type="button">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="js_group-form" data-url="/customer/groups/" novalidate="novalidate">
+                                    <input type="hidden" name="_csrf" value="9sObA9l8-wM3lgBJOmWxIeTJVJCL-gWdXcz0">
+                                    <div class="form-group">
+                                        <label>Name<em class="text-danger"> *</em></label>
+                                        <input class="form-control" type="text" placeholder="Group Name"
+                                            name="description">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button data-bs-dismiss="modal" class="btn btn-secondary js_close-button">Close</button>
+                                <button data-bs-dismiss="modal" class="btn btn-primary ld-ext-right" id="js_group-btn">Save
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Group Model  -->
+                <div class="modal fade" id="js_group-modal1288" data-backdrop="static">
+                    <div class="form-modal" id="js_group-create1288" data-form="#js_group-form1288"
+                        data-btn="#js_group-btn1288">
+                    </div>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Group</h5>
+                                <button data-bs-dismiss="modal" class="close js_close-button" type="button">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="js_group-form1288" data-url="/customer/groups/1288" novalidate="novalidate">
+                                    <input type="hidden" name="_csrf" value="9sObA9l8-wM3lgBJOmWxIeTJVJCL-gWdXcz0">
+                                    <div class="form-group">
+                                        <label>Name<em class="text-danger"> *</em></label>
+                                        <input class="form-control" type="text" placeholder="Group Name" name="description" value="SroreERP">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button data-bs-dismiss="modal" class="btn btn-secondary js_close-button">Close</button>
+                                <button data-bs-dismiss="modal" class="btn btn-primary ld-ext-right" id="js_group-btn1288">Save
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Edit Group Model End -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,209 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link text-decoration-none active" routerLink="../export-file/"> Data
+                        Export</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <div class="d-flex float-right">
+                <button class="btn btn-outline-primary btn-block-xs float-right mb-2 mr-2" data-bs-toggle="modal"
+                    data-reset="reset" data-bs-target="#js_export-modal">
+                    <em class="la la-plus-circle"></em> Export File
+                </button>
+
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary mb-2 mr-2 btn-block-xs " data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="#"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalbTcMt3TLYAQ">
+                                <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="div modal fade" id="youtubeModalbTcMt3TLYAQ" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/watch?v=6qys-562kp4" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Export file start -->
+    <div class="modal fade show" id="js_export-modal" role="dialog" style="padding-right: 17px; display: none;"
+        aria-modal="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Export File</h5><button class="close" type="button" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true"> ×</span></button>
+                </div>
+                <div class="modal-body">
+                    <form class="js_file-export-form" data-url="/export-file" data-btn=".js_export-submit-btn"
+                        data-form=".js_file-export-form" novalidate="novalidate">
+                        <div class="form-group"><label> Sheets<em class="text-danger">*</em></label>
+                            <div class="clearfix select-group">
+                                <select class="form-control js_sheet-select2 select2-hidden-accessible"
+                                    name="filters[sheets][]" multiple="" data-select2-id="3" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>categories</option>
+                                    <option>items</option>
+                                    <option>taxes</option>
+                                    <option>item masters</option>
+
+                                </select>
+                                <!-- <span
+                                    class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="4" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--multiple" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                            aria-disabled="false">
+                                            <ul class="select2-selection__rendered">
+                                                <li class="select2-search select2-search--inline"><input
+                                                        class="select2-search__field" type="search" tabindex="0"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                        spellcheck="false" role="searchbox" aria-autocomplete="list"
+                                                        placeholder="Select Sheets" style="width: 0px;"></li>
+                                            </ul>
+                                        </span></span><span class="dropdown-wrapper" aria-hidden="true"></span>
+                                    </span> -->
+                            </div>
+                        </div>
+                        <div class="form-group"><label>Locations</label>
+                            <div class="clearfix">
+                                <select class="form-control js_export-location-select2 w-100 select2-hidden-accessible"
+                                    name="filters[location_ids][]" multiple="" data-select2-id="1" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>Eco Shop1</option>
+                                    <option>Store 1</option>
+                                    <option>Eco Shop 2</option>
+                                    <option>Store 2</option>
+                                </select>
+                                <!-- <span
+                                    class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="2" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--multiple" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                            aria-disabled="false">
+                                            <ul class="select2-selection__rendered">
+                                                <li class="select2-search select2-search--inline"><input
+                                                        class="select2-search__field" type="search" tabindex="0"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                        spellcheck="false" role="searchbox" aria-autocomplete="list"
+                                                        placeholder="Select Locations" style="width: 0px;"></li>
+                                            </ul>
+                                        </span></span><span class="dropdown-wrapper" aria-hidden="true"></span>
+                                    </span> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="js_export-submit-btn btn btn-primary ld-ext-right" data-bs-dismiss="modal">Export
+                        File<div class="ld ld-ring ld-spin"></div></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model Export file end -->
+
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table bg-white">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>File Name</th>
+                            <th>Sheets</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1242</td>
+                            <td>e8971f3cf0c5ade0.Xlsx</td>
+                            <td> Items,Taxes,Categories,ItemMasters</td>
+                            <td class="text-uppercase"><span class="badge badge-success">completed</span></td>
+                            <td>Jul 19, 2021 4:31 PM</td>
+                            <td><a class="btn btn-sm btn-outline-primary mr-2 text-decoration-none"
+                                    routerLink="../export-file">
+                                    Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>1218</td>
+                            <td>3780b3a2e5e756a6.Xlsx</td>
+                            <td> Items</td>
+                            <td class="text-uppercase"><span class="badge badge-success">completed</span></td>
+                            <td>Jul 9, 2021 1:30 PM</td>
+                            <td><a class="btn btn-sm btn-outline-primary mr-2 text-decoration-none"
+                                    routerLink="../export-file">
+                                    Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>1217</td>
+                            <td> 3f70b9689dbf0d14.Xlsx</td>
+                            <td> ItemMasters</td>
+                            <td class="text-uppercase"><span class="badge badge-success">completed</span></td>
+                            <td>Jul 9, 2021 1:27 PM</td>
+                            <td><a class="btn btn-sm btn-outline-primary mr-2 text-decoration-none"
+                                    routerLink="../export-file">
+                                    Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>1216</td>
+                            <td> 7e71c5a986ecea79.Xlsx</td>
+                            <td> Categories</td>
+                            <td class="text-uppercase"><span class="badge badge-success">completed</span></td>
+                            <td>Jul 9, 2021 1:27 PM</td>
+                            <td><a class="btn btn-sm btn-outline-primary mr-2 text-decoration-none"
+                                    routerLink="../export-file">
+                                    Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>1214</td>
+                            <td> 24f39a7b3cd52fe7.Xlsx</td>
+                            <td> Categories</td>
+                            <td class="text-uppercase"><span class="badge badge-success">completed</span></td>
+                            <td>Jul 8, 2021 12:04 PM</td>
+                            <td><a class="btn btn-sm btn-outline-primary mr-2 text-decoration-none"
+                                    routerLink="../export-file">
+                                    Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

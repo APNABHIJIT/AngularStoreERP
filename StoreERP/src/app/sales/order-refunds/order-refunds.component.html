@@ -1,0 +1,155 @@
+<div class="container bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row bg-white pt-2 mb-3 shadow">
+                <div class="col">
+                    <ul class="nav nav-pills mb-2 border-0">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales">Transactions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales/cash-drawer-shifts/">Cash Drawer Shifts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales/online-orders/">Online Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="../../sales/bulk-orders/">Sales Request</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="../../sales/order-refunds/">Sales Return</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <div class="form-group">
+                <select class="form-control active">
+                    <option value="Toady" >Toady</option>
+                    <option value="Yesterday" >Yesterday</option>
+                    <option value="This Week" >This Week</option>
+                    <option value="Last Week" >Last Week</option>
+                    <option value="This Month" > This Month</option>
+                    <option value="Last Month" >Last Month</option>
+                    <option value="This Year" >This Year</option>
+                    <option value="Last Year" >Last Year</option>
+                    <option value="" > Custom Range</option>
+                </select>
+            </div>
+        </div>
+     
+        <div class="col-md-4">
+            <div class="form-group">
+                <select class="form-control">
+                    <option>All Types</option>
+                    <option>FULL</option>
+                    <option>PARTIAL</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button (click)="toggle()" type="button" class="btn btn-primary">{{ buttonName }}</button>
+           </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="show">
+        <div class="col-md-12 js_more-filters">
+            <div class="form-row">
+                <div class="col-md-3">
+                    <div class="form-group" data-select2-id="4">
+                        <select class="form-control" name="refund_status_id">
+                            <option>All Status</option>
+                            <option>Pending</option>
+                            <option>Rejected</option>
+                            <option>Refunded</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <input class="form-control" placeholder="Filter by Order Id" name="order_id">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+   
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>2 </b> of<b> 2 </b> entries</p>
+        </div>
+        <div class="col-md-4">
+            <a class="float-right text-decoration-none" routerLink="../../sales/order-refunds">Clear Filters</a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Status</th>
+                            <th>Type</th>
+                            <th>Refund Reason</th>
+                            <th>Refund Amount</th>
+                            <th>Processed Date</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a routerLink="../order-refunds" target="_blank">5181722</a></td>
+                            <td><span><span class="badge badge-danger">Refunded</span></span></td>
+                            <td>PARTIAL</td>
+                            <td>Returned Goods</td>
+                            <td>₹1,330.00</td>
+                            <td>Tue, Aug 3, 2021 5:53 PM</td>
+                            <td>Tue, Aug 3, 2021 5:53 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" routerLink="../order-refunds">View</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a routerLink="../order-refunds" target="_blank">5176212</a></td>
+                            <td><span><span class="badge badge-danger">Refunded</span></span></td>
+                            <td>PARTIAL</td><td>Returned Goods</td><td>₹959.00</td>
+                            <td>Mon, Aug 2, 2021 5:54 PM</td><td>Mon, Aug 2, 2021 5:54 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span  data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" routerLink="../order-refunds">View</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   
+
+</div>

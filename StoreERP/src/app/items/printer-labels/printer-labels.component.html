@@ -1,0 +1,754 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../price-categories/">Price Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex float-right mb-3">
+                <button class="float-right mr-2 btn btn-outline-primary js_printer-label-create"
+                    data-bs-target="#js_printer-label-create" data-bs-toggle="modal">
+                    <em class="la la-plus-circle"></em> Create Printer Label
+                </button>
+
+                <div class="btn-group">
+                    <button class="btn  btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="../printer-labels"><i class="la la-book mr-1"></i>Tutorial</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model   Create Printer start-->
+    <div class="modal fade" id="js_printer-label-create">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col">
+                        <span class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                            <i class="la la-times">X</i></span>
+                    </div>
+                    <div class="col text-center">
+                        <h4 class="form-modal-title"> New Printer Label</h4>
+                    </div>
+                    <div class="col">
+                        <button class="float-right btn btn-outline-primary ld-ext-right js_printer-label-form-submit"
+                            id="js_printer-label-btn" data-bs-dismiss="modal">Save
+                            <div class="ld ld-ring ld-spin"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="model-body">
+                    <div class="form-modal-body">
+                        <div class="row">
+                            <div class="col-sm-11 m-auto">
+                                <!-- <form data-url="/item/printer-labels/" id="js_printer-label-form"
+                                    data-btn="#js_printer-label-btn" novalidate="novalidate"> -->
+                                    
+                                    <input type="hidden"
+                                        name="_csrf" value="VUJ5Lfml-yngkmMlGHvTrmWi_Xt-QSRruHSk">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group"><label>Name <em
+                                                                class="text-danger">*</em></label><input
+                                                            class="form-control" type="text"
+                                                            placeholder="Printer Label Name" name="name" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group"><label>Printer <em
+                                                                class="text-danger">*</em></label>
+                                                        <div class="select-group"><select
+                                                                class="js_printer-select2 select2-hidden-accessible"
+                                                                name="printer" required="" data-select2-id="1"
+                                                                tabindex="-1" aria-hidden="true"></select><span
+                                                                class="select2 select2-container select2-container--default"
+                                                                dir="ltr" data-select2-id="2" style="width: 100%;"><span
+                                                                    class="selection"><span
+                                                                        class="select2-selection select2-selection--single"
+                                                                        role="combobox" aria-haspopup="true"
+                                                                        aria-expanded="false" tabindex="0"
+                                                                        aria-disabled="false"
+                                                                        aria-labelledby="select2-printer-5j-container"><span
+                                                                            class="select2-selection__rendered"
+                                                                            id="select2-printer-5j-container"
+                                                                            role="textbox" aria-readonly="true"><span
+                                                                                class="select2-selection__placeholder">Select
+                                                                                Printer</span></span><span
+                                                                            class="select2-selection__arrow"
+                                                                            role="presentation"><b
+                                                                                role="presentation"></b></span></span></span><span
+                                                                    class="dropdown-wrapper"
+                                                                    aria-hidden="true"></span></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group"><label>Size Width<em
+                                                                class="text-danger">*</em></label><input
+                                                            class="js_printer-label-property form-control" type="number"
+                                                            placeholder="Width in mm" name="properties[width]"
+                                                            required="" min="1" max="1000"></div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group"><label>Size Height<em
+                                                                class="text-danger">*</em></label><input
+                                                            class="js_printer-label-property form-control" type="number"
+                                                            placeholder="Height in mm" name="properties[height]"
+                                                            required="" min="1" max="1000"></div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group"><label>Label Columns<em
+                                                                class="text-danger">*</em></label><input
+                                                            class="js_printer-label-property form-control" type="number"
+                                                            placeholder="No of Columns" name="properties[columns]"
+                                                            required="" min="1" max="100"></div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group"><label>Label Gap<em
+                                                                class="text-danger">*</em></label><input
+                                                            class="js_printer-label-property form-control" type="number"
+                                                            placeholder="Gap in mm" name="properties[gap]" required=""
+                                                            min="0" max="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group"><select class="form-control js_label-type">
+                                                            <option value="text">Text</option>
+                                                            <option value="barcode">Barcode</option>
+                                                        </select></div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group"><button
+                                                            class="btn btn-primary js_add-label">Add Label</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="js_printer-label-properties py-3"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card mb-3">
+                                                <div class="card-header">Preview</div>
+                                                <div class="card-body bg-light p-0 js_printer-label-preview"
+                                                    style="overflow: auto; min-height: 400px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- model   Create Printer end-->
+
+    <!-- table start -->
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing 1 entry</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Label Name</th>
+                            <th>Printer</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Printer Label</td>
+                            <td>TSC TE244</td>
+                            <td>Mar 8, 2021</td>
+                            <td>
+                                <button
+                                    class="js_printer-label-create btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-target="#js_label-print-modal" data-bs-toggle="modal">
+                                    Edit</button>
+
+                                <button class="js_printer-label-print btn btn-info btn-sm mr-1 btn-block-xs mb-2 mr-2"
+                                    data-url="/item/printer-labels/print/33" data-bs-toggle="modal"
+                                    data-bs-target="#js_label-print-modal">Print
+                                </button>
+
+                                <a class="js_printer-label-delete btn btn-danger btn-sm btn-block-xs mb-2 ld-ext-right text-decoration-none"
+                                  (click)="alertDelete()"  routerLink="../printer-labels">Delete
+                                    <div class="ld ld-ring ld-spin"> </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- table end -->
+
+    <!-- Edit Modal  start-->
+    <div class="modal fade" id="js_label-print-modal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col">
+                        <span class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                            <i class="la la-times" data-bs-dismiss="modal">X</i>
+                        </span>
+                    </div>
+                    <div class="col text-center">
+                        <h4 class="form-modal-title"> Edit Printer Label</h4>
+                    </div>
+                    <div class="col"><a class="float-right btn btn-primary ld-ext-right js_printer-label-form-submit"
+                            id="js_printer-label-btn33" data-bs-dismiss="modal">Save <div class="ld ld-ring ld-spin"></div></a>
+                    </div>
+                </div>
+                <div class="model-body">
+                    <div class="row">
+                        <div class="col-sm-11 m-auto">
+                            <!-- <form data-url="/item/printer-labels/33" id="js_printer-label-form33"
+                                data-btn="#js_printer-label-btn33" novalidate="novalidate"> -->
+                                
+                                <input type="hidden"
+                                    name="_csrf" value="oUOnU4Vw-YcjKRk9KUgZFGqXpXIhWWaz6U-M">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Name <em
+                                                            class="text-danger">*</em></label><input
+                                                        class="form-control" type="text"
+                                                        placeholder="Printer Label Name" name="name"
+                                                        value="Printer Label" required=""></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Printer <em
+                                                            class="text-danger">*</em></label>
+                                                    <div class="select-group"><select
+                                                            class="js_printer-select2 select2-hidden-accessible"
+                                                            name="printer" required="" data-select2-id="3" tabindex="-1"
+                                                            aria-hidden="true">
+                                                            <option value="tsc_te244" selected="" data-select2-id="5">
+                                                                TSC TE244</option>
+                                                        </select><span
+                                                            class="select2 select2-container select2-container--default"
+                                                            dir="ltr" data-select2-id="4" style="width: 100%;"><span
+                                                                class="selection"><span
+                                                                    class="select2-selection select2-selection--single"
+                                                                    role="combobox" aria-haspopup="true"
+                                                                    aria-expanded="false" tabindex="0"
+                                                                    aria-disabled="false"
+                                                                    aria-labelledby="select2-printer-he-container"><span
+                                                                        class="select2-selection__rendered"
+                                                                        id="select2-printer-he-container" role="textbox"
+                                                                        aria-readonly="true" title="TSC TE244"><span
+                                                                            class="select2-selection__clear"
+                                                                            title="Remove all items"
+                                                                            data-select2-id="6">×</span>TSC
+                                                                        TE244</span><span
+                                                                        class="select2-selection__arrow"
+                                                                        role="presentation"><b
+                                                                            role="presentation"></b></span></span></span><span
+                                                                class="dropdown-wrapper"
+                                                                aria-hidden="true"></span></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-3">
+                                                <div class="form-group"><label>Size Width<em
+                                                            class="text-danger">*</em></label><input
+                                                        class="js_printer-label-property form-control" type="number"
+                                                        placeholder="Width in mm" name="properties[width]" value="105"
+                                                        required="" min="1" max="1000"></div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group"><label>Size Height<em
+                                                            class="text-danger">*</em></label><input
+                                                        class="js_printer-label-property form-control" type="number"
+                                                        placeholder="Height in mm" name="properties[height]" value="22"
+                                                        required="" min="1" max="1000"></div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group"><label>Label Columns<em
+                                                            class="text-danger">*</em></label><input
+                                                        class="js_printer-label-property form-control" type="number"
+                                                        placeholder="No of Columns" name="properties[columns]" value="3"
+                                                        required="" min="1" max="100"></div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group"><label>Label Gap<em
+                                                            class="text-danger">*</em></label><input
+                                                        class="js_printer-label-property form-control" type="number"
+                                                        placeholder="Gap in mm" name="properties[gap]" value=".5"
+                                                        required="" min="0" max="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4">
+                                                <div class="form-group"><select class="form-control js_label-type">
+                                                        <option value="text">Text</option>
+                                                        <option value="barcode">Barcode</option>
+                                                    </select></div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group"><button class="btn btn-primary js_add-label">Add
+                                                        Label</button></div>
+                                            </div>
+                                        </div>
+                                        <div class="js_printer-label-properties py-3">
+                                            <div class="card mb-3 js_label-draggable" draggable="true">
+                                                <div class="card-header d-flex"><span>Text</span>
+                                                    <div class="ml-auto"><a class="js_remove-label text-danger"
+                                                            routerLink="../printer-labels"><small>REMOVE</small></a></div>
+                                                </div>
+                                                <div class="card-body"><input type="hidden"
+                                                        name="properties[labels][][type]" value="text">
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Field<em
+                                                                        class="text-danger">*</em></label><input
+                                                                    class="js_printer-label-property form-control"
+                                                                    type="text" name="properties[labels][][field]"
+                                                                    required="" value="StoreERP" maxlength="30"></div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Font Size <em
+                                                                        class="text-danger">*</em></label><select
+                                                                    class="js_printer-label-property form-control"
+                                                                    name="properties[labels][][font]" required="">
+                                                                    <option value="1">Font 1</option>
+                                                                    <option value="2" selected="">Font 2</option>
+                                                                    <option value="3">Font 3</option>
+                                                                    <option value="4">Font 4</option>
+                                                                    <option value="5">Font 5</option>
+                                                                </select></div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Alignment <em
+                                                                        class="text-danger">*</em></label><select
+                                                                    class="js_printer-label-property form-control"
+                                                                    name="properties[labels][][alignment]" required="">
+                                                                    <option value="1">Left</option>
+                                                                    <option value="2" selected="">Center</option>
+                                                                    <option value="3">Right</option>
+                                                                </select></div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Prefix</label><input
+                                                                    class="js_printer-label-property form-control"
+                                                                    type="text" name="properties[labels][][prefix]"
+                                                                    value="" maxlength="30"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card mb-3 js_label-draggable" draggable="true">
+                                                <div class="card-header d-flex"><span>Text</span>
+                                                    <div class="ml-auto"><a class="js_remove-label text-danger"
+                                                            routerLink="../printer-labels"><small>REMOVE</small></a></div>
+                                                </div>
+                                                <div class="card-body"><input type="hidden"
+                                                        name="properties[labels][][type]" value="text">
+                                                    <div class="form-row">
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Field<em
+                                                                        class="text-danger">*</em></label><input
+                                                                    class="js_printer-label-property form-control"
+                                                                    type="text" name="properties[labels][][field]"
+                                                                    required="" value="Item Name: " maxlength="30">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Font Size <em
+                                                                        class="text-danger">*</em></label><select
+                                                                    class="js_printer-label-property form-control"
+                                                                    name="properties[labels][][font]" required="">
+                                                                    <option value="1">Font 1</option>
+                                                                    <option value="2" selected="">Font 2</option>
+                                                                    <option value="3">Font 3</option>
+                                                                    <option value="4">Font 4</option>
+                                                                    <option value="5">Font 5</option>
+                                                                </select></div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Alignment <em
+                                                                        class="text-danger">*</em></label><select
+                                                                    class="js_printer-label-property form-control"
+                                                                    name="properties[labels][][alignment]" required="">
+                                                                    <option value="1">Left</option>
+                                                                    <option value="2" selected="">Center</option>
+                                                                    <option value="3">Right</option>
+                                                                </select></div>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <div class="form-group"><label>Prefix</label><input
+                                                                    class="js_printer-label-property form-control"
+                                                                    type="text" name="properties[labels][][prefix]"
+                                                                    value="" maxlength="30"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card mb-3">
+                                            <div class="card-header">Preview</div>
+                                            <div class="card-body bg-light p-0 js_printer-label-preview"
+                                                style="overflow: auto; min-height: 400px;">
+                                                <div style="margin: 0 auto; width: 106.5mm;" clearfix>
+                                                    <div
+                                                        style="width: 35mm; height: 22mm; background: white; margin: 0.25mm; border: 1px solid #ccc; border-radius: 5px; float: left;">
+                                                        <div
+                                                            style="font-size: 2mm; text-align: center; margin-right: 1mm; margin-left: 3mm; margin-bottom: 1mm;">
+                                                            StoreERP
+                                                        </div>
+
+                                                        <div style="font-size: 2mm; text-align: center; margin-right: 1mm; margin-left: 3mm; margin-bottom: 1mm;">
+                                                            Item Name:
+                                                        </div>
+
+                                                        <p style="margin: 0; text-align: center;">
+                                                            <svg class="barcode" data-barcode="1234567890"
+                                                                data-height="15" data-display="0"
+                                                                style="transform: translate(0,0)" width="90px"
+                                                                height="23.96874999995287px" x="0px" y="0px"
+                                                                viewBox="0 0 90 23.96874999995287"
+                                                                xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                                                <rect x="0" y="0" width="90" height="23.96874999995287"
+                                                                    style="fill:#ffffff;"></rect>
+                                                                <g transform="translate(0, 0)" style="fill:#000000;">
+                                                                    <rect x="0" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="3" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="6" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="11" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="13" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="17" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="22" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="26" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="28" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="33" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="39" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="41" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="44" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="50" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="52" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="55" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="58" y="0" width="4"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="63" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="66" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="69" y="0" width="4"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="75" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="77" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="82" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="86" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="88" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                </g>
+                                                            </svg>
+                                                        </p>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Selling Price:
+                                                        </div>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Exp Date:
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div style="width: 35mm; 
+					height: 22mm; 
+					background: white; 
+					margin: 0.25mm; 
+					border: 1px solid #ccc; 
+					border-radius: 5px;
+					float: left;">
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            StoreERP
+                                                        </div>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Item Name:
+                                                        </div>
+
+                                                        <p style="margin: 0;
+							text-align: center;">
+                                                            <svg class="barcode" data-barcode="1234567890"
+                                                                data-height="15" data-display="0"
+                                                                style="transform: translate(0,0)" width="90px"
+                                                                height="23.96874999995287px" x="0px" y="0px"
+                                                                viewBox="0 0 90 23.96874999995287"
+                                                                xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                                                <rect x="0" y="0" width="90" height="23.96874999995287"
+                                                                    style="fill:#ffffff;"></rect>
+                                                                <g transform="translate(0, 0)" style="fill:#000000;">
+                                                                    <rect x="0" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="3" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="6" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="11" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="13" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="17" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="22" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="26" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="28" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="33" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="39" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="41" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="44" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="50" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="52" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="55" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="58" y="0" width="4"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="63" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="66" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="69" y="0" width="4"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="75" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="77" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="82" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="86" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="88" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                </g>
+                                                            </svg>
+                                                        </p>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Selling Price:
+                                                        </div>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Exp Date:
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div style="width: 35mm; 
+					height: 22mm; 
+					background: white; 
+					margin: 0.25mm; 
+					border: 1px solid #ccc; 
+					border-radius: 5px;
+					float: left;">
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            StoreERP
+                                                        </div>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Item Name:
+                                                        </div>
+
+                                                        <p style="margin: 0;
+							text-align: center;">
+                                                            <svg class="barcode" data-barcode="1234567890"
+                                                                data-height="15" data-display="0"
+                                                                style="transform: translate(0,0)" width="90px"
+                                                                height="23.96874999995287px" x="0px" y="0px"
+                                                                viewBox="0 0 90 23.96874999995287"
+                                                                xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                                                <rect x="0" y="0" width="90" height="23.96874999995287"
+                                                                    style="fill:#ffffff;"></rect>
+                                                                <g transform="translate(0, 0)" style="fill:#000000;">
+                                                                    <rect x="0" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="3" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="6" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="11" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="13" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="17" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="22" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="26" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="28" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="33" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="39" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="41" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="44" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="50" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="52" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="55" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="58" y="0" width="4"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="63" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="66" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="69" y="0" width="4"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="75" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="77" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="82" y="0" width="3"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="86" y="0" width="1"
+                                                                        height="23.96874999995287"></rect>
+                                                                    <rect x="88" y="0" width="2"
+                                                                        height="23.96874999995287"></rect>
+                                                                </g>
+                                                            </svg>
+                                                        </p>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Selling Price:
+                                                        </div>
+
+                                                        <div style="font-size: 2mm; 
+						text-align: center;
+						margin-right: 1mm;
+						margin-left: 3mm;
+						margin-bottom: 1mm;">
+                                                            Exp Date:
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Modal  end-->
+
+</div>

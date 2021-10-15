@@ -1,0 +1,256 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link active" routerLink="../cms">CMS </a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../banners">Banners</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../settings">Settings</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../app-generate">Generate App</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <div class="d-flex float-right">
+                <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="modal"
+                    data-bs-target="#js_merchant-page-modal">
+                    <em class="la la-plus-circle"></em> Add Page
+                </button>
+                <div class="btn-group">
+                    <button class="btn btn-outline-primary mr-2 btn-block-xs mb-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-decoration-none" routerLink="../loyalty"><i
+                                    class="la la-book mr-1"></i>Tutorial</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- add page modal start -->
+    <div class="container-fluid">
+        <div class="modal fade" id="js_merchant-page-modal">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="col">
+                            <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                                <i class="la la-times"> X</i>
+                            </a>
+                        </div>
+                        <div class="col text-center">
+                            <h4 class="form-modal-title"> Create Page</h4>
+                        </div>
+                        <div class="col">
+                            <button data-bs-dismiss="modal"
+                                class="js_merchant-page-submit-btn float-right btn btn-primary ld-ext-right"
+                                id="js_merchant-page-btn">Save
+                                <div class="ld ld-ring ld-spin"></div>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- <form class="js_merchant-page-form" id="js_merchant-page-form" data-url="/store/cms/merchant-pages/" novalidate="novalidate"><input type="hidden"
+                                name="_csrf" value="Jmg7KjU3-Iz4x8IxP2drY4Am65BaSCaJE_yU"> -->
+
+                        <input type="hidden" name="active" value="1">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="text" placeholder="Name" name="name"></div>
+                            </div>
+                            <div class="col-md-4"><label> Type<em class="text-danger">*</em></label>
+                                <div class="clearfix select-group">
+                                    <select class="form-control" name="slug" data-select2-id="1" tabindex="-1"
+                                        aria-hidden="true">
+                                        <option value=""> Select Page Type</option>
+                                    </select>
+                                   
+                                </div>
+                            </div>
+                            <div class="row">
+                               <span class="pb-2">Content <em class="text-danger">*</em></span>
+                               <div class="p-3">
+                                 <textarea rows="10" class="form-control"></textarea>
+                               </div>
+                            </div>
+                        </div>
+
+                        <!-- </form> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- add pages modal end -->
+
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Terms and Conditions</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td>Aug 09, 2021 6:17 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li> <span type="button" class="dropdown-item">View</span>
+                                        </li>
+                                        <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                data-bs-toggle="modal" data-bs-target="#js_merchant-page-modal_edit"
+                                                data-bs-reload="true">Edit</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Refund and Cancellation</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td>Aug 09, 2021 6:17 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li> <span type="button" class="dropdown-item">View</span>
+                                        </li>
+                                        <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                data-bs-toggle="modal" data-bs-target="#js_merchant-page-modal_edit"
+                                                data-bs-reload="true">Edit</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Privacy Policy</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td>Aug 09, 2021 6:17 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li> <span type="button" class="dropdown-item">View</span>
+                                        </li>
+                                        <li> <span type="button" class="dropdown-item" data-bs-reset="reset"
+                                                data-bs-toggle="modal" data-bs-target="#js_merchant-page-modal_edit"
+                                                data-bs-reload="true">Edit</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Contact Us</td>
+                            <td><span class="badge badge-success">ACTIVE</span></td>
+                            <td>Aug 09, 2021 6:17 PM</td>
+                            <td>
+                                <div class="btn-group">
+                                    <span class="float-right" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="la la-ellipsis-h la-2x">...</i>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li> <span type="button" class="dropdown-item">View</span>
+                                        </li>
+                                        <li> 
+                                            <span type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#js_merchant-page-modal_edit">Edit</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- edit page modal start -->
+            <div class="container-fluid">
+                <div class="modal fade" id="js_merchant-page-modal_edit">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <div class="col">
+                                    <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                                        <i class="la la-times"> X</i>
+                                    </a>
+                                </div>
+                                <div class="col text-center">
+                                    <h4 class="form-modal-title">Edit Page</h4>
+                                </div>
+                                <div class="col">
+                                    <button data-bs-dismiss="modal"
+                                        class="js_merchant-page-submit-btn float-right btn btn-primary ld-ext-right"
+                                        id="js_merchant-page-btn">Save
+                                        <div class="ld ld-ring ld-spin"></div>
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-body">
+                                <!-- <form class="js_merchant-page-form" id="js_merchant-page-form" data-url="/store/cms/merchant-pages/" novalidate="novalidate"><input type="hidden"
+                                name="_csrf" value="Jmg7KjU3-Iz4x8IxP2drY4Am65BaSCaJE_yU"> -->
+
+                                <input type="hidden" name="active" value="1">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                                class="form-control" type="text" placeholder="Name" name="name"></div>
+                                    </div>
+                                    <div class="col-md-4"><label> Type<em class="text-danger">*</em></label>
+                                        <div class="clearfix select-group">
+                                            <select class="form-control" name="slug" data-select2-id="1" tabindex="-1"
+                                                aria-hidden="true">
+                                                <option value=""> Select Page Type</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <span class="pb-2">Content <em class="text-danger">*</em></span>
+                                        <div class="p-3">
+                                          <textarea rows="10" class="form-control"></textarea>
+                                        </div>
+                                     </div>
+                                </div>
+
+                                <!-- </form> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- add edit modal end -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link active text-decoration-none"
+                        routerLink="../templates/">Templates</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group clearfix">
+                <button class="float-right btn btn-outline-primary js_template-create" data-reset="reset"
+                    data-bs-target="#js_template-modal" data-bs-toggle="modal">
+                    <em class="la la-plus-circle">+</em> Create Template
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Model Create Template Start -->
+    <div class="modal fade show" id="js_template-modal" data-backdrop="static"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col">
+                        <a class="js_modal-close form-modal-close">
+                            <i class="la la-times" data-bs-dismiss="modal">X</i>
+                        </a>
+                    </div>
+                    <div class="col text-center">
+                        <h4 class="form-modal-title">Create Template</h4>
+                    </div>
+                    <div class="col">
+                        <button class="float-right btn btn-primary ld-ext-right" id="js_template-modal-btn"
+                            data-bs-dismiss="modal">Save
+                            <div class="ld ld-ring ld-spin"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-modal-body">
+                        <div class="row">
+                            <div class="col-sm-8 m-auto" data-select2-id="10">
+                                <form class="js_template-form-input" id="js_template-form"
+                                    data-url="/notification/templates/" novalidate="novalidate"><input type="hidden"
+                                        name="_csrf" value="urmU5Mdj-k6FMsA8DulrJqV-Oa2MD6B7pAFc">
+                                    <div class="form-group" data-select2-id="9"><label> Code
+                                        <em class="text-danger"> *</em></label>
+                                        <div class="select-group" data-select2-id="8">
+                                            <select  class="form-control js_template-code-select2 select2-hidden-accessible"
+                                                name="template_code" data-select2-id="5" tabindex="-1"
+                                                aria-hidden="true">
+                                            </select>
+                                            <span
+                                                class="select2 select2-container select2-container--default select2-container--below"
+                                                dir="ltr" data-select2-id="6" style="width: 100%;"><span
+                                                    class="selection"><span
+                                                        class="select2-selection select2-selection--single"
+                                                        role="combobox" aria-haspopup="true" aria-expanded="false"
+                                                        tabindex="0" aria-disabled="false"
+                                                        aria-labelledby="select2-template_code-0h-container"><span
+                                                            class="select2-selection__rendered"
+                                                            id="select2-template_code-0h-container" role="textbox"
+                                                            aria-readonly="true"><span
+                                                                class="select2-selection__placeholder">Select Template
+                                                                Code</span></span><span class="select2-selection__arrow"
+                                                            role="presentation"><b
+                                                                role="presentation"></b></span></span></span><span
+                                                    class="dropdown-wrapper" aria-hidden="true"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label>Type<em class="text-danger"> *</em></label>
+                                        <div class="select-group"><select class="form-control js_template-type"
+                                                name="type">
+                                                <option value="" selected="">Select Type</option>
+                                                <option value="sms">SMS</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-group"><label>Delivery Type<em class="text-danger"> *</em></label>
+                                        <div class="select-group"><select class="form-control js_delivery-type"
+                                                name="delivery_type">
+                                                <option value="" selected="">Select Delivery Type</option>
+                                                <option value="promotional">Promotional</option>
+                                                <option value="transactional">Transactional</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="form-group"><label>Template Text</label><textarea
+                                            class="form-control js_template-text" type="text"
+                                            placeholder="Template Content" name="template"></textarea>
+                                            <input
+                                            type="hidden" name="is_active" value="0">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Create Template Start -->
+
+    <!-- table start -->
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing 1 entry</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Template Code</th>
+                            <th>Template Type</th>
+                            <th>Status</th>
+                            <th>Delivery Type</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>33</td>
+                            <td>order_sales</td>
+                            <td>
+                                <div class="text-capitalize"> sms</div>
+                            </td>
+                            <td><span class="badge badge-info">PENDING</span></td>
+                            <td class="text-capitalize">transactional</td>
+                            <td>Aug 6, 2021 2:00 PM</td>
+                            <td>
+                                <button class="js_template-create btn btn-outline-primary btn-sm mr-2" type="button" data-bs-toggle="modal" data-bs-target="#js_template-modal">Edit</button>
+                                <a class="js_category-delete btn btn-danger btn-sm ld-ext-right btn-block-xs mb-2 text-decoration-none"  routerLink="../templates" (click)="alertDeactivate()">Delete
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- table End -->
+
+    
+</div>

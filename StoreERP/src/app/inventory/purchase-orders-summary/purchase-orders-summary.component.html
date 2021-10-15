@@ -1,0 +1,229 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Report Start -->
+    <div class="row">
+        <div class="col-md-2">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="nav-link active" routerLink="../purchase-orders-summary">Purchase Orders Summary</a>
+                <a class="nav-link" routerLink="../report-stock">Stocks</a>
+                <a class="nav-link" routerLink="../cost-of-goods">Cost of Goods</a>
+                <a class="nav-link" routerLink="../report-item-sales">Purchase Item Summary</a>
+                <a class="nav-link" routerLink="../report-transfer-items">Transfer Order Item</a>
+                <a class="nav-link" routerLink="../report-stock-adjust-items">Waste Management Item</a>
+                <a class="nav-link" routerLink="../report-return-item">Vendor Return Item</a>
+                <a class="nav-link" routerLink="../price-change">Price Change</a>
+                <a class="nav-link" routerLink="..report-stock-valuation">Stock Valuation</a>
+            </div>
+        </div>
+        <!-- 
+            
+            
+            
+            
+            
+            
+            
+            
+         -->
+
+        <div class="col-md-10">
+            <form class="filter-form-modal" id="js_purchase-orders-summary-filter">
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary dropdown-toggle btn-block"
+                                type="button" id="js_date-range">
+                                <span> Select a Date</span>
+                            </button>
+                            <input id="" type="hidden" name="from_date" value="" data-timezone="Asia/Kolkata">
+                            <input id="js_date-range-to-date" type="hidden" name="to_date" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <a class="btn btn-outline-primary text-decoration-none" routerLink="../purchase-orders-summary" (click)="toggle()">
+                            {{ buttonName}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row js_more-filters" *ngIf="show">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="location_id" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                <option>All Locations</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="supplier_id" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                                <option>All Vendors</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex float-right form-group">
+                            <div class="mr-2">
+                                <a class="btn btn-outline-primary float-right  text-decoration-none"  routerLink="../purchase-orders-summary" (click)="exportError()">Export</a>
+                            </div>
+                           
+                            <div class="btn-group">
+                                <button class="btn btn-outline-primary float-right" data-bs-toggle="dropdown">
+                                    <i class="la la-question-circle la-lg">?</i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../purchase-orders-summary">
+                                            <i class="la la-book mr-1"></i>Tutorial
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../purchase-orders-summary">
+                                            <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div id="js_purchase-orders-summary">
+                <div class="row">
+                    <div class="col pb-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-info">
+                            <div class="card-body text-center">
+                                <h5 class="mt-3 text-white">Gross Purchases</h5>
+                                <h5 class="m-0 card-title text-white">₹1,576,278.71</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-dark">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white">Total Discounts</h5>
+                                <h5 class="m-0 card-title text-white">₹18,350.60</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-primary">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white" >Net Purchases</h5>
+                                <h5 class="m-0 card-title text-white">₹1,557,928.11</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-warning">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white">Total Taxes</h5>
+                                <h5 class="m-0 card-title text-white">₹101,150.76</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-success">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white">Total Purchases</h5>
+                                <h5 class="m-0 card-title text-white">₹1,659,153.87</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-secondary">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white">Total Transactions</h5>
+                                <h5 class="m-0 card-title text-white">166</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-info">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white">Total Amount Paid</h5>
+                                <h5 class="m-0 card-title text-white">₹1,161,658.02</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-danger">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white">Total Due Amount</h5>
+                                <h5 class="m-0 card-title text-white">₹438,312.06</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card mb-3 bg-primary">
+                            <div class="card-body text-center text-white">
+                                <h5 class="mt-3 text-white">Total Vendor Returns</h5>
+                                <h5 class="m-0 card-title text-white">₹60,967.25</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h6 class="mt-3">Notes:<ol>
+                        <li>Gross Purchases includes Total Discounts</li>
+                        <li>Net Purchases = Gross Purchases - Total Discounts</li>
+                        <li>Total Purchases = Net Purchases + Total Taxes</li>
+                        <li>Total Vendor Returns = Sum of Item Prices</li>
+                    </ol>
+                </h6>
+            </div>
+        </div>
+    </div>
+    <!-- Report End -->
+
+</div>

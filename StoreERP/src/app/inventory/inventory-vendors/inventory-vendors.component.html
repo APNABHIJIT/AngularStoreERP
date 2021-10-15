@@ -1,0 +1,514 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary active" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none active" routerLink="../inventory-vendors">
+                            Vendors 
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="filter-form-modal" id="js_vendor-filter">
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group ld-ext-right js_loading">
+                        <div class="ld ld-ring ld-spin"></div>
+                        <input type="hidden" name="type" value="html">
+                        <input class="form-control" id="js_vendor-filter-query" placeholder="Filter by Name"
+                            name="query" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex float-right form-group">
+                        <a class="js_vendor btn btn-outline-primary text-decoration-none mr-2"
+                            routerLink="../inventory-vendors" data-reset="reset"  data-bs-toggle="modal" data-bs-target="#js_vendor-create">
+                            <em class="la la-plus-circle">+</em> Create Vendor
+                        </a>
+
+                        <div class="btn-group">
+                            <button type="button" class="text-justify btn btn-outline-primary mr-2 dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Export
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors"
+                                        (click)="exportError()">
+                                        Export CSV
+                                    </a>
+
+
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a class="align-self-center btn-btn-primary mx-2 text-primary js_help-link-slug"
+                            routerLink="../inventory-vendors" data-bs-toggle="tooltip" data-placement="left"
+                            data-title="Help Center" data-original-title="" title="">
+                            <i class="la la-question-circle la-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- table Start -->
+        <div id="js_vendors">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing <b>1 </b> to <b>2   </b> of<b> 2 </b> entries</p>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-hover bg-white">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Credits</th>
+                                    <th>Created Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nagpur Suppliers</td>
+                                    <td>987654321</td>
+                                    <td><small class="d-block text-success">Payments Given:
+                                            <b>₹81,717.77</b></small><small class="d-block text-danger">Outstanding:
+                                            <b>₹205,683.21</b></small></td>
+                                    <td>Aug 11, 2021</td>
+                                    <td>
+                                        <a class="btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2 text-decoration-none" routerLink="../inventory-vendors">View</a> 
+                                        <a class="btn btn-sm btn-block-xs mb-2 btn-danger ld-ext-right text-decoration-none" (click)="alertDeactivate()" routerLink="../inventory-vendors">
+                                            Deactivate
+                                            <div class="ld ld-ring ld-spin"></div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Oriental Suppliers</td>
+                                    <td>987654321</td>
+                                    <td><small class="d-block text-success">Payments Given:
+                                            <b>₹629,232.20</b></small><small class="d-block text-danger">Outstanding:
+                                            <b>₹59,131.50</b></small></td>
+                                    <td>Aug 11, 2021</td>
+                                    <td><a class="btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2 text-decoration-none"
+                                            routerLink="../inventory-vendors">View</a> <a
+                                            class="btn btn-sm btn-block-xs mb-2 btn-danger ld-ext-right text-decoration-none"
+                                            routerLink="../inventory-vendors" (click)="alertDeactivate()">
+                                            Deactivate<div class="ld ld-ring ld-spin"></div>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Start -->
+            <div class="modal fade show" id="js_vendor-create" data-backdrop="static"
+                style="display: none; padding-right: 17px;" aria-modal="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="col">
+                                <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                                    <i class="la la-times">X</i></a>
+                            </div>
+                            <div class="col text-center">
+                                <h4 class="form-modal-title"> Create Vendor</h4>
+                            </div>
+                            <div class="col">
+                                <button class="js_loyalty-submit-btn float-right btn btn-primary ld-ext-right"
+                                    data-bs-dismiss="modal" id="js_loyalty-btn45">Save
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6 m-auto">
+                                    <form data-url="../inventory-vendors/" id="js_vendor-form" novalidate="novalidate">
+                                        <input type="hidden" name="_csrf" value="6mmaLHmP-tgFOcy_wv377RES98xoCYjzo5GQ">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label> Name<em class="text-danger"> *</em></label>
+                                                    <input class="form-control" type="text" name="name" placeholder="Name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label> Email<em class="text-danger"> *</em></label>
+                                                    <input class="form-control" type="email" name="email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label> Phone<em class="text-danger"> *</em></label>
+                                                    <input class="form-control" type="number" name="phone_number[number]" placeholder="Phone" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label> Address Line 1<em class="text-danger">  *</em></label>
+                                                    <input class="form-control" type="text" name="address[address_line_1]" placeholder="Address Line 1" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label> Address Line 2<em class="text-danger">*</em></label>
+                                                    <input class="form-control" type="text" name="address[address_line_2]" placeholder="Address Line 2" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label> City<em class="text-danger"> *</em></label>
+                                                    <input class="form-control" type="text"
+                                                        name="address[city]" placeholder="City" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label> Region<em class="text-danger">
+                                                            *</em></label><input class="form-control" type="text"
+                                                        name="address[region]" placeholder="Region" value=""></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label> Country<em class="text-danger">
+                                                            *</em></label><input class="form-control" type="text"
+                                                        name="address[country]" placeholder="Country" value=""
+                                                        list="countries"></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label> Postal Code<em class="text-danger">
+                                                            *</em></label><input class="form-control" type="text"
+                                                        name="address[postal_code]" placeholder="Postal Code" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row pb-5">
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Tax Registration Number</label><input
+                                                        class="form-control" type="text" name="custom_attributes[trn]"
+                                                        placeholder="Tax Registration Number" value=""></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group"><label>Company Registration Number</label><input
+                                                        class="form-control" type="text" name="custom_attributes[crn]"
+                                                        placeholder="Company Registration Number" value=""></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal end -->
+
+            <!-- <datalist id="countries">
+                <option value="Aruba"></option>
+                <option value="Afghanistan"></option>
+                <option value="Angola"></option>
+                <option value="Anguilla"></option>
+                <option value="Åland Islands"></option>
+                <option value="Albania"></option>
+                <option value="Andorra"></option>
+                <option value="United Arab Emirates"></option>
+                <option value="Argentina"></option>
+                <option value="Armenia"></option>
+                <option value="American Samoa"></option>
+                <option value="Antarctica"></option>
+                <option value="French Southern and Antarctic Lands"></option>
+                <option value="Antigua and Barbuda"></option>
+                <option value="Australia"></option>
+                <option value="Austria"></option>
+                <option value="Azerbaijan"></option>
+                <option value="Burundi"></option>
+                <option value="Belgium"></option>
+                <option value="Benin"></option>
+                <option value="Burkina Faso"></option>
+                <option value="Bangladesh"></option>
+                <option value="Bulgaria"></option>
+                <option value="Bahrain"></option>
+                <option value="Bahamas"></option>
+                <option value="Bosnia and Herzegovina"></option>
+                <option value="Saint Barthélemy"></option>
+                <option value="Belarus"></option>
+                <option value="Belize"></option>
+                <option value="Bermuda"></option>
+                <option value="Bolivia"></option>
+                <option value="Brazil"></option>
+                <option value="Barbados"></option>
+                <option value="Brunei"></option>
+                <option value="Bhutan"></option>
+                <option value="Bouvet Island"></option>
+                <option value="Botswana"></option>
+                <option value="Central African Republic"></option>
+                <option value="Canada"></option>
+                <option value="Cocos (Keeling) Islands"></option>
+                <option value="Switzerland"></option>
+                <option value="Chile"></option>
+                <option value="China"></option>
+                <option value="Ivory Coast"></option>
+                <option value="Cameroon"></option>
+                <option value="DR Congo"></option>
+                <option value="Republic of the Congo"></option>
+                <option value="Cook Islands"></option>
+                <option value="Colombia"></option>
+                <option value="Comoros"></option>
+                <option value="Cape Verde"></option>
+                <option value="Costa Rica"></option>
+                <option value="Cuba"></option>
+                <option value="Curaçao"></option>
+                <option value="Christmas Island"></option>
+                <option value="Cayman Islands"></option>
+                <option value="Cyprus"></option>
+                <option value="Czechia"></option>
+                <option value="Germany"></option>
+                <option value="Djibouti"></option>
+                <option value="Dominica"></option>
+                <option value="Denmark"></option>
+                <option value="Dominican Republic"></option>
+                <option value="Algeria"></option>
+                <option value="Ecuador"></option>
+                <option value="Egypt"></option>
+                <option value="Eritrea"></option>
+                <option value="Western Sahara"></option>
+                <option value="Spain"></option>
+                <option value="Estonia"></option>
+                <option value="Ethiopia"></option>
+                <option value="Finland"></option>
+                <option value="Fiji"></option>
+                <option value="Falkland Islands"></option>
+                <option value="France"></option>
+                <option value="Faroe Islands"></option>
+                <option value="Micronesia"></option>
+                <option value="Gabon"></option>
+                <option value="United Kingdom"></option>
+                <option value="Georgia"></option>
+                <option value="Guernsey"></option>
+                <option value="Ghana"></option>
+                <option value="Gibraltar"></option>
+                <option value="Guinea"></option>
+                <option value="Guadeloupe"></option>
+                <option value="Gambia"></option>
+                <option value="Guinea-Bissau"></option>
+                <option value="Equatorial Guinea"></option>
+                <option value="Greece"></option>
+                <option value="Grenada"></option>
+                <option value="Greenland"></option>
+                <option value="Guatemala"></option>
+                <option value="French Guiana"></option>
+                <option value="Guam"></option>
+                <option value="Guyana"></option>
+                <option value="Hong Kong"></option>
+                <option value="Heard Island and McDonald Islands"></option>
+                <option value="Honduras"></option>
+                <option value="Croatia"></option>
+                <option value="Haiti"></option>
+                <option value="Hungary"></option>
+                <option value="Indonesia"></option>
+                <option value="Isle of Man"></option>
+                <option value="India"></option>
+                <option value="British Indian Ocean Territory"></option>
+                <option value="Ireland"></option>
+                <option value="Iran"></option>
+                <option value="Iraq"></option>
+                <option value="Iceland"></option>
+                <option value="Israel"></option>
+                <option value="Italy"></option>
+                <option value="Jamaica"></option>
+                <option value="Jersey"></option>
+                <option value="Jordan"></option>
+                <option value="Japan"></option>
+                <option value="Kazakhstan"></option>
+                <option value="Kenya"></option>
+                <option value="Kyrgyzstan"></option>
+                <option value="Cambodia"></option>
+                <option value="Kiribati"></option>
+                <option value="Saint Kitts and Nevis"></option>
+                <option value="South Korea"></option>
+                <option value="Kosovo"></option>
+                <option value="Kuwait"></option>
+                <option value="Laos"></option>
+                <option value="Lebanon"></option>
+                <option value="Liberia"></option>
+                <option value="Libya"></option>
+                <option value="Saint Lucia"></option>
+                <option value="Liechtenstein"></option>
+                <option value="Sri Lanka"></option>
+                <option value="Lesotho"></option>
+                <option value="Lithuania"></option>
+                <option value="Luxembourg"></option>
+                <option value="Latvia"></option>
+                <option value="Macau"></option>
+                <option value="Saint Martin"></option>
+                <option value="Morocco"></option>
+                <option value="Monaco"></option>
+                <option value="Moldova"></option>
+                <option value="Madagascar"></option>
+                <option value="Maldives"></option>
+                <option value="Mexico"></option>
+                <option value="Marshall Islands"></option>
+                <option value="Macedonia"></option>
+                <option value="Mali"></option>
+                <option value="Malta"></option>
+                <option value="Myanmar"></option>
+                <option value="Montenegro"></option>
+                <option value="Mongolia"></option>
+                <option value="Northern Mariana Islands"></option>
+                <option value="Mozambique"></option>
+                <option value="Mauritania"></option>
+                <option value="Montserrat"></option>
+                <option value="Martinique"></option>
+                <option value="Mauritius"></option>
+                <option value="Malawi"></option>
+                <option value="Malaysia"></option>
+                <option value="Mayotte"></option>
+                <option value="Namibia"></option>
+                <option value="New Caledonia"></option>
+                <option value="Niger"></option>
+                <option value="Norfolk Island"></option>
+                <option value="Nigeria"></option>
+                <option value="Nicaragua"></option>
+                <option value="Niue"></option>
+                <option value="Netherlands"></option>
+                <option value="Norway"></option>
+                <option value="Nepal"></option>
+                <option value="Nauru"></option>
+                <option value="New Zealand"></option>
+                <option value="Oman"></option>
+                <option value="Pakistan"></option>
+                <option value="Panama"></option>
+                <option value="Pitcairn Islands"></option>
+                <option value="Peru"></option>
+                <option value="Philippines"></option>
+                <option value="Palau"></option>
+                <option value="Papua New Guinea"></option>
+                <option value="Poland"></option>
+                <option value="Puerto Rico"></option>
+                <option value="North Korea"></option>
+                <option value="Portugal"></option>
+                <option value="Paraguay"></option>
+                <option value="Palestine"></option>
+                <option value="French Polynesia"></option>
+                <option value="Qatar"></option>
+                <option value="Réunion"></option>
+                <option value="Romania"></option>
+                <option value="Russia"></option>
+                <option value="Rwanda"></option>
+                <option value="Saudi Arabia"></option>
+                <option value="Sudan"></option>
+                <option value="Senegal"></option>
+                <option value="Singapore"></option>
+                <option value="South Georgia"></option>
+                <option value="Svalbard and Jan Mayen"></option>
+                <option value="Solomon Islands"></option>
+                <option value="Sierra Leone"></option>
+                <option value="El Salvador"></option>
+                <option value="San Marino"></option>
+                <option value="Somalia"></option>
+                <option value="Saint Pierre and Miquelon"></option>
+                <option value="Serbia"></option>
+                <option value="South Sudan"></option>
+                <option value="São Tomé and Príncipe"></option>
+                <option value="Suriname"></option>
+                <option value="Slovakia"></option>
+                <option value="Slovenia"></option>
+                <option value="Sweden"></option>
+                <option value="Swaziland"></option>
+                <option value="Sint Maarten"></option>
+                <option value="Seychelles"></option>
+                <option value="Syria"></option>
+                <option value="Turks and Caicos Islands"></option>
+                <option value="Chad"></option>
+                <option value="Togo"></option>
+                <option value="Thailand"></option>
+                <option value="Tajikistan"></option>
+                <option value="Tokelau"></option>
+                <option value="Turkmenistan"></option>
+                <option value="Timor-Leste"></option>
+                <option value="Tonga"></option>
+                <option value="Trinidad and Tobago"></option>
+                <option value="Tunisia"></option>
+                <option value="Turkey"></option>
+                <option value="Tuvalu"></option>
+                <option value="Taiwan"></option>
+                <option value="Tanzania"></option>
+                <option value="Uganda"></option>
+                <option value="Ukraine"></option>
+                <option value="United States Minor Outlying Islands"></option>
+                <option value="Uruguay"></option>
+                <option value="United States"></option>
+                <option value="Uzbekistan"></option>
+                <option value="Vatican City"></option>
+                <option value="Saint Vincent and the Grenadines"></option>
+                <option value="Venezuela"></option>
+                <option value="British Virgin Islands"></option>
+                <option value="United States Virgin Islands"></option>
+                <option value="Vietnam"></option>
+                <option value="Vanuatu"></option>
+                <option value="Wallis and Futuna"></option>
+                <option value="Samoa"></option>
+                <option value="Yemen"></option>
+                <option value="South Africa"></option>
+                <option value="Zambia"></option>
+                <option value="Zimbabwe"></option>
+            </datalist> -->
+        </div>
+        <!-- Table End -->
+    </div>
+
+</div>

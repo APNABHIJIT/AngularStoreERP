@@ -1,0 +1,143 @@
+<div class="container bg-white">
+    <div class="row my-3 pt-3">
+        <div class="col-md-3">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="nav-link" routerLink="../sales-summary">Sales Summary</a>
+                <a class="nav-link" routerLink="../payment-methods">Payment Methods</a>
+                <a class="nav-link" routerLink="../item-sales">Item Sales</a>
+                <a class="nav-link" routerLink="../category-sales">Category Sales</a>
+                <a class="nav-link" routerLink="../employee-sales">Employee Sales</a>
+                <a class="nav-link" routerLink="../location-sales">Location Sales</a>
+                <a class="nav-link" routerLink="../customer-sales">Customer Sales</a>
+                <a class="nav-link" routerLink="../customer-items">Customer Items</a>
+                <a class="nav-link" routerLink="../customer-no-sales">Customer Without Sales</a>
+                <a class="nav-link" routerLink="../report-taxes">Taxes</a>
+                <a class="nav-link" routerLink="../combo-sales">Combo/Modifier Sales</a>
+                <a class="nav-link active" routerLink="../item-price-category">Price Category</a>
+                <a class="nav-link" routerLink="../report-charges">Charges</a>
+                <a class="nav-link" routerLink="../ingredient-sales">Ingredients</a>
+                <a class="nav-link" routerLink="../food-recipe">Food Recipe</a>
+                <a class="nav-link" routerLink="../kot-items">KOT Item</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <!-- <form class="filter-form-modal" id="js_sales-summary-filter"> -->
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                            id="js_date-range">
+                            <span>Aug 1, 2021 - Aug 9, 2021 </span>
+                        </button>
+                        <input id="js_date-range-from-date" type="hidden" name="from_date" value="2021-08-01 00:00"
+                            data-timezone="Asia/Kolkata">
+                        <input id="js_date-range-to-date" type="hidden" name="to_date" value="2021-08-09 23:59">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button (click)="toggle()" class="btn btn-outline-primary">{{ buttonName }}</button>
+                    </div>
+                </div>
+                <div class="col-md-12 js_more-filters" *ngIf="show">
+                    <div class="form-row">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" name="device_id" data-select2-id="9" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>Licence Name</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select class="form-control" name="location_id" data-select2-id="1" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>All Employees</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 ml-auto">
+                    <div class="form-group d-flex float-right">
+                        <div class="mr-2">
+                            <button class="btn btn-outline-primary float-right">Export</button>
+                        </div>
+                        <!-- add model  -->
+                    </div>
+                </div>
+            </div>
+            <!-- </form> -->
+            <!-- box start -->
+            <div id="js_customer-no-sales">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-8">
+                        <p class="m-0"> Showing <b>1 </b> to <b>3</b> of <b> 3 </b> entries</p>
+                    </div>
+                    <div class="col-md-4"><a class="float-right text-decoration-none"
+                            routerLink="../customer-no-sales">Clear Filters</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>Price Category Name</th>
+                                        <th>Total Quantity</th>
+                                        <th>Total Transaction</th>
+                                        <th>Total Tax</th>
+                                        <th>Total Discount</th>
+                                        <th>Net Sale</th>
+                                        <th>Gross Sale</th>
+                                        <th>Net Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Default</td>
+                                        <td align="center">1137</td>
+                                        <td align="center">65</td>
+                                        <td>₹2,954.48</td>
+                                        <td>₹18,549.64</td>
+                                        <td>₹198,684.04</td>
+                                        <td>₹217,008.42</td>
+                                        <td>₹201,413.26</td>
+                                    </tr>
+                                    <tr>
+                                        <td>StoreERP Online</td>
+                                        <td align="center">10</td>
+                                        <td align="center">3</td>
+                                        <td>₹35.82</td>
+                                        <td>₹90.00</td>
+                                        <td>₹810.47</td>
+                                        <td>₹896.18</td>
+                                        <td>₹802.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>WHOLESALE</td>
+                                        <td align="center">2</td>
+                                        <td align="center">2</td>
+                                        <td>₹30.66</td>
+                                        <td>₹0.00</td>
+                                        <td>₹246.34</td>
+                                        <td>₹246.34</td>
+                                        <td>₹277.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- box end -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,460 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <form class="filter-form-modal" id="js_transfer-order-filter"> -->
+        <div class="form-row">
+            <div class="col-md-7">
+                <div class="form-row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                                id="js_date-range">
+                                <span> Select a Date</span>
+                            </button>
+                            <input id="js_date-range-from-date" type="hidden" name="from_date" value=""
+                                data-timezone="Asia/Kolkata">
+                            <input id="js_date-range-to-date" type="hidden" name="to_date" value="">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary" (click)="toggle()">{{ buttonName }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 js_more-filters" *ngIf="show">
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="to_location_id">
+                                <option>To Location</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" name="created_by">
+                                <option>Select Created By</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control form-control-sm" name="assigned_to">
+                                <option>Select Assigned To or Approver</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control js_transfer-order-status" name="transfer_order_status">
+                                <option value="" selected="">Select Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="approved">Approved</option>
+                                <option value="completed">Completed</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 ml-auto">
+                <div class="form-group">
+                    <div class="form-inline float-right btn-group">
+
+                        <button type="button" class="text-justify btn btn-outline-primary mr-2" data-bs-toggle="modal"
+                            data-bs-target="#js_transfer-order-create">
+                            + Create waste management Order
+                        </button>
+                        <button type="button" class="text-justify btn btn-outline-primary mr-2">Export</button>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown">
+                                <i class="la la-question-circle la-lg">?</i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../stock-adjust">
+                                        <i class="la la-book mr-1"></i>Tutorial
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-decoration-none" routerLink="../stock-adjust">
+                                        <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- </form> -->
+    </div>
+
+    <!-- Modal Start -->
+    <div class="modal fade show" id="js_transfer-order-create" data-backdrop="static"
+        style="display: none; padding-right: 17px;" aria-modal="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col">
+                        <a class="js_modal-close form-modal-close" data-bs-dismiss="modal">
+                            <i class="la la-times">X</i></a>
+                    </div>
+                    <div class="col text-center">
+                        <h4 class="form-modal-title"> New waste management Order</h4>
+                    </div>
+                    <div class="col">
+                        <button class="js_loyalty-submit-btn float-right btn btn-primary ld-ext-right"
+                            data-bs-dismiss="modal" id="js_loyalty-btn45">Save
+                            <div class="ld ld-ring ld-spin"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-11 m-auto">
+                            <form class="js_transfer-order-form" data-url="../stock-adjust/" id="js_transfer-order-form"
+                                novalidate="novalidate">
+                                <input type="hidden" name="_csrf" value="">
+                                <input class="js_to-type" type="hidden" name="type" value="stock-adjust">
+                                <input class="js_edit-id" type="hidden" value="">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> Wastage Location<em class="text-danger">*</em></label>
+                                            <span class="text-danger d-none js_from-to-location-err-msg"> Locations can
+                                                not be same</span>
+                                            <div class="select-group">
+                                                <select class="form-control" name="to_location_id" data-access="create"
+                                                    required="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                    <option>Select Location</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label> Approver<em class="text-danger">*</em></label>
+                                            <div class="select-group">
+                                                <select class="form-control" name="assigned_to" data-type="stock-adjust"
+                                                    required="" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                                                    <option>Select Approver</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="form-group"><label>Notes</label>
+                                            <textarea class="form-control" name="notes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-row align-items-center mb-2">
+                                                <div class="col-md-6"><label class="mr-2 mb-0">Items To
+                                                        Transfer</label><span
+                                                        class="text-danger js_variation-validation d-none">Please add
+                                                        Items</span></div>
+                                                <div class="col-md-6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered th-light">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="40%">Item Name</th>
+                                                        <th width="20%">Batch</th>
+                                                        <th> Current Stock at Location</th>
+                                                        <th width="10%">Buying Price</th>
+                                                        <th width="10%">MRP</th>
+                                                        <th width="10%">Selling Price</th>
+                                                        <th width="10%"> Stock Adjustment</th>
+                                                        <th width="20%">Stock Adjustment Reason</th>
+                                                        <th width="10%">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="js_transfer-order-item-row">
+                                                        <td><select
+                                                                class="form-control js_variation-select2 js_variation-value select2-hidden-accessible"
+                                                                disabled="" data-type="stock-adjust" data-select2-id="5"
+                                                                tabindex="-1" aria-hidden="true"></select><span
+                                                                class="select2 select2-container select2-container--default select2-container--disabled"
+                                                                dir="ltr" data-select2-id="6" style="width: 100%;"><span
+                                                                    class="selection"><span
+                                                                        class="select2-selection select2-selection--single"
+                                                                        role="combobox" aria-haspopup="true"
+                                                                        aria-expanded="false" tabindex="-1"
+                                                                        aria-disabled="true"
+                                                                        aria-labelledby="select2-4pce-container"><span
+                                                                            class="select2-selection__rendered"
+                                                                            id="select2-4pce-container" role="textbox"
+                                                                            aria-readonly="true"><span
+                                                                                class="select2-selection__placeholder">Select
+                                                                                Variation</span></span><span
+                                                                            class="select2-selection__arrow"
+                                                                            role="presentation"><b
+                                                                                role="presentation"></b></span></span></span><span
+                                                                    class="dropdown-wrapper"
+                                                                    aria-hidden="true"></span></span><span
+                                                                class="text-danger js_item-variation-validation d-none">Please
+                                                                select a variation</span><span
+                                                                class="text-danger js_unique-variation-validation d-none">Please
+                                                                select different Items</span></td>
+                                                        <td><select class="form-control js_batch-select2 js_item-batch"
+                                                                disabled=""></select></td>
+                                                        <td>
+                                                            <p
+                                                                class="js_destination-inventory js_variation-placeholder">
+                                                                Select Variation</p>
+                                                        </td>
+                                                        <td><input class="form-control js_new-buy" type="number"
+                                                                disabled="" value="0" name="buying_price"></td>
+                                                        <td><input class="form-control js_new-mrp" type="number"
+                                                                disabled="" value="0" name="mrp"></td>
+                                                        <td><input class="form-control js_new-sell" type="number"
+                                                                disabled="" value="0" name="selling_price"></td>
+                                                        <td><input
+                                                                class="form-control js_transfer-stock js_prevent-enter-action js_restrict-decimal-place"
+                                                                type="number" disabled="" data-unrestriction="0"><span
+                                                                class="text-danger js_item-qty-validation d-none">Enter
+                                                                a value greater than 0 </span></td>
+                                                        <td><select class="form-control js_stock-adjust-reason"
+                                                                disabled="">
+                                                                <option value="" selected="">Select Reason</option>
+                                                                <option value="loss">Loss</option>
+                                                                <option value="expired">Expired</option>
+                                                                <option value="damage">Damaged</option>
+                                                            </select><span
+                                                                class="text-danger js_item-reason d-none">Enter the
+                                                                reason</span></td>
+                                                        <td><button
+                                                                class="btn btn-sm btn-success text-white js_variation-item-add text-uppercase ld-ext-right"
+                                                                type="button" disabled=""
+                                                                data-view=".js_transfer-order-item-row">Add<div
+                                                                    class="ld ld-ring ld-spin"></div></button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End -->
+
+    <!-- Table start -->
+    <div class="row">
+        <div class="col-md-12" id="js_customers">
+            <div class="row align-items-center mb-2">
+                <div class="col-md-8">
+                    <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="float-right text-decoration-none" routerLink="../transfer">Clear Filters</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover bg-white">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Status</th>
+                                <th>Location Name</th>
+                                <th>Approver</th>
+                                <th>Created By</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>57185</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td><p class="m-0"><small></small></p>Warehouse</td>
+                                <td>StoreERP</td>
+                                <td><p class="m-0"><small></small></p>StoreERP </td>
+                                <td>Aug 4, 2021 4:52 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../stock-adjust">Details</a>
+                                            </li>
+                                       </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>57185</td>
+                                <td><span><span class="badge badge-info">Pending</span></span></td>
+                                <td><p class="m-0"><small></small></p>Warehouse</td>
+                                <td>StoreERP</td>
+                                <td><p class="m-0"><small></small></p>StoreERP </td>
+                                <td>Aug 4, 2021 4:52 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../stock-adjust">Details</a>
+                                            </li>
+                                       </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>57185</td>
+                                <td><span><span class="badge badge-primary">Approved</span></span></td>
+                                <td><p class="m-0"><small></small></p>Warehouse</td>
+                                <td>StoreERP</td>
+                                <td><p class="m-0"><small></small></p>StoreERP </td>
+                                <td>Aug 4, 2021 4:52 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../stock-adjust">Details</a>
+                                            </li>
+                                       </ul>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>54602</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td> Oriental Suppliers</td>
+                                <td>
+                                    <p class="m-0"><small></small></p>Warehouse
+                                </td>
+                                <td>StoreERP</td>
+                                <td>Aug 10, 2021 3:15 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../stock-adjust">Details</a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>53927</td>
+                                <td><span><span class="badge badge-success">Completed</span></span></td>
+                                <td> Warehouse 2</td>
+                                <td>
+                                    <p class="m-0"><small></small></p>Warehouse 1
+                                </td>
+                                <td>StoreERP</td>
+                               
+                                <td>Aug 10, 2021 1:44 PM</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <span data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="la la-ellipsis-h la-2x">...</i>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item text-decoration-none"
+                                                    routerLink="../stock-adjust">Details</a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Table end -->
+</div>

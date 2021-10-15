@@ -1,0 +1,149 @@
+<div class="container bg-white">
+    <div class="row my-3 pt-3">
+        <div class="col-md-3">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="nav-link" routerLink="../sales-summary">Sales Summary</a>
+                <a class="nav-link" routerLink="../payment-methods">Payment Methods</a>
+                <a class="nav-link" routerLink="../item-sales">Item Sales</a>
+                <a class="nav-link" routerLink="../category-sales">Category Sales</a>
+                <a class="nav-link" routerLink="../employee-sales">Employee Sales</a>
+                <a class="nav-link" routerLink="../location-sales">Location Sales</a>
+                <a class="nav-link" routerLink="../customer-sales">Customer Sales</a>
+                <a class="nav-link" routerLink="../customer-items">Customer Items</a>
+                <a class="nav-link active" routerLink="../customer-no-sales">Customer Without Sales</a>
+                <a class="nav-link" routerLink="../report-taxes">Taxes</a>
+                <a class="nav-link" routerLink="../combo-sales">Combo/Modifier Sales</a>
+                <a class="nav-link" routerLink="../item-price-category">Price Category</a>
+                <a class="nav-link" routerLink="../report-charges">Charges</a>
+                <a class="nav-link" routerLink="../ingredient-sales">Ingredients</a>
+                <a class="nav-link" routerLink="../food-recipe">Food Recipe</a>
+                <a class="nav-link" routerLink="../kot-items">KOT Item</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <!-- <form class="filter-form-modal" id="js_sales-summary-filter"> -->
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                            id="js_date-range">
+                            <span>Aug 1, 2021 - Aug 9, 2021 </span>
+                        </button>
+                        <input id="js_date-range-from-date" type="hidden" name="from_date" value="2021-08-01 00:00"
+                            data-timezone="Asia/Kolkata">
+                        <input id="js_date-range-to-date" type="hidden" name="to_date" value="2021-08-09 23:59">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <button (click)="toggle()" class="btn btn-outline-primary">{{ buttonName }}</button>
+                    </div>
+                </div>
+                <div class="col-md-12 js_more-filters" *ngIf="show">
+                    <div class="form-row">
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select class="form-control" name="location_id" data-select2-id="1" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>All Employees</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select class="form-control" name="merchant_customer_group_id" data-select2-id="3"
+                                    tabindex="-1" aria-hidden="true">
+                                    <option>All Groups</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group ld-ext-right js_loading">
+                                <div class="ld ld-ring ld-spin"></div><input
+                                    class="form-control js_prevent-enter-action" id="js_customer-filter-query"
+                                    placeholder="Filter by Name, Code, Email, Phone" name="query">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="form-control" name="device_id" data-select2-id="9" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option>Licence Name</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 ml-auto">
+                    <div class="form-group d-flex float-right">
+                        <div class="mr-2">
+                            <button class="btn btn-outline-primary float-right">Export</button>
+                        </div>
+                        <!-- add model  -->
+                    </div>
+                </div>
+            </div>
+            <!-- </form> -->
+            <!-- box start -->
+            <div id="js_customer-no-sales">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-8">
+                        <p class="m-0"> Showing <b>1 </b> to <b>5</b> of <b> 5 </b> entries</p>
+                    </div>
+                    <div class="col-md-4"><a class="float-right text-decoration-none"
+                            routerLink="../customer-no-sales">Clear Filters</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>Customer Code</th>
+                                        <th>Customer Name</th>
+                                        <th>Customer Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>5</td>
+                                        <td> <a class="text-decoration-none" routerLink="../customer-no-sales">abcd </a></td>
+                                        <td>987654321</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td> <a  class="text-decoration-none" routerLink="../customer-no-sales">AF </a></td>
+                                        <td>987654321</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td> <a class="text-decoration-none" routerLink="../customer-no-sales">Raj Sir</a></td>
+                                        <td>987654321</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td> <a class="text-decoration-none" routerLink="../customer-no-sales">Chetan Sir</a></td>
+                                        <td>987654321</td>
+                                    </tr>
+                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="clearfix mt-3"><a class="float-left btn btn-primary disabled"
+                        routerLink="javascript:void(0);">Previous</a><a class="float-right btn btn-primary js_ajax-request"
+                        routerLink="/sale/report/customer-no-sales?x_merchant_id=441&amp;from_date=2021-08-01%2000%3A00&amp;to_date=2021-08-10%2023%3A59&amp;page=2">Next</a>
+                </div> -->
+            </div>
+            <!-- box end -->
+        </div>
+    </div>
+</div>

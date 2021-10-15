@@ -1,0 +1,371 @@
+<div class="container bg-light">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2 border-0">
+                <li class="nav-item"><a class="nav-link" routerLink="../item">Item Library</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../variations"> Variations</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../categories/">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../discounts/">Discounts</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../taxes/">Taxes</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../charges/">Charges</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../price-categories/">Price Categories</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../printer-labels/">Printer Labels</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../merchant-attribute-values/">Attribute Values</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex float-right mb-3">
+                <button class="float-right btn btn-outline-primary mr-2" data-bs-toggle="modal"
+                    data-bs-target="#js_price-category-modal">
+                    <em class="la la-plus-circle">+</em> Create Price Category</button>
+
+                <div class="btn-group">
+                    <button class="btn  btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="#"><i class="la la-book mr-1"></i>Tutorial</a>
+                        </li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#youtubeModalbTcMt3TLYAQ">
+                                <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                            </a></li>
+                    </ul>
+                </div>
+
+
+                <div class="div modal fade" id="youtubeModalbTcMt3TLYAQ" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/watch?v=6qys-562kp4" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Create Price Category Start  -->
+    <div class="modal fade js_price-category-form-modal show" id="js_price-category-modal" data-backdrop="static"
+        style="display: none;" aria-modal="true">
+        <div class="js_price-category-form" id="js_price-category-create" data-form="#js_price-category-form"
+            data-btn="#js_price-category-btn"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Price Category</h5><button class="close js_close-button"
+                        type="button" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="js_price-category-form" data-url="/item/price-categories/" novalidate="novalidate"><input
+                            type="hidden" name="_csrf" value="44MhfvSQ-dsWn83_VuAOvfbEbt81zGKfbUJ8">
+                        <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                class="form-control" type="text" placeholder="Price Category Name" name="name"><input
+                                type="hidden" name="is_active" value="0"></div>
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <div class="form-group"><label>Value<em class="text-danger"> *</em></label><input
+                                        class="form-control" type="number" placeholder="" name="price_value"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group"><label> Type <em class="text-danger"> *</em></label><select
+                                        class="form-control" name="price_type">
+                                        <option value="fixed">Fixed</option>
+                                        <option value="percentage">Percentage</option>
+                                    </select></div>
+                            </div>
+                        </div>
+                        <div class="form-group"><label>Taxes</label>
+                            <div class="select-group">
+                                <select class="form-control js_tax-select2 select2-hidden-accessible" name="taxes[]"
+                                    multiple="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <option></option>
+                                </select>
+                                <!-- <span
+                                    class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="2" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--multiple" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                            aria-disabled="false">
+                                            <ul class="select2-selection__rendered">
+                                                <li class="select2-search select2-search--inline"><input
+                                                        class="select2-search__field" type="search" tabindex="0"
+                                                        autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                        spellcheck="false" role="searchbox" aria-autocomplete="list"
+                                                        placeholder="Select Taxes" style="width: 0px;"></li>
+                                            </ul>
+                                        </span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                            </div>
+                        </div>
+                        <div class="form-group"><label>Platform</label>
+                            <div class="select-group"><select
+                                    class="form-control js_platform-select2 select2-hidden-accessible"
+                                    name="platform_id" data-select2-id="9" tabindex="-1"
+                                    aria-hidden="true"></select><span
+                                    class="select2 select2-container select2-container--default" dir="ltr"
+                                    data-select2-id="10" style="width: 100%;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                            aria-disabled="false"
+                                            aria-labelledby="select2-platform_id-g4-container"><span
+                                                class="select2-selection__rendered"
+                                                id="select2-platform_id-g4-container" role="textbox"
+                                                aria-readonly="true"><span class="select2-selection__placeholder">Select
+                                                    Platform</span></span><span class="select2-selection__arrow"
+                                                role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                        </div>
+                        <div class="form-group"><label>Labels</label>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead class="bg-light text-center">
+                                                <tr>
+                                                    <th>Label</th>
+                                                    <th class="small font-weight-bold">Is Required</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input class="form-control" type="text"
+                                                            placeholder="Price Category Label"></td>
+                                                    <td align="center"><input type="checkbox"></td>
+                                                    <td> <button
+                                                            class="js_add-price-category-label btn btn-sm btn-outline-primary float-right"
+                                                            type="button">ADD</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"><button class="btn btn-secondary js_close-button"
+                        data-bs-dismiss="modal">Close</button><button class="btn btn-primary ld-ext-right"
+                        id="js_price-category-btn" data-bs-dismiss="modal">Save<div class="ld ld-ring ld-spin"></div>
+                    </button></div>
+            </div>
+        </div>
+    </div>
+    <!-- Model Create Price Category Start  -->
+
+    <!-- table start -->
+    <div class="row align-items-center mb-2">
+        <div class="col-md-8">
+            <p class="m-0"> Showing <b>1 </b> to <b>3 </b> of<b> 3 </b> entries</p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>Price Category Name</th>
+                            <th>Price Type</th>
+                            <th>Price Value</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>StoreERP Online</td>
+                            <td>fixed</td>
+                            <td>10</td>
+                            <td>Jun 18, 2020</td>
+                            <td>
+                                <button class="js_price-category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_price-category-modal85"
+                                    data-url="/item/price-categories/85">Edit </button>
+                                
+                                <a class="mr-2 js_price-category-deactivate btn btn-sm btn-block-xs mb-2 btn-danger ld-ext-right text-decoration-none"
+                                routerLink="../price-categories"  (click)="alertDeactivate()">
+                                    Deactivate
+                                    <div class="ld ld-ring ld-spin"></div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Home Delivery</td>
+                            <td>percentage</td>
+                            <td>20</td>
+                            <td>Jun 23, 2020</td>
+                            <td>
+                                <button class="js_price-category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_price-category-modal85"
+                                    data-url="/item/price-categories/85">Edit </button>
+                                <a class="mr-2 js_price-category-deactivate btn btn-sm btn-block-xs mb-2 btn-danger ld-ext-right text-decoration-none"
+                                    routerLink="../price-categories"  (click)="alertDeactivate()">
+                                        Deactivate
+                                        <div class="ld ld-ring ld-spin"></div>
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>WHOLESALE</td>
+                            <td>fixed</td>
+                            <td>10</td>
+                            <td>Aug 29, 2020</td>
+                            <td>
+                                <button class="js_price-category btn btn-outline-primary btn-sm btn-block-xs mb-2 mr-2"
+                                    data-bs-toggle="modal" data-bs-target="#js_price-category-modal85"
+                                    data-url="/item/price-categories/85">Edit
+                                </button>
+                                <a class="mr-2 js_price-category-deactivate btn btn-sm btn-block-xs mb-2 btn-danger ld-ext-right text-decoration-none"
+                                    routerLink="../price-categories"  (click)="alertDeactivate()">
+                                        Deactivate
+                                        <div class="ld ld-ring ld-spin"></div>
+                                    </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- model Edit start-->
+        <div class="modal fade js_price-category-form-modal show" id="js_price-category-modal85" data-backdrop="static"
+            style="display: none; padding-left: 17px;" aria-modal="true">
+            <div class="js_price-category-form" id="js_price-category-create94" data-form="#js_price-category-form94"
+                data-btn="#js_price-category-btn94"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Price Category</h5><button class="close js_close-button"
+                            type="button" data-bs-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="js_price-category-form94" data-url="/item/price-categories/94"
+                            novalidate="novalidate"><input type="hidden" name="_csrf"
+                                value="44MhfvSQ-dsWn83_VuAOvfbEbt81zGKfbUJ8">
+                            <div class="form-group"><label>Name<em class="text-danger"> *</em></label><input
+                                    class="form-control" type="text" placeholder="Price Category Name" name="name"
+                                    value="Home Delivery"><input type="hidden" name="is_active" value="1"></div>
+                            <div class="form-row">
+                                <div class="col-sm-6">
+                                    <div class="form-group"><label>Value<em class="text-danger"> *</em></label><input
+                                            class="form-control" type="number" placeholder="" name="price_value"
+                                            value="20"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group"><label> Type <em class="text-danger"> *</em></label><select
+                                            class="form-control" name="price_type">
+                                            <option value="fixed">Fixed</option>
+                                            <option value="percentage" selected="">Percentage</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                            <div class="form-group"><label>Taxes</label>
+                                <div class="select-group"><select class="js_tax-select2 select2-hidden-accessible"
+                                        name="taxes[]" multiple="" data-select2-id="5" tabindex="-1"
+                                        aria-hidden="true"></select><span
+                                        class="select2 select2-container select2-container--default" dir="ltr"
+                                        data-select2-id="6" style="width: 100%;"><span class="selection"><span
+                                                class="select2-selection select2-selection--multiple" role="combobox"
+                                                aria-haspopup="true" aria-expanded="false" tabindex="-1"
+                                                aria-disabled="false">
+                                                <ul class="select2-selection__rendered">
+                                                    <li class="select2-search select2-search--inline"><input
+                                                            class="select2-search__field" type="search" tabindex="0"
+                                                            autocomplete="off" autocorrect="off" autocapitalize="none"
+                                                            spellcheck="false" role="searchbox" aria-autocomplete="list"
+                                                            placeholder="Select Taxes" style="width: 0px;"></li>
+                                                </ul>
+                                            </span></span><span class="dropdown-wrapper"
+                                            aria-hidden="true"></span></span></div>
+                            </div>
+                            <div class="form-group"><label>Platform</label>
+                                <div class="select-group"><select
+                                        class="form-control js_platform-select2 select2-hidden-accessible"
+                                        name="platform_id" data-select2-id="15" tabindex="-1" aria-hidden="true">
+                                        <option selected="" data-select2-id="17"></option>
+                                    </select><span class="select2 select2-container select2-container--default"
+                                        dir="ltr" data-select2-id="16" style="width: 100%;"><span
+                                            class="selection"><span class="select2-selection select2-selection--single"
+                                                role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                aria-disabled="false"
+                                                aria-labelledby="select2-platform_id-wk-container"><span
+                                                    class="select2-selection__rendered"
+                                                    id="select2-platform_id-wk-container" role="textbox"
+                                                    aria-readonly="true"><span
+                                                        class="select2-selection__placeholder">Select
+                                                        Platform</span></span><span class="select2-selection__arrow"
+                                                    role="presentation"><b
+                                                        role="presentation"></b></span></span></span><span
+                                            class="dropdown-wrapper" aria-hidden="true"></span></span></div>
+                            </div>
+                            <div class="form-group"><label>Labels</label>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead class="bg-light text-center">
+                                                    <tr>
+                                                        <th>Label</th>
+                                                        <th class="small font-weight-bold">Is Required</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input class="form-control" type="text"
+                                                                placeholder="Price Category Label"></td>
+                                                        <td align="center"><input type="checkbox"></td>
+                                                        <td> <button
+                                                                class="js_add-price-category-label btn btn-sm btn-success float-right"
+                                                                type="button">ADD</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Order Number</td>
+                                                        <td>true</td>
+                                                        <td style="display:none"><input
+                                                                name="custom_attributes[labels][49][name]"
+                                                                value="Order Number"><input
+                                                                name="custom_attributes[labels][49][is_required]"
+                                                                value="true"></td>
+                                                        <td><button
+                                                                class="btn btn-danger js_remove-price-category-label btn-sm"
+                                                                type="button">REMOVE</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-secondary js_close-button" data-bs-dismiss="modal">Close</button><button
+                            class="btn btn-primary ld-ext-right" id="js_price-category-btn94" data-bs-dismiss="modal">Save<div
+                                class="ld ld-ring ld-spin"></div></button></div>
+                </div>
+            </div>
+        </div>
+        <!-- model Edit end -->
+
+    </div>
+    <!-- table end -->
+</div>

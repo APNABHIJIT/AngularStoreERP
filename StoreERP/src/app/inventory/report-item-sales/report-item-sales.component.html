@@ -1,0 +1,250 @@
+<div class="container bg-white">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-stock/">Stock</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../purchase-order/">Purchase Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../transfer"> Transfer Orders</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../grn"> GRN</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="../stock-adjust"> Waste Management</a></li>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown">Indent</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-management">
+                            Indent Management
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../indent-consolidation">
+                            Indent Consolidation
+                        </a>
+                    </div>
+                </div>
+
+                <li class="nav-item"><a class="nav-link" routerLink="../vendor-return"> Vendor Return</a></li>
+                <li class="nav-item"><a class="nav-link active" routerLink="../purchase-orders-summary">Reports</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" routerLink="../inventory-history">History</a></li>
+
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown">...</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-decoration-none" routerLink="../vendors-credits">
+                            Vendor Credits
+                        </a>
+                        <a class="dropdown-item text-decoration-none" routerLink="../inventory-vendors">
+                            Vendors
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Report Start -->
+    <div class="row">
+        <div class="col-md-2">
+            <div class="nav flex-column nav-pills mb-3">
+                <a class="nav-link" routerLink="../purchase-orders-summary">Purchase Orders Summary</a>
+                <a class="nav-link" routerLink="../report-stock">Stocks</a>
+                <a class="nav-link" routerLink="../cost-of-goods">Cost of Goods</a>
+                <a class="nav-link active" routerLink="../report-item-sales">Purchase Item Summary</a>
+                <a class="nav-link" routerLink="../report-transfer-items">Transfer Order Item</a>
+                <a class="nav-link" routerLink="../report-stock-adjust-items">Waste Management Item</a>
+                <a class="nav-link" routerLink="../report-return-item">Vendor Return Item</a>
+                <a class="nav-link" routerLink="../price-change">Price Change</a>
+                <a class="nav-link" routerLink="../report-stock-valuation">Stock Valuation</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-10">
+            <form class="filter-form-modal" id="js_purchase-orders-summary-filter">
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="ngb-dp-day ngb-dp-today">
+                                <!-- day cell content omitted -->
+                            </div>
+                            <button class="btn btn-outline-primary dropdown-toggle btn-block" type="button"
+                                id="js_date-range">
+                                <span> Select a Date</span>
+                            </button>
+                            <input id="" type="hidden" name="from_date" value="" data-timezone="Asia/Kolkata">
+                            <input id="js_date-range-to-date" type="hidden" name="to_date" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary" type="button" (click)="toggle()">
+                                {{ buttonName}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row js_more-filters" *ngIf="show">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="location_id" data-select2-id="1" tabindex="-1"
+                                aria-hidden="true">
+                                <option>All Locations</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="form-control" name="supplier_id" data-select2-id="3" tabindex="-1"
+                                aria-hidden="true">
+                                <option>All Variations</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group ld-ext-right js_loading">
+                            <div class="ld ld-ring ld-spin"></div>
+                            <input class="form-control" name="query" placeholder="Filter by Item Name, Variation"
+                                value="">
+                        </div>
+                    </div>
+                   
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex float-right form-group">
+                            <div class="btn-group">
+                                <button type="button" class="text-justify btn btn-outline-primary mr-2 dropdown-toggle"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Export
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../report-stock"
+                                            (click)="exportError()">
+                                            CSV
+                                        </a>
+                                    </li>
+                                    <!-- <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../report-stock"
+                                            (click)="exportError()">
+                                            CSV (With Batch)
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+
+                            <div class="btn-group">
+                                <button class="btn btn-outline-primary float-right  mr-2" data-bs-toggle="dropdown">
+                                    <i class="la la-question-circle la-lg">?</i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../report-item-sales">
+                                            <i class="la la-book mr-1"></i>Tutorial
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-decoration-none" routerLink="../report-item-sales">
+                                            <i class="la la-youtube-play mr-1"></i>Video Tutorial
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- box start -->
+            <div class="mb-3" id="js_cost-of-goods-view">
+                <div class="row align-items-center mb-2">
+                    <div class="col-md-8">
+                        <p class="m-0"> Showing <b>1 </b> to <b>2</b> of <b> 2 </b> entries</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="float-right text-decoration-none" routerLink="../report-item-sales">Clear Filters</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Count</th>
+                                        <th>Order Quantity</th>
+                                        <th>Received Quantity</th>
+                                        <th> Gross Purchase
+                                            <button
+                                                class="fa fa-info-circle ml-1 text-primary btn btn-sm"
+                                                data-bs-toggle="popover" title="" data-bs-content="includes Discount"
+                                                type="button" data-trigger="hover"
+                                                data-bs-original-title="Gross Purchase">
+                                            </button>
+                                        </th>
+                                        <th> Net Purchase
+                                            <button
+                                                class="fa fa-info-circle ml-1 text-primary js_pop-over-value btn btn-sm"
+                                                data-bs-toggle="popover" title=""
+                                                data-bs-content="Gross Purchase - Discount" type="button"
+                                                data-bs-trigger="hover" data-bs-original-title="Net Purchase">
+                                            </button>
+                                        </th>
+                                        <th>Tax</th>
+                                        <th>Discount</th>
+                                        <th>Amount
+                                            <button class="fa fa-info-circle ml-1 text-primary  btn btn-sm"
+                                                data-toggle="popover" title="" data-content="Net Purchase + Tax"
+                                                type="button" data-trigger="hover"
+                                                data-original-title="Amount">
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Agathi Keerai</td>
+                                        <td>17.00</td>
+                                        <td>100574.00</td>
+                                        <td>100560.00</td>
+                                        <td>₹33,642.27</td>
+                                        <td>₹33,622.27</td>
+                                        <td>₹1,812.74</td>
+                                        <td>₹20.00</td>
+                                        <td>₹35,435.00</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Ash Gourd</td>
+                                        <td>10.00</td>
+                                        <td>697.00</td>
+                                        <td>697.00</td>
+                                        <td>₹35,910.00</td>
+                                        <td>₹35,300.00</td>
+                                        <td>₹0.00</td>
+                                        <td>₹610.00</td>
+                                        <td>₹35,300.00</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix mt-3">
+                    <a class="float-left btn btn-primary disabled">Previous</a>
+                    <a class="float-right btn btn-primary disabled">Next</a>
+                </div>
+            </div>
+            <!-- box end -->
+        </div>
+    </div>
+    <!-- Report End -->
+
+</div>

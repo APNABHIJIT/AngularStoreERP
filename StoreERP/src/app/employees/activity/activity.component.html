@@ -1,0 +1,274 @@
+<div class="container bg-white mb-3">
+    <div class="row bg-white pt-2 mb-3 shadow">
+        <div class="col">
+            <ul class="nav nav-pills mb-2">
+                <li class="nav-item"><a class="nav-link text-decoration-none" routerLink="../employee">Employees</a>
+                </li>
+                <li class="nav-item"><a class="nav-link text-decoration-none" routerLink="../role">Roles</a></li>
+                <li class="nav-item"><a class="nav-link text-decoration-none active"
+                        routerLink="../activity">Activity</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+
+     
+        <!-- <form class="filter-form-modal" data-select2-id="9"> -->
+        <div class="form-row">
+            <div class="col-md-10">
+                <div class="form-row">
+                    <div class="col-md-5">
+                        <div class="form-group"> <button class="btn btn-outline-primary dropdown-toggle btn-block"
+                                type="button" id="js_date-range"><span> Select a Date</span></button> <input
+                                id="js_date-range-from-date" type="hidden" name="from_date" value=""
+                                data-timezone="Asia/Kolkata"><input id="js_date-range-to-date" type="hidden"
+                                name="to_date" value=""></div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" (click)="toggle()" class="btn btn-primary"> {{ buttonName
+                                    }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="show">
+                    <div class="col-12 js_more-filters">
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <div class="form-group"><select
+                                        class="form-control js_employee-select2 select2-hidden-accessible"
+                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option>All Employees</option>
+                                    </select>
+
+                                    <!-- <span
+                                            class="select2 select2-container select2-container--default" dir="ltr"
+                                            data-select2-id="2" style="width: 100%;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single" role="combobox"
+                                                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-disabled="false" aria-labelledby="select2-hjv8-container"><span
+                                                        class="select2-selection__rendered" id="select2-hjv8-container"
+                                                        role="textbox" aria-readonly="true"><span
+                                                            class="select2-selection__placeholder">All
+                                                            Employees</span></span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group ld-ext-right js_loading">
+                                    <div class="ld ld-ring ld-spin"></div><input class="form-control js_text-filter"
+                                        type="text" name="employee_shift_code" placeholder="Enter Employee Shift Code">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group"><select
+                                        class="form-control js_location-select2 select2-hidden-accessible"
+                                        name="location_id" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                                        <option>All Locations</option>
+                                    </select>
+                                    <!-- <span
+                                            class="select2 select2-container select2-container--default" dir="ltr"
+                                            data-select2-id="4" style="width: 100%;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single" role="combobox"
+                                                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-disabled="false"
+                                                    aria-labelledby="select2-location_id-4a-container"><span
+                                                        class="select2-selection__rendered"
+                                                        id="select2-location_id-4a-container" role="textbox"
+                                                        aria-readonly="true"><span class="select2-selection__placeholder">All
+                                                            Locations</span></span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group" data-select2-id="8">
+                                    <select class="form-control js_devices-name-select2 select2-hidden-accessible"
+                                        name="device_id" data-select2-id="5" tabindex="-1" aria-hidden="true">
+                                        <option>Licence Name</option>
+                                    </select>
+                                    <!-- <span class="select2 select2-container select2-container--default select2-container--below"
+                                            dir="ltr" data-select2-id="6" style="width: 100%;"><span class="selection"><span
+                                                    class="select2-selection select2-selection--single" role="combobox"
+                                                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-disabled="false" aria-labelledby="select2-device_id-qo-container"><span
+                                                        class="select2-selection__rendered" id="select2-device_id-qo-container"
+                                                        role="textbox" aria-readonly="true"><span
+                                                            class="select2-selection__placeholder">Licence
+                                                            Name</span></span><span class="select2-selection__arrow"
+                                                        role="presentation"><b
+                                                            role="presentation"></b></span></span></span><span
+                                                class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- </form> -->
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-8">
+            <div class="d-flex float-right">
+                <div class="btn-group">
+                    <button class="btn btn-primary float-right  mr-2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="la la-question-circle la-lg">?</i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"><i class="la la-book mr-1"></i>Tutorial</a></li>
+                        <li>
+                            <button class="dropdown-item" data-bs-toggle="modal"
+                                data-bs-target="#youtubeModalIqKoxDCU8dI">
+                                <i class="la la-youtube-play mr-1"></i>
+                                Video Tutorial</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="div modal fade" id="youtubeModalIqKoxDCU8dI" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button class="close" type="button" data-bs-dismiss="modal" aria-lable="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body p-0">
+                                <iframe width="100%" src="https://www.youtube.com/embed/IqKoxDC" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen="" style="min-height: 500px;"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- table Start  -->
+    <div id="js_employee-activity-view">
+        <div class="row align-items-center mb-2">
+            <div class="col-md-8">
+                <p class="m-0"> Showing <b>1 </b> to <b>20</b> of <b> 686 </b> entries</p>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row" id="js_employee-activity">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover bg-white">
+                        <thead>
+                            <tr>
+                                <th>Id #</th>
+                                <th>Name</th>
+                                <th>Clock In</th>
+                                <th>Clock Out</th>
+                                <th>Total Hours</th>
+                                <th>Created Date</th>
+                                <th width="200px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>115139</td>
+                                <td>Delivery 1</td>
+                                <td>Fri, Aug 6, 2021 5:55 PM</td>
+                                <td> </td>
+                                <td></td>
+                                <td>Aug 6, 2021</td>
+                                <td>
+                                    <a class="btn btn-sm btn-success mr-2 btn-block-xs mb-2 text-decoration-none"
+                                        routerLink="../activity" >Summary</a>
+
+                                    <!-- <a  class="js_shift-close   text-decoration-none"
+                                        routerLink="../activity" data-url=""> Close Shift
+                                        <div class="ld ld-ring ld-spin"></div>
+
+                                    </a> -->
+                                    <button type="button" (click)="CloseShift()" class="btn btn-sm btn-outline-primary btn-block-xs mb-2 ld-ext-right">Close Shift</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>115136</td>
+                                <td>StoreERP</td>
+                                <td>Fri, Aug 6, 2021 5:10 PM</td>
+                                <td> </td>
+                                <td></td>
+                                <td>Aug 6, 2021</td>
+                                <td>
+                                    <a class="btn btn-sm btn-success mr-2 btn-block-xs mb-2 text-decoration-none"
+                                        routerLink="../activity" >Summary</a>
+
+                                        <button type="button" (click)="CloseShift()" class="btn btn-sm btn-outline-primary btn-block-xs mb-2 ld-ext-right">Close Shift</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>115124</td>
+                                <td>Delivery 1</td>
+                                <td>Fri, Aug 6, 2021 3:51 PM</td>
+                                <td> Fri, Aug 6, 2021 5:55 PM</td>
+                                <td>2 hr : 4 min</td>
+                                <td>Aug 6, 2021</td>
+                                <td> 
+                                    <a class="btn btn-sm btn-success mr-2 btn-block-xs mb-2 text-decoration-none"
+                                    routerLink="../activity" >Summary</a>
+                                        
+                                    <span class="text-danger">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>115123</td>
+                                <td>Delivery 1</td>
+                                <td>Fri, Aug 6, 2021 3:48 PM</td>
+                                <td> Fri, Aug 6, 2021 3:51 PM</td>
+                                <td>0 hr : 3 min</td>
+                                <td>Aug 6, 2021</td>
+                                <td> 
+                                    <a class="btn btn-sm btn-success mr-2 btn-block-xs mb-2 text-decoration-none"
+                                    routerLink="../activity" >Summary</a>
+                                        
+                                    <span class="text-danger">CLOSED</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>115121</td>
+                                <td>Delivery 1</td>
+                                <td>Fri, Aug 6, 2021 3:39 PM</td>
+                                <td> Fri, Aug 6, 2021 3:46 PM</td>
+                                <td>0 hr : 7 min</td>
+                                <td>Aug 6, 2021</td>
+                                <td> 
+                                    <a class="btn btn-sm btn-success mr-2 btn-block-xs mb-2 text-decoration-none"
+                                    routerLink="../activity" >Summary</a>
+                                        
+                                    <span class="text-danger">CLOSED</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix mt-3 ">
+            <a class="float-left btn btn-primary disabled text-decoration-none">Previous</a>
+            <a class="float-right btn btn-primary js_ajax-request text-decoration-none">Next</a>
+        </div>
+    </div>
+    <!-- table End -->
+
+
+</div>
